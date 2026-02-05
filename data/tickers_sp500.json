@@ -1,0 +1,2512 @@
+{
+  "MMM": {
+    "name": "3M",
+    "sector": "Industrials",
+    "sector_kr": "산업재"
+  },
+  "AOS": {
+    "name": "A. O. Smith",
+    "sector": "Industrials",
+    "sector_kr": "산업재"
+  },
+  "ABT": {
+    "name": "Abbott Laboratories",
+    "sector": "Health Care",
+    "sector_kr": "헬스케어"
+  },
+  "ABBV": {
+    "name": "AbbVie",
+    "sector": "Health Care",
+    "sector_kr": "헬스케어"
+  },
+  "ACN": {
+    "name": "Accenture",
+    "sector": "Information Technology",
+    "sector_kr": "IT"
+  },
+  "ADBE": {
+    "name": "Adobe Inc.",
+    "sector": "Information Technology",
+    "sector_kr": "IT"
+  },
+  "AMD": {
+    "name": "Advanced Micro Devices",
+    "sector": "Information Technology",
+    "sector_kr": "IT"
+  },
+  "AES": {
+    "name": "AES Corporation",
+    "sector": "Utilities",
+    "sector_kr": "유틸리티"
+  },
+  "AFL": {
+    "name": "Aflac",
+    "sector": "Financials",
+    "sector_kr": "금융"
+  },
+  "A": {
+    "name": "Agilent Technologies",
+    "sector": "Health Care",
+    "sector_kr": "헬스케어"
+  },
+  "APD": {
+    "name": "Air Products",
+    "sector": "Materials",
+    "sector_kr": "소재"
+  },
+  "ABNB": {
+    "name": "Airbnb",
+    "sector": "Consumer Discretionary",
+    "sector_kr": "경기소비재"
+  },
+  "AKAM": {
+    "name": "Akamai Technologies",
+    "sector": "Information Technology",
+    "sector_kr": "IT"
+  },
+  "ALB": {
+    "name": "Albemarle Corporation",
+    "sector": "Materials",
+    "sector_kr": "소재"
+  },
+  "ARE": {
+    "name": "Alexandria Real Estate Equities",
+    "sector": "Real Estate",
+    "sector_kr": "부동산"
+  },
+  "ALGN": {
+    "name": "Align Technology",
+    "sector": "Health Care",
+    "sector_kr": "헬스케어"
+  },
+  "ALLE": {
+    "name": "Allegion",
+    "sector": "Industrials",
+    "sector_kr": "산업재"
+  },
+  "LNT": {
+    "name": "Alliant Energy",
+    "sector": "Utilities",
+    "sector_kr": "유틸리티"
+  },
+  "ALL": {
+    "name": "Allstate",
+    "sector": "Financials",
+    "sector_kr": "금융"
+  },
+  "GOOGL": {
+    "name": "Alphabet Inc. (Class A)",
+    "sector": "Communication Services",
+    "sector_kr": "커뮤니케이션"
+  },
+  "GOOG": {
+    "name": "Alphabet Inc. (Class C)",
+    "sector": "Communication Services",
+    "sector_kr": "커뮤니케이션"
+  },
+  "MO": {
+    "name": "Altria",
+    "sector": "Consumer Staples",
+    "sector_kr": "필수소비재"
+  },
+  "AMZN": {
+    "name": "Amazon",
+    "sector": "Consumer Discretionary",
+    "sector_kr": "경기소비재"
+  },
+  "AMCR": {
+    "name": "Amcor",
+    "sector": "Materials",
+    "sector_kr": "소재"
+  },
+  "AEE": {
+    "name": "Ameren",
+    "sector": "Utilities",
+    "sector_kr": "유틸리티"
+  },
+  "AEP": {
+    "name": "American Electric Power",
+    "sector": "Utilities",
+    "sector_kr": "유틸리티"
+  },
+  "AXP": {
+    "name": "American Express",
+    "sector": "Financials",
+    "sector_kr": "금융"
+  },
+  "AIG": {
+    "name": "American International Group",
+    "sector": "Financials",
+    "sector_kr": "금융"
+  },
+  "AMT": {
+    "name": "American Tower",
+    "sector": "Real Estate",
+    "sector_kr": "부동산"
+  },
+  "AWK": {
+    "name": "American Water Works",
+    "sector": "Utilities",
+    "sector_kr": "유틸리티"
+  },
+  "AMP": {
+    "name": "Ameriprise Financial",
+    "sector": "Financials",
+    "sector_kr": "금융"
+  },
+  "AME": {
+    "name": "Ametek",
+    "sector": "Industrials",
+    "sector_kr": "산업재"
+  },
+  "AMGN": {
+    "name": "Amgen",
+    "sector": "Health Care",
+    "sector_kr": "헬스케어"
+  },
+  "APH": {
+    "name": "Amphenol",
+    "sector": "Information Technology",
+    "sector_kr": "IT"
+  },
+  "ADI": {
+    "name": "Analog Devices",
+    "sector": "Information Technology",
+    "sector_kr": "IT"
+  },
+  "AON": {
+    "name": "Aon plc",
+    "sector": "Financials",
+    "sector_kr": "금융"
+  },
+  "APA": {
+    "name": "APA Corporation",
+    "sector": "Energy",
+    "sector_kr": "에너지"
+  },
+  "APO": {
+    "name": "Apollo Global Management",
+    "sector": "Financials",
+    "sector_kr": "금융"
+  },
+  "AAPL": {
+    "name": "Apple Inc.",
+    "sector": "Information Technology",
+    "sector_kr": "IT"
+  },
+  "AMAT": {
+    "name": "Applied Materials",
+    "sector": "Information Technology",
+    "sector_kr": "IT"
+  },
+  "APP": {
+    "name": "AppLovin",
+    "sector": "Information Technology",
+    "sector_kr": "IT"
+  },
+  "APTV": {
+    "name": "Aptiv",
+    "sector": "Consumer Discretionary",
+    "sector_kr": "경기소비재"
+  },
+  "ACGL": {
+    "name": "Arch Capital Group",
+    "sector": "Financials",
+    "sector_kr": "금융"
+  },
+  "ADM": {
+    "name": "Archer Daniels Midland",
+    "sector": "Consumer Staples",
+    "sector_kr": "필수소비재"
+  },
+  "ARES": {
+    "name": "Ares Management",
+    "sector": "Financials",
+    "sector_kr": "금융"
+  },
+  "ANET": {
+    "name": "Arista Networks",
+    "sector": "Information Technology",
+    "sector_kr": "IT"
+  },
+  "AJG": {
+    "name": "Arthur J. Gallagher & Co.",
+    "sector": "Financials",
+    "sector_kr": "금융"
+  },
+  "AIZ": {
+    "name": "Assurant",
+    "sector": "Financials",
+    "sector_kr": "금융"
+  },
+  "T": {
+    "name": "AT&T",
+    "sector": "Communication Services",
+    "sector_kr": "커뮤니케이션"
+  },
+  "ATO": {
+    "name": "Atmos Energy",
+    "sector": "Utilities",
+    "sector_kr": "유틸리티"
+  },
+  "ADSK": {
+    "name": "Autodesk",
+    "sector": "Information Technology",
+    "sector_kr": "IT"
+  },
+  "ADP": {
+    "name": "Automatic Data Processing",
+    "sector": "Industrials",
+    "sector_kr": "산업재"
+  },
+  "AZO": {
+    "name": "AutoZone",
+    "sector": "Consumer Discretionary",
+    "sector_kr": "경기소비재"
+  },
+  "AVB": {
+    "name": "AvalonBay Communities",
+    "sector": "Real Estate",
+    "sector_kr": "부동산"
+  },
+  "AVY": {
+    "name": "Avery Dennison",
+    "sector": "Materials",
+    "sector_kr": "소재"
+  },
+  "AXON": {
+    "name": "Axon Enterprise",
+    "sector": "Industrials",
+    "sector_kr": "산업재"
+  },
+  "BKR": {
+    "name": "Baker Hughes",
+    "sector": "Energy",
+    "sector_kr": "에너지"
+  },
+  "BALL": {
+    "name": "Ball Corporation",
+    "sector": "Materials",
+    "sector_kr": "소재"
+  },
+  "BAC": {
+    "name": "Bank of America",
+    "sector": "Financials",
+    "sector_kr": "금융"
+  },
+  "BAX": {
+    "name": "Baxter International",
+    "sector": "Health Care",
+    "sector_kr": "헬스케어"
+  },
+  "BDX": {
+    "name": "Becton Dickinson",
+    "sector": "Health Care",
+    "sector_kr": "헬스케어"
+  },
+  "BRK.B": {
+    "name": "Berkshire Hathaway",
+    "sector": "Financials",
+    "sector_kr": "금융"
+  },
+  "BBY": {
+    "name": "Best Buy",
+    "sector": "Consumer Discretionary",
+    "sector_kr": "경기소비재"
+  },
+  "TECH": {
+    "name": "Bio-Techne",
+    "sector": "Health Care",
+    "sector_kr": "헬스케어"
+  },
+  "BIIB": {
+    "name": "Biogen",
+    "sector": "Health Care",
+    "sector_kr": "헬스케어"
+  },
+  "BLK": {
+    "name": "BlackRock",
+    "sector": "Financials",
+    "sector_kr": "금융"
+  },
+  "BX": {
+    "name": "Blackstone Inc.",
+    "sector": "Financials",
+    "sector_kr": "금융"
+  },
+  "XYZ": {
+    "name": "Block, Inc.",
+    "sector": "Financials",
+    "sector_kr": "금융"
+  },
+  "BK": {
+    "name": "BNY Mellon",
+    "sector": "Financials",
+    "sector_kr": "금융"
+  },
+  "BA": {
+    "name": "Boeing",
+    "sector": "Industrials",
+    "sector_kr": "산업재"
+  },
+  "BKNG": {
+    "name": "Booking Holdings",
+    "sector": "Consumer Discretionary",
+    "sector_kr": "경기소비재"
+  },
+  "BSX": {
+    "name": "Boston Scientific",
+    "sector": "Health Care",
+    "sector_kr": "헬스케어"
+  },
+  "BMY": {
+    "name": "Bristol Myers Squibb",
+    "sector": "Health Care",
+    "sector_kr": "헬스케어"
+  },
+  "AVGO": {
+    "name": "Broadcom",
+    "sector": "Information Technology",
+    "sector_kr": "IT"
+  },
+  "BR": {
+    "name": "Broadridge Financial Solutions",
+    "sector": "Industrials",
+    "sector_kr": "산업재"
+  },
+  "BRO": {
+    "name": "Brown & Brown",
+    "sector": "Financials",
+    "sector_kr": "금융"
+  },
+  "BF.B": {
+    "name": "Brown–Forman",
+    "sector": "Consumer Staples",
+    "sector_kr": "필수소비재"
+  },
+  "BLDR": {
+    "name": "Builders FirstSource",
+    "sector": "Industrials",
+    "sector_kr": "산업재"
+  },
+  "BG": {
+    "name": "Bunge Global",
+    "sector": "Consumer Staples",
+    "sector_kr": "필수소비재"
+  },
+  "BXP": {
+    "name": "BXP, Inc.",
+    "sector": "Real Estate",
+    "sector_kr": "부동산"
+  },
+  "CHRW": {
+    "name": "C.H. Robinson",
+    "sector": "Industrials",
+    "sector_kr": "산업재"
+  },
+  "CDNS": {
+    "name": "Cadence Design Systems",
+    "sector": "Information Technology",
+    "sector_kr": "IT"
+  },
+  "CPT": {
+    "name": "Camden Property Trust",
+    "sector": "Real Estate",
+    "sector_kr": "부동산"
+  },
+  "CPB": {
+    "name": "Campbell's Company (The)",
+    "sector": "Consumer Staples",
+    "sector_kr": "필수소비재"
+  },
+  "COF": {
+    "name": "Capital One",
+    "sector": "Financials",
+    "sector_kr": "금융"
+  },
+  "CAH": {
+    "name": "Cardinal Health",
+    "sector": "Health Care",
+    "sector_kr": "헬스케어"
+  },
+  "CCL": {
+    "name": "Carnival",
+    "sector": "Consumer Discretionary",
+    "sector_kr": "경기소비재"
+  },
+  "CARR": {
+    "name": "Carrier Global",
+    "sector": "Industrials",
+    "sector_kr": "산업재"
+  },
+  "CVNA": {
+    "name": "Carvana",
+    "sector": "Consumer Discretionary",
+    "sector_kr": "경기소비재"
+  },
+  "CAT": {
+    "name": "Caterpillar Inc.",
+    "sector": "Industrials",
+    "sector_kr": "산업재"
+  },
+  "CBOE": {
+    "name": "Cboe Global Markets",
+    "sector": "Financials",
+    "sector_kr": "금융"
+  },
+  "CBRE": {
+    "name": "CBRE Group",
+    "sector": "Real Estate",
+    "sector_kr": "부동산"
+  },
+  "CDW": {
+    "name": "CDW Corporation",
+    "sector": "Information Technology",
+    "sector_kr": "IT"
+  },
+  "COR": {
+    "name": "Cencora",
+    "sector": "Health Care",
+    "sector_kr": "헬스케어"
+  },
+  "CNC": {
+    "name": "Centene Corporation",
+    "sector": "Health Care",
+    "sector_kr": "헬스케어"
+  },
+  "CNP": {
+    "name": "CenterPoint Energy",
+    "sector": "Utilities",
+    "sector_kr": "유틸리티"
+  },
+  "CF": {
+    "name": "CF Industries",
+    "sector": "Materials",
+    "sector_kr": "소재"
+  },
+  "CRL": {
+    "name": "Charles River Laboratories",
+    "sector": "Health Care",
+    "sector_kr": "헬스케어"
+  },
+  "SCHW": {
+    "name": "Charles Schwab Corporation",
+    "sector": "Financials",
+    "sector_kr": "금융"
+  },
+  "CHTR": {
+    "name": "Charter Communications",
+    "sector": "Communication Services",
+    "sector_kr": "커뮤니케이션"
+  },
+  "CVX": {
+    "name": "Chevron Corporation",
+    "sector": "Energy",
+    "sector_kr": "에너지"
+  },
+  "CMG": {
+    "name": "Chipotle Mexican Grill",
+    "sector": "Consumer Discretionary",
+    "sector_kr": "경기소비재"
+  },
+  "CB": {
+    "name": "Chubb Limited",
+    "sector": "Financials",
+    "sector_kr": "금융"
+  },
+  "CHD": {
+    "name": "Church & Dwight",
+    "sector": "Consumer Staples",
+    "sector_kr": "필수소비재"
+  },
+  "CI": {
+    "name": "Cigna",
+    "sector": "Health Care",
+    "sector_kr": "헬스케어"
+  },
+  "CINF": {
+    "name": "Cincinnati Financial",
+    "sector": "Financials",
+    "sector_kr": "금융"
+  },
+  "CTAS": {
+    "name": "Cintas",
+    "sector": "Industrials",
+    "sector_kr": "산업재"
+  },
+  "CSCO": {
+    "name": "Cisco",
+    "sector": "Information Technology",
+    "sector_kr": "IT"
+  },
+  "C": {
+    "name": "Citigroup",
+    "sector": "Financials",
+    "sector_kr": "금융"
+  },
+  "CFG": {
+    "name": "Citizens Financial Group",
+    "sector": "Financials",
+    "sector_kr": "금융"
+  },
+  "CLX": {
+    "name": "Clorox",
+    "sector": "Consumer Staples",
+    "sector_kr": "필수소비재"
+  },
+  "CME": {
+    "name": "CME Group",
+    "sector": "Financials",
+    "sector_kr": "금융"
+  },
+  "CMS": {
+    "name": "CMS Energy",
+    "sector": "Utilities",
+    "sector_kr": "유틸리티"
+  },
+  "KO": {
+    "name": "Coca-Cola Company (The)",
+    "sector": "Consumer Staples",
+    "sector_kr": "필수소비재"
+  },
+  "CTSH": {
+    "name": "Cognizant",
+    "sector": "Information Technology",
+    "sector_kr": "IT"
+  },
+  "COIN": {
+    "name": "Coinbase",
+    "sector": "Financials",
+    "sector_kr": "금융"
+  },
+  "CL": {
+    "name": "Colgate-Palmolive",
+    "sector": "Consumer Staples",
+    "sector_kr": "필수소비재"
+  },
+  "CMCSA": {
+    "name": "Comcast",
+    "sector": "Communication Services",
+    "sector_kr": "커뮤니케이션"
+  },
+  "FIX": {
+    "name": "Comfort Systems USA",
+    "sector": "Industrials",
+    "sector_kr": "산업재"
+  },
+  "CAG": {
+    "name": "Conagra Brands",
+    "sector": "Consumer Staples",
+    "sector_kr": "필수소비재"
+  },
+  "COP": {
+    "name": "ConocoPhillips",
+    "sector": "Energy",
+    "sector_kr": "에너지"
+  },
+  "ED": {
+    "name": "Consolidated Edison",
+    "sector": "Utilities",
+    "sector_kr": "유틸리티"
+  },
+  "STZ": {
+    "name": "Constellation Brands",
+    "sector": "Consumer Staples",
+    "sector_kr": "필수소비재"
+  },
+  "CEG": {
+    "name": "Constellation Energy",
+    "sector": "Utilities",
+    "sector_kr": "유틸리티"
+  },
+  "COO": {
+    "name": "Cooper Companies (The)",
+    "sector": "Health Care",
+    "sector_kr": "헬스케어"
+  },
+  "CPRT": {
+    "name": "Copart",
+    "sector": "Industrials",
+    "sector_kr": "산업재"
+  },
+  "GLW": {
+    "name": "Corning Inc.",
+    "sector": "Information Technology",
+    "sector_kr": "IT"
+  },
+  "CPAY": {
+    "name": "Corpay",
+    "sector": "Financials",
+    "sector_kr": "금융"
+  },
+  "CTVA": {
+    "name": "Corteva",
+    "sector": "Materials",
+    "sector_kr": "소재"
+  },
+  "CSGP": {
+    "name": "CoStar Group",
+    "sector": "Real Estate",
+    "sector_kr": "부동산"
+  },
+  "COST": {
+    "name": "Costco",
+    "sector": "Consumer Staples",
+    "sector_kr": "필수소비재"
+  },
+  "CTRA": {
+    "name": "Coterra",
+    "sector": "Energy",
+    "sector_kr": "에너지"
+  },
+  "CRH": {
+    "name": "CRH plc",
+    "sector": "Materials",
+    "sector_kr": "소재"
+  },
+  "CRWD": {
+    "name": "CrowdStrike",
+    "sector": "Information Technology",
+    "sector_kr": "IT"
+  },
+  "CCI": {
+    "name": "Crown Castle",
+    "sector": "Real Estate",
+    "sector_kr": "부동산"
+  },
+  "CSX": {
+    "name": "CSX Corporation",
+    "sector": "Industrials",
+    "sector_kr": "산업재"
+  },
+  "CMI": {
+    "name": "Cummins",
+    "sector": "Industrials",
+    "sector_kr": "산업재"
+  },
+  "CVS": {
+    "name": "CVS Health",
+    "sector": "Health Care",
+    "sector_kr": "헬스케어"
+  },
+  "DHR": {
+    "name": "Danaher Corporation",
+    "sector": "Health Care",
+    "sector_kr": "헬스케어"
+  },
+  "DRI": {
+    "name": "Darden Restaurants",
+    "sector": "Consumer Discretionary",
+    "sector_kr": "경기소비재"
+  },
+  "DDOG": {
+    "name": "Datadog",
+    "sector": "Information Technology",
+    "sector_kr": "IT"
+  },
+  "DVA": {
+    "name": "DaVita",
+    "sector": "Health Care",
+    "sector_kr": "헬스케어"
+  },
+  "DECK": {
+    "name": "Deckers Brands",
+    "sector": "Consumer Discretionary",
+    "sector_kr": "경기소비재"
+  },
+  "DE": {
+    "name": "Deere & Company",
+    "sector": "Industrials",
+    "sector_kr": "산업재"
+  },
+  "DELL": {
+    "name": "Dell Technologies",
+    "sector": "Information Technology",
+    "sector_kr": "IT"
+  },
+  "DAL": {
+    "name": "Delta Air Lines",
+    "sector": "Industrials",
+    "sector_kr": "산업재"
+  },
+  "DVN": {
+    "name": "Devon Energy",
+    "sector": "Energy",
+    "sector_kr": "에너지"
+  },
+  "DXCM": {
+    "name": "Dexcom",
+    "sector": "Health Care",
+    "sector_kr": "헬스케어"
+  },
+  "FANG": {
+    "name": "Diamondback Energy",
+    "sector": "Energy",
+    "sector_kr": "에너지"
+  },
+  "DLR": {
+    "name": "Digital Realty",
+    "sector": "Real Estate",
+    "sector_kr": "부동산"
+  },
+  "DG": {
+    "name": "Dollar General",
+    "sector": "Consumer Staples",
+    "sector_kr": "필수소비재"
+  },
+  "DLTR": {
+    "name": "Dollar Tree",
+    "sector": "Consumer Staples",
+    "sector_kr": "필수소비재"
+  },
+  "D": {
+    "name": "Dominion Energy",
+    "sector": "Utilities",
+    "sector_kr": "유틸리티"
+  },
+  "DPZ": {
+    "name": "Domino's",
+    "sector": "Consumer Discretionary",
+    "sector_kr": "경기소비재"
+  },
+  "DASH": {
+    "name": "DoorDash",
+    "sector": "Consumer Discretionary",
+    "sector_kr": "경기소비재"
+  },
+  "DOV": {
+    "name": "Dover Corporation",
+    "sector": "Industrials",
+    "sector_kr": "산업재"
+  },
+  "DOW": {
+    "name": "Dow Inc.",
+    "sector": "Materials",
+    "sector_kr": "소재"
+  },
+  "DHI": {
+    "name": "D. R. Horton",
+    "sector": "Consumer Discretionary",
+    "sector_kr": "경기소비재"
+  },
+  "DTE": {
+    "name": "DTE Energy",
+    "sector": "Utilities",
+    "sector_kr": "유틸리티"
+  },
+  "DUK": {
+    "name": "Duke Energy",
+    "sector": "Utilities",
+    "sector_kr": "유틸리티"
+  },
+  "DD": {
+    "name": "DuPont",
+    "sector": "Materials",
+    "sector_kr": "소재"
+  },
+  "ETN": {
+    "name": "Eaton Corporation",
+    "sector": "Industrials",
+    "sector_kr": "산업재"
+  },
+  "EBAY": {
+    "name": "eBay Inc.",
+    "sector": "Consumer Discretionary",
+    "sector_kr": "경기소비재"
+  },
+  "ECL": {
+    "name": "Ecolab",
+    "sector": "Materials",
+    "sector_kr": "소재"
+  },
+  "EIX": {
+    "name": "Edison International",
+    "sector": "Utilities",
+    "sector_kr": "유틸리티"
+  },
+  "EW": {
+    "name": "Edwards Lifesciences",
+    "sector": "Health Care",
+    "sector_kr": "헬스케어"
+  },
+  "EA": {
+    "name": "Electronic Arts",
+    "sector": "Communication Services",
+    "sector_kr": "커뮤니케이션"
+  },
+  "ELV": {
+    "name": "Elevance Health",
+    "sector": "Health Care",
+    "sector_kr": "헬스케어"
+  },
+  "EME": {
+    "name": "Emcor",
+    "sector": "Industrials",
+    "sector_kr": "산업재"
+  },
+  "EMR": {
+    "name": "Emerson Electric",
+    "sector": "Industrials",
+    "sector_kr": "산업재"
+  },
+  "ETR": {
+    "name": "Entergy",
+    "sector": "Utilities",
+    "sector_kr": "유틸리티"
+  },
+  "EOG": {
+    "name": "EOG Resources",
+    "sector": "Energy",
+    "sector_kr": "에너지"
+  },
+  "EPAM": {
+    "name": "EPAM Systems",
+    "sector": "Information Technology",
+    "sector_kr": "IT"
+  },
+  "EQT": {
+    "name": "EQT Corporation",
+    "sector": "Energy",
+    "sector_kr": "에너지"
+  },
+  "EFX": {
+    "name": "Equifax",
+    "sector": "Industrials",
+    "sector_kr": "산업재"
+  },
+  "EQIX": {
+    "name": "Equinix",
+    "sector": "Real Estate",
+    "sector_kr": "부동산"
+  },
+  "EQR": {
+    "name": "Equity Residential",
+    "sector": "Real Estate",
+    "sector_kr": "부동산"
+  },
+  "ERIE": {
+    "name": "Erie Indemnity",
+    "sector": "Financials",
+    "sector_kr": "금융"
+  },
+  "ESS": {
+    "name": "Essex Property Trust",
+    "sector": "Real Estate",
+    "sector_kr": "부동산"
+  },
+  "EL": {
+    "name": "Estée Lauder Companies (The)",
+    "sector": "Consumer Staples",
+    "sector_kr": "필수소비재"
+  },
+  "EG": {
+    "name": "Everest Group",
+    "sector": "Financials",
+    "sector_kr": "금융"
+  },
+  "EVRG": {
+    "name": "Evergy",
+    "sector": "Utilities",
+    "sector_kr": "유틸리티"
+  },
+  "ES": {
+    "name": "Eversource Energy",
+    "sector": "Utilities",
+    "sector_kr": "유틸리티"
+  },
+  "EXC": {
+    "name": "Exelon",
+    "sector": "Utilities",
+    "sector_kr": "유틸리티"
+  },
+  "EXE": {
+    "name": "Expand Energy",
+    "sector": "Energy",
+    "sector_kr": "에너지"
+  },
+  "EXPE": {
+    "name": "Expedia Group",
+    "sector": "Consumer Discretionary",
+    "sector_kr": "경기소비재"
+  },
+  "EXPD": {
+    "name": "Expeditors International",
+    "sector": "Industrials",
+    "sector_kr": "산업재"
+  },
+  "EXR": {
+    "name": "Extra Space Storage",
+    "sector": "Real Estate",
+    "sector_kr": "부동산"
+  },
+  "XOM": {
+    "name": "ExxonMobil",
+    "sector": "Energy",
+    "sector_kr": "에너지"
+  },
+  "FFIV": {
+    "name": "F5, Inc.",
+    "sector": "Information Technology",
+    "sector_kr": "IT"
+  },
+  "FDS": {
+    "name": "FactSet",
+    "sector": "Financials",
+    "sector_kr": "금융"
+  },
+  "FICO": {
+    "name": "Fair Isaac",
+    "sector": "Information Technology",
+    "sector_kr": "IT"
+  },
+  "FAST": {
+    "name": "Fastenal",
+    "sector": "Industrials",
+    "sector_kr": "산업재"
+  },
+  "FRT": {
+    "name": "Federal Realty Investment Trust",
+    "sector": "Real Estate",
+    "sector_kr": "부동산"
+  },
+  "FDX": {
+    "name": "FedEx",
+    "sector": "Industrials",
+    "sector_kr": "산업재"
+  },
+  "FIS": {
+    "name": "Fidelity National Information Services",
+    "sector": "Financials",
+    "sector_kr": "금융"
+  },
+  "FITB": {
+    "name": "Fifth Third Bancorp",
+    "sector": "Financials",
+    "sector_kr": "금융"
+  },
+  "FSLR": {
+    "name": "First Solar",
+    "sector": "Information Technology",
+    "sector_kr": "IT"
+  },
+  "FE": {
+    "name": "FirstEnergy",
+    "sector": "Utilities",
+    "sector_kr": "유틸리티"
+  },
+  "FISV": {
+    "name": "Fiserv",
+    "sector": "Financials",
+    "sector_kr": "금융"
+  },
+  "F": {
+    "name": "Ford Motor Company",
+    "sector": "Consumer Discretionary",
+    "sector_kr": "경기소비재"
+  },
+  "FTNT": {
+    "name": "Fortinet",
+    "sector": "Information Technology",
+    "sector_kr": "IT"
+  },
+  "FTV": {
+    "name": "Fortive",
+    "sector": "Industrials",
+    "sector_kr": "산업재"
+  },
+  "FOXA": {
+    "name": "Fox Corporation (Class A)",
+    "sector": "Communication Services",
+    "sector_kr": "커뮤니케이션"
+  },
+  "FOX": {
+    "name": "Fox Corporation (Class B)",
+    "sector": "Communication Services",
+    "sector_kr": "커뮤니케이션"
+  },
+  "BEN": {
+    "name": "Franklin Resources",
+    "sector": "Financials",
+    "sector_kr": "금융"
+  },
+  "FCX": {
+    "name": "Freeport-McMoRan",
+    "sector": "Materials",
+    "sector_kr": "소재"
+  },
+  "GRMN": {
+    "name": "Garmin",
+    "sector": "Consumer Discretionary",
+    "sector_kr": "경기소비재"
+  },
+  "IT": {
+    "name": "Gartner",
+    "sector": "Information Technology",
+    "sector_kr": "IT"
+  },
+  "GE": {
+    "name": "GE Aerospace",
+    "sector": "Industrials",
+    "sector_kr": "산업재"
+  },
+  "GEHC": {
+    "name": "GE HealthCare",
+    "sector": "Health Care",
+    "sector_kr": "헬스케어"
+  },
+  "GEV": {
+    "name": "GE Vernova",
+    "sector": "Industrials",
+    "sector_kr": "산업재"
+  },
+  "GEN": {
+    "name": "Gen Digital",
+    "sector": "Information Technology",
+    "sector_kr": "IT"
+  },
+  "GNRC": {
+    "name": "Generac",
+    "sector": "Industrials",
+    "sector_kr": "산업재"
+  },
+  "GD": {
+    "name": "General Dynamics",
+    "sector": "Industrials",
+    "sector_kr": "산업재"
+  },
+  "GIS": {
+    "name": "General Mills",
+    "sector": "Consumer Staples",
+    "sector_kr": "필수소비재"
+  },
+  "GM": {
+    "name": "General Motors",
+    "sector": "Consumer Discretionary",
+    "sector_kr": "경기소비재"
+  },
+  "GPC": {
+    "name": "Genuine Parts Company",
+    "sector": "Consumer Discretionary",
+    "sector_kr": "경기소비재"
+  },
+  "GILD": {
+    "name": "Gilead Sciences",
+    "sector": "Health Care",
+    "sector_kr": "헬스케어"
+  },
+  "GPN": {
+    "name": "Global Payments",
+    "sector": "Financials",
+    "sector_kr": "금융"
+  },
+  "GL": {
+    "name": "Globe Life",
+    "sector": "Financials",
+    "sector_kr": "금융"
+  },
+  "GDDY": {
+    "name": "GoDaddy",
+    "sector": "Information Technology",
+    "sector_kr": "IT"
+  },
+  "GS": {
+    "name": "Goldman Sachs",
+    "sector": "Financials",
+    "sector_kr": "금융"
+  },
+  "HAL": {
+    "name": "Halliburton",
+    "sector": "Energy",
+    "sector_kr": "에너지"
+  },
+  "HIG": {
+    "name": "Hartford (The)",
+    "sector": "Financials",
+    "sector_kr": "금융"
+  },
+  "HAS": {
+    "name": "Hasbro",
+    "sector": "Consumer Discretionary",
+    "sector_kr": "경기소비재"
+  },
+  "HCA": {
+    "name": "HCA Healthcare",
+    "sector": "Health Care",
+    "sector_kr": "헬스케어"
+  },
+  "DOC": {
+    "name": "Healthpeak Properties",
+    "sector": "Real Estate",
+    "sector_kr": "부동산"
+  },
+  "HSIC": {
+    "name": "Henry Schein",
+    "sector": "Health Care",
+    "sector_kr": "헬스케어"
+  },
+  "HSY": {
+    "name": "Hershey Company (The)",
+    "sector": "Consumer Staples",
+    "sector_kr": "필수소비재"
+  },
+  "HPE": {
+    "name": "Hewlett Packard Enterprise",
+    "sector": "Information Technology",
+    "sector_kr": "IT"
+  },
+  "HLT": {
+    "name": "Hilton Worldwide",
+    "sector": "Consumer Discretionary",
+    "sector_kr": "경기소비재"
+  },
+  "HOLX": {
+    "name": "Hologic",
+    "sector": "Health Care",
+    "sector_kr": "헬스케어"
+  },
+  "HD": {
+    "name": "Home Depot (The)",
+    "sector": "Consumer Discretionary",
+    "sector_kr": "경기소비재"
+  },
+  "HON": {
+    "name": "Honeywell",
+    "sector": "Industrials",
+    "sector_kr": "산업재"
+  },
+  "HRL": {
+    "name": "Hormel Foods",
+    "sector": "Consumer Staples",
+    "sector_kr": "필수소비재"
+  },
+  "HST": {
+    "name": "Host Hotels & Resorts",
+    "sector": "Real Estate",
+    "sector_kr": "부동산"
+  },
+  "HWM": {
+    "name": "Howmet Aerospace",
+    "sector": "Industrials",
+    "sector_kr": "산업재"
+  },
+  "HPQ": {
+    "name": "HP Inc.",
+    "sector": "Information Technology",
+    "sector_kr": "IT"
+  },
+  "HUBB": {
+    "name": "Hubbell Incorporated",
+    "sector": "Industrials",
+    "sector_kr": "산업재"
+  },
+  "HUM": {
+    "name": "Humana",
+    "sector": "Health Care",
+    "sector_kr": "헬스케어"
+  },
+  "HBAN": {
+    "name": "Huntington Bancshares",
+    "sector": "Financials",
+    "sector_kr": "금융"
+  },
+  "HII": {
+    "name": "Huntington Ingalls Industries",
+    "sector": "Industrials",
+    "sector_kr": "산업재"
+  },
+  "IBM": {
+    "name": "IBM",
+    "sector": "Information Technology",
+    "sector_kr": "IT"
+  },
+  "IEX": {
+    "name": "IDEX Corporation",
+    "sector": "Industrials",
+    "sector_kr": "산업재"
+  },
+  "IDXX": {
+    "name": "Idexx Laboratories",
+    "sector": "Health Care",
+    "sector_kr": "헬스케어"
+  },
+  "ITW": {
+    "name": "Illinois Tool Works",
+    "sector": "Industrials",
+    "sector_kr": "산업재"
+  },
+  "INCY": {
+    "name": "Incyte",
+    "sector": "Health Care",
+    "sector_kr": "헬스케어"
+  },
+  "IR": {
+    "name": "Ingersoll Rand",
+    "sector": "Industrials",
+    "sector_kr": "산업재"
+  },
+  "PODD": {
+    "name": "Insulet Corporation",
+    "sector": "Health Care",
+    "sector_kr": "헬스케어"
+  },
+  "INTC": {
+    "name": "Intel",
+    "sector": "Information Technology",
+    "sector_kr": "IT"
+  },
+  "IBKR": {
+    "name": "Interactive Brokers",
+    "sector": "Financials",
+    "sector_kr": "금융"
+  },
+  "ICE": {
+    "name": "Intercontinental Exchange",
+    "sector": "Financials",
+    "sector_kr": "금융"
+  },
+  "IFF": {
+    "name": "International Flavors & Fragrances",
+    "sector": "Materials",
+    "sector_kr": "소재"
+  },
+  "IP": {
+    "name": "International Paper",
+    "sector": "Materials",
+    "sector_kr": "소재"
+  },
+  "INTU": {
+    "name": "Intuit",
+    "sector": "Information Technology",
+    "sector_kr": "IT"
+  },
+  "ISRG": {
+    "name": "Intuitive Surgical",
+    "sector": "Health Care",
+    "sector_kr": "헬스케어"
+  },
+  "IVZ": {
+    "name": "Invesco",
+    "sector": "Financials",
+    "sector_kr": "금융"
+  },
+  "INVH": {
+    "name": "Invitation Homes",
+    "sector": "Real Estate",
+    "sector_kr": "부동산"
+  },
+  "IQV": {
+    "name": "IQVIA",
+    "sector": "Health Care",
+    "sector_kr": "헬스케어"
+  },
+  "IRM": {
+    "name": "Iron Mountain",
+    "sector": "Real Estate",
+    "sector_kr": "부동산"
+  },
+  "JBHT": {
+    "name": "J.B. Hunt",
+    "sector": "Industrials",
+    "sector_kr": "산업재"
+  },
+  "JBL": {
+    "name": "Jabil",
+    "sector": "Information Technology",
+    "sector_kr": "IT"
+  },
+  "JKHY": {
+    "name": "Jack Henry & Associates",
+    "sector": "Financials",
+    "sector_kr": "금융"
+  },
+  "J": {
+    "name": "Jacobs Solutions",
+    "sector": "Industrials",
+    "sector_kr": "산업재"
+  },
+  "JNJ": {
+    "name": "Johnson & Johnson",
+    "sector": "Health Care",
+    "sector_kr": "헬스케어"
+  },
+  "JCI": {
+    "name": "Johnson Controls",
+    "sector": "Industrials",
+    "sector_kr": "산업재"
+  },
+  "JPM": {
+    "name": "JPMorgan Chase",
+    "sector": "Financials",
+    "sector_kr": "금융"
+  },
+  "KVUE": {
+    "name": "Kenvue",
+    "sector": "Consumer Staples",
+    "sector_kr": "필수소비재"
+  },
+  "KDP": {
+    "name": "Keurig Dr Pepper",
+    "sector": "Consumer Staples",
+    "sector_kr": "필수소비재"
+  },
+  "KEY": {
+    "name": "KeyCorp",
+    "sector": "Financials",
+    "sector_kr": "금융"
+  },
+  "KEYS": {
+    "name": "Keysight Technologies",
+    "sector": "Information Technology",
+    "sector_kr": "IT"
+  },
+  "KMB": {
+    "name": "Kimberly-Clark",
+    "sector": "Consumer Staples",
+    "sector_kr": "필수소비재"
+  },
+  "KIM": {
+    "name": "Kimco Realty",
+    "sector": "Real Estate",
+    "sector_kr": "부동산"
+  },
+  "KMI": {
+    "name": "Kinder Morgan",
+    "sector": "Energy",
+    "sector_kr": "에너지"
+  },
+  "KKR": {
+    "name": "KKR & Co.",
+    "sector": "Financials",
+    "sector_kr": "금융"
+  },
+  "KLAC": {
+    "name": "KLA Corporation",
+    "sector": "Information Technology",
+    "sector_kr": "IT"
+  },
+  "KHC": {
+    "name": "Kraft Heinz",
+    "sector": "Consumer Staples",
+    "sector_kr": "필수소비재"
+  },
+  "KR": {
+    "name": "Kroger",
+    "sector": "Consumer Staples",
+    "sector_kr": "필수소비재"
+  },
+  "LHX": {
+    "name": "L3Harris",
+    "sector": "Industrials",
+    "sector_kr": "산업재"
+  },
+  "LH": {
+    "name": "Labcorp",
+    "sector": "Health Care",
+    "sector_kr": "헬스케어"
+  },
+  "LRCX": {
+    "name": "Lam Research",
+    "sector": "Information Technology",
+    "sector_kr": "IT"
+  },
+  "LW": {
+    "name": "Lamb Weston",
+    "sector": "Consumer Staples",
+    "sector_kr": "필수소비재"
+  },
+  "LVS": {
+    "name": "Las Vegas Sands",
+    "sector": "Consumer Discretionary",
+    "sector_kr": "경기소비재"
+  },
+  "LDOS": {
+    "name": "Leidos",
+    "sector": "Industrials",
+    "sector_kr": "산업재"
+  },
+  "LEN": {
+    "name": "Lennar",
+    "sector": "Consumer Discretionary",
+    "sector_kr": "경기소비재"
+  },
+  "LII": {
+    "name": "Lennox International",
+    "sector": "Industrials",
+    "sector_kr": "산업재"
+  },
+  "LLY": {
+    "name": "Lilly (Eli)",
+    "sector": "Health Care",
+    "sector_kr": "헬스케어"
+  },
+  "LIN": {
+    "name": "Linde plc",
+    "sector": "Materials",
+    "sector_kr": "소재"
+  },
+  "LYV": {
+    "name": "Live Nation Entertainment",
+    "sector": "Communication Services",
+    "sector_kr": "커뮤니케이션"
+  },
+  "LMT": {
+    "name": "Lockheed Martin",
+    "sector": "Industrials",
+    "sector_kr": "산업재"
+  },
+  "L": {
+    "name": "Loews Corporation",
+    "sector": "Financials",
+    "sector_kr": "금융"
+  },
+  "LOW": {
+    "name": "Lowe's",
+    "sector": "Consumer Discretionary",
+    "sector_kr": "경기소비재"
+  },
+  "LULU": {
+    "name": "Lululemon Athletica",
+    "sector": "Consumer Discretionary",
+    "sector_kr": "경기소비재"
+  },
+  "LYB": {
+    "name": "LyondellBasell",
+    "sector": "Materials",
+    "sector_kr": "소재"
+  },
+  "MTB": {
+    "name": "M&T Bank",
+    "sector": "Financials",
+    "sector_kr": "금융"
+  },
+  "MPC": {
+    "name": "Marathon Petroleum",
+    "sector": "Energy",
+    "sector_kr": "에너지"
+  },
+  "MAR": {
+    "name": "Marriott International",
+    "sector": "Consumer Discretionary",
+    "sector_kr": "경기소비재"
+  },
+  "MRSH": {
+    "name": "Marsh McLennan",
+    "sector": "Financials",
+    "sector_kr": "금융"
+  },
+  "MLM": {
+    "name": "Martin Marietta Materials",
+    "sector": "Materials",
+    "sector_kr": "소재"
+  },
+  "MAS": {
+    "name": "Masco",
+    "sector": "Industrials",
+    "sector_kr": "산업재"
+  },
+  "MA": {
+    "name": "Mastercard",
+    "sector": "Financials",
+    "sector_kr": "금융"
+  },
+  "MTCH": {
+    "name": "Match Group",
+    "sector": "Communication Services",
+    "sector_kr": "커뮤니케이션"
+  },
+  "MKC": {
+    "name": "McCormick & Company",
+    "sector": "Consumer Staples",
+    "sector_kr": "필수소비재"
+  },
+  "MCD": {
+    "name": "McDonald's",
+    "sector": "Consumer Discretionary",
+    "sector_kr": "경기소비재"
+  },
+  "MCK": {
+    "name": "McKesson Corporation",
+    "sector": "Health Care",
+    "sector_kr": "헬스케어"
+  },
+  "MDT": {
+    "name": "Medtronic",
+    "sector": "Health Care",
+    "sector_kr": "헬스케어"
+  },
+  "MRK": {
+    "name": "Merck & Co.",
+    "sector": "Health Care",
+    "sector_kr": "헬스케어"
+  },
+  "META": {
+    "name": "Meta Platforms",
+    "sector": "Communication Services",
+    "sector_kr": "커뮤니케이션"
+  },
+  "MET": {
+    "name": "MetLife",
+    "sector": "Financials",
+    "sector_kr": "금융"
+  },
+  "MTD": {
+    "name": "Mettler Toledo",
+    "sector": "Health Care",
+    "sector_kr": "헬스케어"
+  },
+  "MGM": {
+    "name": "MGM Resorts",
+    "sector": "Consumer Discretionary",
+    "sector_kr": "경기소비재"
+  },
+  "MCHP": {
+    "name": "Microchip Technology",
+    "sector": "Information Technology",
+    "sector_kr": "IT"
+  },
+  "MU": {
+    "name": "Micron Technology",
+    "sector": "Information Technology",
+    "sector_kr": "IT"
+  },
+  "MSFT": {
+    "name": "Microsoft",
+    "sector": "Information Technology",
+    "sector_kr": "IT"
+  },
+  "MAA": {
+    "name": "Mid-America Apartment Communities",
+    "sector": "Real Estate",
+    "sector_kr": "부동산"
+  },
+  "MRNA": {
+    "name": "Moderna",
+    "sector": "Health Care",
+    "sector_kr": "헬스케어"
+  },
+  "MOH": {
+    "name": "Molina Healthcare",
+    "sector": "Health Care",
+    "sector_kr": "헬스케어"
+  },
+  "TAP": {
+    "name": "Molson Coors Beverage Company",
+    "sector": "Consumer Staples",
+    "sector_kr": "필수소비재"
+  },
+  "MDLZ": {
+    "name": "Mondelez International",
+    "sector": "Consumer Staples",
+    "sector_kr": "필수소비재"
+  },
+  "MPWR": {
+    "name": "Monolithic Power Systems",
+    "sector": "Information Technology",
+    "sector_kr": "IT"
+  },
+  "MNST": {
+    "name": "Monster Beverage",
+    "sector": "Consumer Staples",
+    "sector_kr": "필수소비재"
+  },
+  "MCO": {
+    "name": "Moody's Corporation",
+    "sector": "Financials",
+    "sector_kr": "금융"
+  },
+  "MS": {
+    "name": "Morgan Stanley",
+    "sector": "Financials",
+    "sector_kr": "금융"
+  },
+  "MOS": {
+    "name": "Mosaic Company (The)",
+    "sector": "Materials",
+    "sector_kr": "소재"
+  },
+  "MSI": {
+    "name": "Motorola Solutions",
+    "sector": "Information Technology",
+    "sector_kr": "IT"
+  },
+  "MSCI": {
+    "name": "MSCI Inc.",
+    "sector": "Financials",
+    "sector_kr": "금융"
+  },
+  "NDAQ": {
+    "name": "Nasdaq, Inc.",
+    "sector": "Financials",
+    "sector_kr": "금융"
+  },
+  "NTAP": {
+    "name": "NetApp",
+    "sector": "Information Technology",
+    "sector_kr": "IT"
+  },
+  "NFLX": {
+    "name": "Netflix",
+    "sector": "Communication Services",
+    "sector_kr": "커뮤니케이션"
+  },
+  "NEM": {
+    "name": "Newmont",
+    "sector": "Materials",
+    "sector_kr": "소재"
+  },
+  "NWSA": {
+    "name": "News Corp (Class A)",
+    "sector": "Communication Services",
+    "sector_kr": "커뮤니케이션"
+  },
+  "NWS": {
+    "name": "News Corp (Class B)",
+    "sector": "Communication Services",
+    "sector_kr": "커뮤니케이션"
+  },
+  "NEE": {
+    "name": "NextEra Energy",
+    "sector": "Utilities",
+    "sector_kr": "유틸리티"
+  },
+  "NKE": {
+    "name": "Nike, Inc.",
+    "sector": "Consumer Discretionary",
+    "sector_kr": "경기소비재"
+  },
+  "NI": {
+    "name": "NiSource",
+    "sector": "Utilities",
+    "sector_kr": "유틸리티"
+  },
+  "NDSN": {
+    "name": "Nordson Corporation",
+    "sector": "Industrials",
+    "sector_kr": "산업재"
+  },
+  "NSC": {
+    "name": "Norfolk Southern",
+    "sector": "Industrials",
+    "sector_kr": "산업재"
+  },
+  "NTRS": {
+    "name": "Northern Trust",
+    "sector": "Financials",
+    "sector_kr": "금융"
+  },
+  "NOC": {
+    "name": "Northrop Grumman",
+    "sector": "Industrials",
+    "sector_kr": "산업재"
+  },
+  "NCLH": {
+    "name": "Norwegian Cruise Line Holdings",
+    "sector": "Consumer Discretionary",
+    "sector_kr": "경기소비재"
+  },
+  "NRG": {
+    "name": "NRG Energy",
+    "sector": "Utilities",
+    "sector_kr": "유틸리티"
+  },
+  "NUE": {
+    "name": "Nucor",
+    "sector": "Materials",
+    "sector_kr": "소재"
+  },
+  "NVDA": {
+    "name": "Nvidia",
+    "sector": "Information Technology",
+    "sector_kr": "IT"
+  },
+  "NVR": {
+    "name": "NVR, Inc.",
+    "sector": "Consumer Discretionary",
+    "sector_kr": "경기소비재"
+  },
+  "NXPI": {
+    "name": "NXP Semiconductors",
+    "sector": "Information Technology",
+    "sector_kr": "IT"
+  },
+  "ORLY": {
+    "name": "O’Reilly Automotive",
+    "sector": "Consumer Discretionary",
+    "sector_kr": "경기소비재"
+  },
+  "OXY": {
+    "name": "Occidental Petroleum",
+    "sector": "Energy",
+    "sector_kr": "에너지"
+  },
+  "ODFL": {
+    "name": "Old Dominion",
+    "sector": "Industrials",
+    "sector_kr": "산업재"
+  },
+  "OMC": {
+    "name": "Omnicom Group",
+    "sector": "Communication Services",
+    "sector_kr": "커뮤니케이션"
+  },
+  "ON": {
+    "name": "ON Semiconductor",
+    "sector": "Information Technology",
+    "sector_kr": "IT"
+  },
+  "OKE": {
+    "name": "Oneok",
+    "sector": "Energy",
+    "sector_kr": "에너지"
+  },
+  "ORCL": {
+    "name": "Oracle Corporation",
+    "sector": "Information Technology",
+    "sector_kr": "IT"
+  },
+  "OTIS": {
+    "name": "Otis Worldwide",
+    "sector": "Industrials",
+    "sector_kr": "산업재"
+  },
+  "PCAR": {
+    "name": "Paccar",
+    "sector": "Industrials",
+    "sector_kr": "산업재"
+  },
+  "PKG": {
+    "name": "Packaging Corporation of America",
+    "sector": "Materials",
+    "sector_kr": "소재"
+  },
+  "PLTR": {
+    "name": "Palantir Technologies",
+    "sector": "Information Technology",
+    "sector_kr": "IT"
+  },
+  "PANW": {
+    "name": "Palo Alto Networks",
+    "sector": "Information Technology",
+    "sector_kr": "IT"
+  },
+  "PSKY": {
+    "name": "Paramount Skydance Corporation",
+    "sector": "Communication Services",
+    "sector_kr": "커뮤니케이션"
+  },
+  "PH": {
+    "name": "Parker Hannifin",
+    "sector": "Industrials",
+    "sector_kr": "산업재"
+  },
+  "PAYX": {
+    "name": "Paychex",
+    "sector": "Industrials",
+    "sector_kr": "산업재"
+  },
+  "PAYC": {
+    "name": "Paycom",
+    "sector": "Industrials",
+    "sector_kr": "산업재"
+  },
+  "PYPL": {
+    "name": "PayPal",
+    "sector": "Financials",
+    "sector_kr": "금융"
+  },
+  "PNR": {
+    "name": "Pentair",
+    "sector": "Industrials",
+    "sector_kr": "산업재"
+  },
+  "PEP": {
+    "name": "PepsiCo",
+    "sector": "Consumer Staples",
+    "sector_kr": "필수소비재"
+  },
+  "PFE": {
+    "name": "Pfizer",
+    "sector": "Health Care",
+    "sector_kr": "헬스케어"
+  },
+  "PCG": {
+    "name": "PG&E Corporation",
+    "sector": "Utilities",
+    "sector_kr": "유틸리티"
+  },
+  "PM": {
+    "name": "Philip Morris International",
+    "sector": "Consumer Staples",
+    "sector_kr": "필수소비재"
+  },
+  "PSX": {
+    "name": "Phillips 66",
+    "sector": "Energy",
+    "sector_kr": "에너지"
+  },
+  "PNW": {
+    "name": "Pinnacle West Capital",
+    "sector": "Utilities",
+    "sector_kr": "유틸리티"
+  },
+  "PNC": {
+    "name": "PNC Financial Services",
+    "sector": "Financials",
+    "sector_kr": "금융"
+  },
+  "POOL": {
+    "name": "Pool Corporation",
+    "sector": "Consumer Discretionary",
+    "sector_kr": "경기소비재"
+  },
+  "PPG": {
+    "name": "PPG Industries",
+    "sector": "Materials",
+    "sector_kr": "소재"
+  },
+  "PPL": {
+    "name": "PPL Corporation",
+    "sector": "Utilities",
+    "sector_kr": "유틸리티"
+  },
+  "PFG": {
+    "name": "Principal Financial Group",
+    "sector": "Financials",
+    "sector_kr": "금융"
+  },
+  "PG": {
+    "name": "Procter & Gamble",
+    "sector": "Consumer Staples",
+    "sector_kr": "필수소비재"
+  },
+  "PGR": {
+    "name": "Progressive Corporation",
+    "sector": "Financials",
+    "sector_kr": "금융"
+  },
+  "PLD": {
+    "name": "Prologis",
+    "sector": "Real Estate",
+    "sector_kr": "부동산"
+  },
+  "PRU": {
+    "name": "Prudential Financial",
+    "sector": "Financials",
+    "sector_kr": "금융"
+  },
+  "PEG": {
+    "name": "Public Service Enterprise Group",
+    "sector": "Utilities",
+    "sector_kr": "유틸리티"
+  },
+  "PTC": {
+    "name": "PTC Inc.",
+    "sector": "Information Technology",
+    "sector_kr": "IT"
+  },
+  "PSA": {
+    "name": "Public Storage",
+    "sector": "Real Estate",
+    "sector_kr": "부동산"
+  },
+  "PHM": {
+    "name": "PulteGroup",
+    "sector": "Consumer Discretionary",
+    "sector_kr": "경기소비재"
+  },
+  "PWR": {
+    "name": "Quanta Services",
+    "sector": "Industrials",
+    "sector_kr": "산업재"
+  },
+  "QCOM": {
+    "name": "Qualcomm",
+    "sector": "Information Technology",
+    "sector_kr": "IT"
+  },
+  "DGX": {
+    "name": "Quest Diagnostics",
+    "sector": "Health Care",
+    "sector_kr": "헬스케어"
+  },
+  "Q": {
+    "name": "Qnity Electronics",
+    "sector": "Information Technology",
+    "sector_kr": "IT"
+  },
+  "RL": {
+    "name": "Ralph Lauren Corporation",
+    "sector": "Consumer Discretionary",
+    "sector_kr": "경기소비재"
+  },
+  "RJF": {
+    "name": "Raymond James Financial",
+    "sector": "Financials",
+    "sector_kr": "금융"
+  },
+  "RTX": {
+    "name": "RTX Corporation",
+    "sector": "Industrials",
+    "sector_kr": "산업재"
+  },
+  "O": {
+    "name": "Realty Income",
+    "sector": "Real Estate",
+    "sector_kr": "부동산"
+  },
+  "REG": {
+    "name": "Regency Centers",
+    "sector": "Real Estate",
+    "sector_kr": "부동산"
+  },
+  "REGN": {
+    "name": "Regeneron Pharmaceuticals",
+    "sector": "Health Care",
+    "sector_kr": "헬스케어"
+  },
+  "RF": {
+    "name": "Regions Financial Corporation",
+    "sector": "Financials",
+    "sector_kr": "금융"
+  },
+  "RSG": {
+    "name": "Republic Services",
+    "sector": "Industrials",
+    "sector_kr": "산업재"
+  },
+  "RMD": {
+    "name": "ResMed",
+    "sector": "Health Care",
+    "sector_kr": "헬스케어"
+  },
+  "RVTY": {
+    "name": "Revvity",
+    "sector": "Health Care",
+    "sector_kr": "헬스케어"
+  },
+  "HOOD": {
+    "name": "Robinhood Markets",
+    "sector": "Financials",
+    "sector_kr": "금융"
+  },
+  "ROK": {
+    "name": "Rockwell Automation",
+    "sector": "Industrials",
+    "sector_kr": "산업재"
+  },
+  "ROL": {
+    "name": "Rollins, Inc.",
+    "sector": "Industrials",
+    "sector_kr": "산업재"
+  },
+  "ROP": {
+    "name": "Roper Technologies",
+    "sector": "Information Technology",
+    "sector_kr": "IT"
+  },
+  "ROST": {
+    "name": "Ross Stores",
+    "sector": "Consumer Discretionary",
+    "sector_kr": "경기소비재"
+  },
+  "RCL": {
+    "name": "Royal Caribbean Group",
+    "sector": "Consumer Discretionary",
+    "sector_kr": "경기소비재"
+  },
+  "SPGI": {
+    "name": "S&P Global",
+    "sector": "Financials",
+    "sector_kr": "금융"
+  },
+  "CRM": {
+    "name": "Salesforce",
+    "sector": "Information Technology",
+    "sector_kr": "IT"
+  },
+  "SNDK": {
+    "name": "Sandisk",
+    "sector": "Information Technology",
+    "sector_kr": "IT"
+  },
+  "SBAC": {
+    "name": "SBA Communications",
+    "sector": "Real Estate",
+    "sector_kr": "부동산"
+  },
+  "SLB": {
+    "name": "Schlumberger",
+    "sector": "Energy",
+    "sector_kr": "에너지"
+  },
+  "STX": {
+    "name": "Seagate Technology",
+    "sector": "Information Technology",
+    "sector_kr": "IT"
+  },
+  "SRE": {
+    "name": "Sempra",
+    "sector": "Utilities",
+    "sector_kr": "유틸리티"
+  },
+  "NOW": {
+    "name": "ServiceNow",
+    "sector": "Information Technology",
+    "sector_kr": "IT"
+  },
+  "SHW": {
+    "name": "Sherwin-Williams",
+    "sector": "Materials",
+    "sector_kr": "소재"
+  },
+  "SPG": {
+    "name": "Simon Property Group",
+    "sector": "Real Estate",
+    "sector_kr": "부동산"
+  },
+  "SWKS": {
+    "name": "Skyworks Solutions",
+    "sector": "Information Technology",
+    "sector_kr": "IT"
+  },
+  "SJM": {
+    "name": "J.M. Smucker Company (The)",
+    "sector": "Consumer Staples",
+    "sector_kr": "필수소비재"
+  },
+  "SW": {
+    "name": "Smurfit Westrock",
+    "sector": "Materials",
+    "sector_kr": "소재"
+  },
+  "SNA": {
+    "name": "Snap-on",
+    "sector": "Industrials",
+    "sector_kr": "산업재"
+  },
+  "SOLV": {
+    "name": "Solventum",
+    "sector": "Health Care",
+    "sector_kr": "헬스케어"
+  },
+  "SO": {
+    "name": "Southern Company",
+    "sector": "Utilities",
+    "sector_kr": "유틸리티"
+  },
+  "LUV": {
+    "name": "Southwest Airlines",
+    "sector": "Industrials",
+    "sector_kr": "산업재"
+  },
+  "SWK": {
+    "name": "Stanley Black & Decker",
+    "sector": "Industrials",
+    "sector_kr": "산업재"
+  },
+  "SBUX": {
+    "name": "Starbucks",
+    "sector": "Consumer Discretionary",
+    "sector_kr": "경기소비재"
+  },
+  "STT": {
+    "name": "State Street Corporation",
+    "sector": "Financials",
+    "sector_kr": "금융"
+  },
+  "STLD": {
+    "name": "Steel Dynamics",
+    "sector": "Materials",
+    "sector_kr": "소재"
+  },
+  "STE": {
+    "name": "Steris",
+    "sector": "Health Care",
+    "sector_kr": "헬스케어"
+  },
+  "SYK": {
+    "name": "Stryker Corporation",
+    "sector": "Health Care",
+    "sector_kr": "헬스케어"
+  },
+  "SMCI": {
+    "name": "Supermicro",
+    "sector": "Information Technology",
+    "sector_kr": "IT"
+  },
+  "SYF": {
+    "name": "Synchrony Financial",
+    "sector": "Financials",
+    "sector_kr": "금융"
+  },
+  "SNPS": {
+    "name": "Synopsys",
+    "sector": "Information Technology",
+    "sector_kr": "IT"
+  },
+  "SYY": {
+    "name": "Sysco",
+    "sector": "Consumer Staples",
+    "sector_kr": "필수소비재"
+  },
+  "TMUS": {
+    "name": "T-Mobile US",
+    "sector": "Communication Services",
+    "sector_kr": "커뮤니케이션"
+  },
+  "TROW": {
+    "name": "T. Rowe Price",
+    "sector": "Financials",
+    "sector_kr": "금융"
+  },
+  "TTWO": {
+    "name": "Take-Two Interactive",
+    "sector": "Communication Services",
+    "sector_kr": "커뮤니케이션"
+  },
+  "TPR": {
+    "name": "Tapestry, Inc.",
+    "sector": "Consumer Discretionary",
+    "sector_kr": "경기소비재"
+  },
+  "TRGP": {
+    "name": "Targa Resources",
+    "sector": "Energy",
+    "sector_kr": "에너지"
+  },
+  "TGT": {
+    "name": "Target Corporation",
+    "sector": "Consumer Staples",
+    "sector_kr": "필수소비재"
+  },
+  "TEL": {
+    "name": "TE Connectivity",
+    "sector": "Information Technology",
+    "sector_kr": "IT"
+  },
+  "TDY": {
+    "name": "Teledyne Technologies",
+    "sector": "Information Technology",
+    "sector_kr": "IT"
+  },
+  "TER": {
+    "name": "Teradyne",
+    "sector": "Information Technology",
+    "sector_kr": "IT"
+  },
+  "TSLA": {
+    "name": "Tesla, Inc.",
+    "sector": "Consumer Discretionary",
+    "sector_kr": "경기소비재"
+  },
+  "TXN": {
+    "name": "Texas Instruments",
+    "sector": "Information Technology",
+    "sector_kr": "IT"
+  },
+  "TPL": {
+    "name": "Texas Pacific Land Corporation",
+    "sector": "Energy",
+    "sector_kr": "에너지"
+  },
+  "TXT": {
+    "name": "Textron",
+    "sector": "Industrials",
+    "sector_kr": "산업재"
+  },
+  "TMO": {
+    "name": "Thermo Fisher Scientific",
+    "sector": "Health Care",
+    "sector_kr": "헬스케어"
+  },
+  "TJX": {
+    "name": "TJX Companies",
+    "sector": "Consumer Discretionary",
+    "sector_kr": "경기소비재"
+  },
+  "TKO": {
+    "name": "TKO Group Holdings",
+    "sector": "Communication Services",
+    "sector_kr": "커뮤니케이션"
+  },
+  "TTD": {
+    "name": "Trade Desk (The)",
+    "sector": "Communication Services",
+    "sector_kr": "커뮤니케이션"
+  },
+  "TSCO": {
+    "name": "Tractor Supply",
+    "sector": "Consumer Discretionary",
+    "sector_kr": "경기소비재"
+  },
+  "TT": {
+    "name": "Trane Technologies",
+    "sector": "Industrials",
+    "sector_kr": "산업재"
+  },
+  "TDG": {
+    "name": "TransDigm Group",
+    "sector": "Industrials",
+    "sector_kr": "산업재"
+  },
+  "TRV": {
+    "name": "Travelers Companies (The)",
+    "sector": "Financials",
+    "sector_kr": "금융"
+  },
+  "TRMB": {
+    "name": "Trimble Inc.",
+    "sector": "Information Technology",
+    "sector_kr": "IT"
+  },
+  "TFC": {
+    "name": "Truist Financial",
+    "sector": "Financials",
+    "sector_kr": "금융"
+  },
+  "TYL": {
+    "name": "Tyler Technologies",
+    "sector": "Information Technology",
+    "sector_kr": "IT"
+  },
+  "TSN": {
+    "name": "Tyson Foods",
+    "sector": "Consumer Staples",
+    "sector_kr": "필수소비재"
+  },
+  "USB": {
+    "name": "U.S. Bancorp",
+    "sector": "Financials",
+    "sector_kr": "금융"
+  },
+  "UBER": {
+    "name": "Uber",
+    "sector": "Industrials",
+    "sector_kr": "산업재"
+  },
+  "UDR": {
+    "name": "UDR, Inc.",
+    "sector": "Real Estate",
+    "sector_kr": "부동산"
+  },
+  "ULTA": {
+    "name": "Ulta Beauty",
+    "sector": "Consumer Discretionary",
+    "sector_kr": "경기소비재"
+  },
+  "UNP": {
+    "name": "Union Pacific Corporation",
+    "sector": "Industrials",
+    "sector_kr": "산업재"
+  },
+  "UAL": {
+    "name": "United Airlines Holdings",
+    "sector": "Industrials",
+    "sector_kr": "산업재"
+  },
+  "UPS": {
+    "name": "United Parcel Service",
+    "sector": "Industrials",
+    "sector_kr": "산업재"
+  },
+  "URI": {
+    "name": "United Rentals",
+    "sector": "Industrials",
+    "sector_kr": "산업재"
+  },
+  "UNH": {
+    "name": "UnitedHealth Group",
+    "sector": "Health Care",
+    "sector_kr": "헬스케어"
+  },
+  "UHS": {
+    "name": "Universal Health Services",
+    "sector": "Health Care",
+    "sector_kr": "헬스케어"
+  },
+  "VLO": {
+    "name": "Valero Energy",
+    "sector": "Energy",
+    "sector_kr": "에너지"
+  },
+  "VTR": {
+    "name": "Ventas",
+    "sector": "Real Estate",
+    "sector_kr": "부동산"
+  },
+  "VLTO": {
+    "name": "Veralto",
+    "sector": "Industrials",
+    "sector_kr": "산업재"
+  },
+  "VRSN": {
+    "name": "Verisign",
+    "sector": "Information Technology",
+    "sector_kr": "IT"
+  },
+  "VRSK": {
+    "name": "Verisk Analytics",
+    "sector": "Industrials",
+    "sector_kr": "산업재"
+  },
+  "VZ": {
+    "name": "Verizon",
+    "sector": "Communication Services",
+    "sector_kr": "커뮤니케이션"
+  },
+  "VRTX": {
+    "name": "Vertex Pharmaceuticals",
+    "sector": "Health Care",
+    "sector_kr": "헬스케어"
+  },
+  "VTRS": {
+    "name": "Viatris",
+    "sector": "Health Care",
+    "sector_kr": "헬스케어"
+  },
+  "VICI": {
+    "name": "Vici Properties",
+    "sector": "Real Estate",
+    "sector_kr": "부동산"
+  },
+  "V": {
+    "name": "Visa Inc.",
+    "sector": "Financials",
+    "sector_kr": "금융"
+  },
+  "VST": {
+    "name": "Vistra Corp.",
+    "sector": "Utilities",
+    "sector_kr": "유틸리티"
+  },
+  "VMC": {
+    "name": "Vulcan Materials Company",
+    "sector": "Materials",
+    "sector_kr": "소재"
+  },
+  "WRB": {
+    "name": "W. R. Berkley Corporation",
+    "sector": "Financials",
+    "sector_kr": "금융"
+  },
+  "GWW": {
+    "name": "W. W. Grainger",
+    "sector": "Industrials",
+    "sector_kr": "산업재"
+  },
+  "WAB": {
+    "name": "Wabtec",
+    "sector": "Industrials",
+    "sector_kr": "산업재"
+  },
+  "WMT": {
+    "name": "Walmart",
+    "sector": "Consumer Staples",
+    "sector_kr": "필수소비재"
+  },
+  "DIS": {
+    "name": "Walt Disney Company (The)",
+    "sector": "Communication Services",
+    "sector_kr": "커뮤니케이션"
+  },
+  "WBD": {
+    "name": "Warner Bros. Discovery",
+    "sector": "Communication Services",
+    "sector_kr": "커뮤니케이션"
+  },
+  "WM": {
+    "name": "Waste Management",
+    "sector": "Industrials",
+    "sector_kr": "산업재"
+  },
+  "WAT": {
+    "name": "Waters Corporation",
+    "sector": "Health Care",
+    "sector_kr": "헬스케어"
+  },
+  "WEC": {
+    "name": "WEC Energy Group",
+    "sector": "Utilities",
+    "sector_kr": "유틸리티"
+  },
+  "WFC": {
+    "name": "Wells Fargo",
+    "sector": "Financials",
+    "sector_kr": "금융"
+  },
+  "WELL": {
+    "name": "Welltower",
+    "sector": "Real Estate",
+    "sector_kr": "부동산"
+  },
+  "WST": {
+    "name": "West Pharmaceutical Services",
+    "sector": "Health Care",
+    "sector_kr": "헬스케어"
+  },
+  "WDC": {
+    "name": "Western Digital",
+    "sector": "Information Technology",
+    "sector_kr": "IT"
+  },
+  "WY": {
+    "name": "Weyerhaeuser",
+    "sector": "Real Estate",
+    "sector_kr": "부동산"
+  },
+  "WSM": {
+    "name": "Williams-Sonoma, Inc.",
+    "sector": "Consumer Discretionary",
+    "sector_kr": "경기소비재"
+  },
+  "WMB": {
+    "name": "Williams Companies",
+    "sector": "Energy",
+    "sector_kr": "에너지"
+  },
+  "WTW": {
+    "name": "Willis Towers Watson",
+    "sector": "Financials",
+    "sector_kr": "금융"
+  },
+  "WDAY": {
+    "name": "Workday, Inc.",
+    "sector": "Information Technology",
+    "sector_kr": "IT"
+  },
+  "WYNN": {
+    "name": "Wynn Resorts",
+    "sector": "Consumer Discretionary",
+    "sector_kr": "경기소비재"
+  },
+  "XEL": {
+    "name": "Xcel Energy",
+    "sector": "Utilities",
+    "sector_kr": "유틸리티"
+  },
+  "XYL": {
+    "name": "Xylem Inc.",
+    "sector": "Industrials",
+    "sector_kr": "산업재"
+  },
+  "YUM": {
+    "name": "Yum! Brands",
+    "sector": "Consumer Discretionary",
+    "sector_kr": "경기소비재"
+  },
+  "ZBRA": {
+    "name": "Zebra Technologies",
+    "sector": "Information Technology",
+    "sector_kr": "IT"
+  },
+  "ZBH": {
+    "name": "Zimmer Biomet",
+    "sector": "Health Care",
+    "sector_kr": "헬스케어"
+  },
+  "ZTS": {
+    "name": "Zoetis",
+    "sector": "Health Care",
+    "sector_kr": "헬스케어"
+  }
+}
