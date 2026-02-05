@@ -1,0 +1,46 @@
+name: Update US Market Tracker
+
+on:
+  schedule:
+    # 6:10 AM KST = 21:10 UTC (previous day)
+    - cron: '10 21 * * 0-4'  # Sun-Thu UTC = Mon-Fri KST
+  workflow_dispatch:  # Manual trigger
+
+permissions:
+  contents: write
+
+jobs:
+  update-dashboard:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Cache pip packages
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Generate dashboard
+        run: python generate_dashboard.py
+
+      - name: Commit and push changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add -A
+          git diff --staged --quiet || git commit -m "📊 Update dashboard: $(TZ='Asia/Seoul' date '+%Y-%m-%d %H:%M KST')"
+          git push
