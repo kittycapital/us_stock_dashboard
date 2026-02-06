@@ -706,7 +706,7 @@ def generate_html(index_data, gainers, unusual_vol, new_highs,
         /* Bottom Sheet Chart */
         .sheet-overlay {{ display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6); z-index:1000; }}
         .sheet-overlay.active {{ display:block; }}
-        .bottom-sheet {{ position:fixed; bottom:0; left:0; width:100%; background:var(--bg-card); border:1px solid var(--border); border-radius:16px 16px 0 0; z-index:1001; transform:translateY(100%); transition:transform 0.35s cubic-bezier(0.4,0,0.2,1); max-height:70vh; display:flex; flex-direction:column; }}
+        .bottom-sheet {{ position:fixed; bottom:0; left:0; width:100%; background:var(--bg-card); border:1px solid var(--border); border-radius:16px 16px 0 0; z-index:1001; transform:translateY(100%); transition:transform 0.35s cubic-bezier(0.4,0,0.2,1); max-height:85vh; display:flex; flex-direction:column; }}
         .bottom-sheet.active {{ transform:translateY(0); }}
         .sheet-handle {{ width:36px; height:4px; background:var(--border); border-radius:2px; margin:10px auto 0; flex-shrink:0; }}
         .sheet-header {{ display:flex; justify-content:space-between; align-items:center; padding:10px 16px; flex-shrink:0; }}
@@ -715,7 +715,7 @@ def generate_html(index_data, gainers, unusual_vol, new_highs,
         .sheet-header .modal-name {{ font-size:12px; color:var(--text-secondary); }}
         .sheet-close {{ background:none; border:none; color:var(--text-secondary); font-size:22px; cursor:pointer; padding:4px 8px; border-radius:6px; -webkit-tap-highlight-color:transparent; touch-action:manipulation; }}
         @media (hover:hover) {{ .sheet-close:hover {{ background:var(--bg-hover); color:var(--text-primary); }} }}
-        .sheet-chart {{ flex:1; min-height:0; }}
+        .sheet-chart {{ flex:1; min-height:350px; }}
 
         /* === TABLET === */
         @media (max-width:768px) {{
@@ -734,7 +734,7 @@ def generate_html(index_data, gainers, unusual_vol, new_highs,
             .section {{ margin-bottom:16px; }}
             .section-title {{ font-size:14px; }}
             .hide-mobile {{ display:none; }}
-            .bottom-sheet {{ max-height:60vh; }}
+            .bottom-sheet {{ max-height:75vh; }}
         }}
 
         /* === MOBILE === */
@@ -764,7 +764,8 @@ def generate_html(index_data, gainers, unusual_vol, new_highs,
             .price {{ font-size:11px; }}
             .volume {{ font-size:10px; }}
             .volume-ratio {{ font-size:10px; }}
-            .bottom-sheet {{ max-height:55vh; }}
+            .bottom-sheet {{ max-height:70vh; }}
+            .sheet-chart {{ min-height:280px; }}
             .sheet-header {{ padding:8px 14px; }}
             .sheet-header .modal-ticker {{ font-size:15px; }}
             .sheet-header .modal-name {{ font-size:11px; }}
