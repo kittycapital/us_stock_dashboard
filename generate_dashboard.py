@@ -599,9 +599,6 @@ def generate_html(index_data, gainers, unusual_vol, new_highs,
     etf_gainers_html = render_etf_rows(etf_gainers)
     etf_losers_html = render_etf_rows(etf_losers)
     etf_active_html = render_etf_rows(etf_active)
-    opt_bullish_html = render_options_bullish_rows(opt_bullish)
-    opt_bearish_html = render_options_bearish_rows(opt_bearish)
-    opt_unusual_html = render_unusual_options_rows(opt_unusual)
 
     # Generate empty state messages
     def empty_msg(data, msg="데이터를 불러오는 중 오류가 발생했습니다."):
@@ -613,7 +610,7 @@ def generate_html(index_data, gainers, unusual_vol, new_highs,
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>🇺🇸 미국 시장 트랙커</title>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
@@ -636,99 +633,152 @@ def generate_html(index_data, gainers, unusual_vol, new_highs,
             --yellow-bg: rgba(255,214,102,0.08);
         }}
         * {{ margin:0; padding:0; box-sizing:border-box; }}
-        body {{ background:var(--bg-primary); color:var(--text-primary); font-family:'Noto Sans KR',sans-serif; line-height:1.6; min-height:100vh; }}
-        .container {{ max-width:1200px; margin:0 auto; padding:20px 24px; }}
-        .header {{ margin-bottom:24px; }}
-        .header-top {{ display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:16px; flex-wrap:wrap; gap:8px; }}
-        .header-title {{ display:flex; align-items:center; gap:12px; }}
-        .header-title h1 {{ font-size:24px; font-weight:700; letter-spacing:-0.5px; }}
-        .update-time {{ font-family:'JetBrains Mono',monospace; font-size:13px; color:var(--text-dim); background:var(--bg-secondary); padding:6px 12px; border-radius:6px; border:1px solid var(--border); }}
+        html {{ -webkit-text-size-adjust:100%; -ms-text-size-adjust:100%; }}
+        body {{ background:var(--bg-primary); color:var(--text-primary); font-family:'Noto Sans KR',sans-serif; line-height:1.6; min-height:100vh; -webkit-overflow-scrolling:touch; -ms-overflow-style:none; scrollbar-width:none; }}
+        body::-webkit-scrollbar {{ display:none; }}
+        .container {{ max-width:1200px; margin:0 auto; padding:16px 20px; }}
+        .header {{ margin-bottom:16px; }}
+        .header-top {{ display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:12px; flex-wrap:wrap; gap:8px; }}
+        .header-title {{ display:flex; align-items:center; gap:10px; }}
+        .header-title h1 {{ font-size:22px; font-weight:700; letter-spacing:-0.5px; }}
+        .update-time {{ font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--text-dim); background:var(--bg-secondary); padding:5px 10px; border-radius:6px; border:1px solid var(--border); }}
         .update-time .dot {{ display:inline-block; width:6px; height:6px; background:var(--green); border-radius:50%; margin-right:6px; animation:pulse 2s infinite; }}
         @keyframes pulse {{ 0%,100%{{opacity:1}} 50%{{opacity:0.3}} }}
-        .index-bar {{ display:flex; gap:12px; margin-bottom:12px; flex-wrap:wrap; }}
-        .index-item {{ background:var(--bg-secondary); border:1px solid var(--border); border-radius:8px; padding:12px 16px; flex:1; min-width:160px; }}
-        .index-item .label {{ font-size:11px; font-weight:500; color:var(--text-dim); text-transform:uppercase; letter-spacing:0.5px; margin-bottom:4px; }}
-        .index-item .value {{ font-family:'JetBrains Mono',monospace; font-size:18px; font-weight:600; }}
-        .index-item .change {{ font-family:'JetBrains Mono',monospace; font-size:13px; font-weight:500; margin-left:6px; }}
-        .color-note {{ font-size:12px; color:var(--text-dim); margin-bottom:20px; padding:8px 14px; background:var(--bg-secondary); border-radius:6px; border-left:3px solid var(--accent); display:inline-block; }}
+        .index-bar {{ display:flex; gap:8px; margin-bottom:10px; flex-wrap:wrap; }}
+        .index-item {{ background:var(--bg-secondary); border:1px solid var(--border); border-radius:8px; padding:10px 14px; flex:1; min-width:140px; }}
+        .index-item .label {{ font-size:10px; font-weight:500; color:var(--text-dim); text-transform:uppercase; letter-spacing:0.5px; margin-bottom:3px; }}
+        .index-item .value {{ font-family:'JetBrains Mono',monospace; font-size:16px; font-weight:600; }}
+        .index-item .change {{ font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:500; margin-left:5px; }}
+        .color-note {{ font-size:11px; color:var(--text-dim); margin-bottom:16px; padding:7px 12px; background:var(--bg-secondary); border-radius:6px; border-left:3px solid var(--accent); display:inline-block; }}
         .color-note .green-dot {{ color:var(--green); }}
         .color-note .red-dot {{ color:var(--red); }}
-        .tab-container {{ display:flex; gap:4px; margin-bottom:24px; background:var(--bg-secondary); padding:4px; border-radius:10px; border:1px solid var(--border); }}
-        .tab-btn {{ flex:1; padding:12px 20px; background:transparent; border:none; border-radius:8px; color:var(--text-secondary); font-family:'Noto Sans KR',sans-serif; font-size:15px; font-weight:500; cursor:pointer; transition:all 0.25s ease; display:flex; align-items:center; justify-content:center; gap:8px; }}
-        .tab-btn:hover {{ color:var(--text-primary); background:var(--bg-hover); }}
+        .tab-container {{ display:flex; gap:4px; margin-bottom:16px; background:var(--bg-secondary); padding:3px; border-radius:10px; border:1px solid var(--border); }}
+        .tab-btn {{ flex:1; padding:10px 16px; background:transparent; border:none; border-radius:8px; color:var(--text-secondary); font-family:'Noto Sans KR',sans-serif; font-size:14px; font-weight:500; cursor:pointer; transition:all 0.25s ease; display:flex; align-items:center; justify-content:center; gap:6px; -webkit-tap-highlight-color:transparent; touch-action:manipulation; }}
+        @media (hover:hover) {{ .tab-btn:hover {{ color:var(--text-primary); background:var(--bg-hover); }} }}
+        .tab-btn:active {{ color:var(--text-primary); background:var(--bg-hover); }}
         .tab-btn.active {{ background:var(--bg-card); color:var(--text-primary); font-weight:600; box-shadow:0 2px 8px rgba(0,0,0,0.3); }}
         .tab-content {{ display:none; }}
         .tab-content.active {{ display:block; animation:fadeIn 0.3s ease; }}
         @keyframes fadeIn {{ from{{opacity:0;transform:translateY(8px)}} to{{opacity:1;transform:translateY(0)}} }}
-        .section {{ margin-bottom:28px; }}
-        .section-header {{ display:flex; align-items:center; gap:10px; margin-bottom:14px; padding-bottom:10px; border-bottom:1px solid var(--border); }}
-        .section-icon {{ font-size:20px; }}
-        .section-title {{ font-size:16px; font-weight:600; letter-spacing:-0.3px; }}
-        .section-badge {{ font-size:11px; font-weight:500; padding:3px 8px; border-radius:4px; margin-left:auto; }}
+        .section {{ margin-bottom:20px; }}
+        .section-header {{ display:flex; align-items:center; gap:8px; margin-bottom:10px; padding-bottom:8px; border-bottom:1px solid var(--border); }}
+        .section-icon {{ font-size:18px; }}
+        .section-title {{ font-size:15px; font-weight:600; letter-spacing:-0.3px; }}
+        .section-badge {{ font-size:10px; font-weight:500; padding:2px 7px; border-radius:4px; margin-left:auto; white-space:nowrap; }}
         .badge-green {{ background:var(--green-bg); color:var(--green); }}
         .badge-red {{ background:var(--red-bg); color:var(--red); }}
         .badge-blue {{ background:var(--accent-bg); color:var(--accent); }}
         .badge-yellow {{ background:var(--yellow-bg); color:var(--yellow); }}
-        .table-wrapper {{ overflow-x:auto; border-radius:8px; border:1px solid var(--border); background:var(--bg-card); }}
-        .data-table {{ width:100%; border-collapse:collapse; font-size:14px; }}
-        .data-table thead th {{ font-size:11px; font-weight:500; color:var(--text-dim); text-transform:uppercase; letter-spacing:0.5px; padding:8px 12px; text-align:left; border-bottom:1px solid var(--border); white-space:nowrap; }}
+        .table-wrapper {{ overflow-x:auto; border-radius:8px; border:1px solid var(--border); background:var(--bg-card); -ms-overflow-style:none; scrollbar-width:none; }}
+        .table-wrapper::-webkit-scrollbar {{ display:none; }}
+        .data-table {{ width:100%; border-collapse:collapse; font-size:13px; }}
+        .data-table thead th {{ font-size:10px; font-weight:500; color:var(--text-dim); text-transform:uppercase; letter-spacing:0.5px; padding:7px 10px; text-align:left; border-bottom:1px solid var(--border); white-space:nowrap; }}
         .data-table thead th.right {{ text-align:right; }}
-        .data-table tbody tr {{ border-bottom:1px solid rgba(42,42,58,0.5); transition:background 0.15s ease; }}
-        .data-table tbody tr:hover {{ background:var(--bg-hover); }}
-        .data-table tbody td {{ padding:10px 12px; vertical-align:middle; }}
+        .data-table tbody tr {{ border-bottom:1px solid rgba(42,42,58,0.5); transition:background 0.15s ease; -webkit-tap-highlight-color:transparent; }}
+        @media (hover:hover) {{ .data-table tbody tr:hover {{ background:var(--bg-hover); }} }}
+        .data-table tbody tr:active {{ background:var(--bg-hover); }}
+        .data-table tbody td {{ padding:8px 10px; vertical-align:middle; }}
         .data-table tbody td.right {{ text-align:right; }}
-        .rank {{ font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:600; color:var(--text-dim); width:32px; text-align:center; }}
-        .ticker-cell {{ display:flex; flex-direction:column; gap:2px; }}
-        .ticker-symbol {{ font-family:'JetBrains Mono',monospace; font-weight:600; font-size:14px; color:var(--text-primary); }}
-        .ticker-name {{ font-size:12px; color:var(--text-secondary); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; max-width:180px; }}
-        .sector-tag {{ font-size:11px; padding:2px 8px; border-radius:4px; background:var(--bg-secondary); border:1px solid var(--border); color:var(--text-secondary); white-space:nowrap; }}
-        .price {{ font-family:'JetBrains Mono',monospace; font-weight:500; font-size:14px; }}
+        .rank {{ font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:600; color:var(--text-dim); width:28px; text-align:center; }}
+        .ticker-cell {{ display:flex; flex-direction:column; gap:1px; }}
+        .ticker-symbol {{ font-family:'JetBrains Mono',monospace; font-weight:600; font-size:13px; color:var(--text-primary); }}
+        .ticker-name {{ font-size:11px; color:var(--text-secondary); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; max-width:160px; }}
+        .sector-tag {{ font-size:10px; padding:2px 6px; border-radius:4px; background:var(--bg-secondary); border:1px solid var(--border); color:var(--text-secondary); white-space:nowrap; }}
+        .price {{ font-family:'JetBrains Mono',monospace; font-weight:500; font-size:13px; }}
         .change-positive {{ color:var(--green); font-family:'JetBrains Mono',monospace; font-weight:600; }}
         .change-negative {{ color:var(--red); font-family:'JetBrains Mono',monospace; font-weight:600; }}
-        .volume {{ font-family:'JetBrains Mono',monospace; font-size:13px; color:var(--text-secondary); }}
-        .volume-ratio {{ font-family:'JetBrains Mono',monospace; font-weight:600; font-size:13px; }}
+        .volume {{ font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--text-secondary); }}
+        .volume-ratio {{ font-family:'JetBrains Mono',monospace; font-weight:600; font-size:12px; }}
         .volume-high {{ color:var(--yellow); }}
         .volume-extreme {{ color:var(--red); }}
         .signal-dots {{ display:flex; gap:3px; justify-content:flex-end; }}
-        .signal-dot {{ width:8px; height:8px; border-radius:50%; }}
+        .signal-dot {{ width:7px; height:7px; border-radius:50%; }}
         .signal-dot.active-green {{ background:var(--green); }}
         .signal-dot.active-red {{ background:var(--red); }}
         .signal-dot.inactive {{ background:var(--border); }}
-        .direction-badge {{ font-size:12px; font-weight:600; padding:3px 10px; border-radius:4px; white-space:nowrap; }}
+        .direction-badge {{ font-size:11px; font-weight:600; padding:2px 8px; border-radius:4px; white-space:nowrap; }}
         .direction-bullish {{ background:var(--green-bg); color:var(--green); }}
         .direction-bearish {{ background:var(--red-bg); color:var(--red); }}
-        .interpretation {{ font-size:12px; color:var(--text-secondary); }}
-        .etf-category {{ font-size:11px; color:var(--accent); }}
-        .footer {{ margin-top:40px; padding-top:20px; border-top:1px solid var(--border); text-align:center; font-size:12px; color:var(--text-dim); }}
+        .interpretation {{ font-size:11px; color:var(--text-secondary); }}
+        .etf-category {{ font-size:10px; color:var(--accent); }}
+        .footer {{ margin-top:24px; padding-top:16px; border-top:1px solid var(--border); text-align:center; font-size:11px; color:var(--text-dim); padding-bottom:16px; }}
         .footer a {{ color:var(--accent); text-decoration:none; }}
-        /* Modal */
-        .modal-overlay {{ display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.85); z-index:1000; justify-content:center; align-items:center; padding:20px; }}
-        .modal-overlay.active {{ display:flex; }}
-        .modal {{ background:var(--bg-card); border:1px solid var(--border); border-radius:12px; width:100%; max-width:800px; max-height:90vh; overflow:hidden; position:relative; }}
-        .modal-header {{ display:flex; justify-content:space-between; align-items:center; padding:16px 20px; border-bottom:1px solid var(--border); }}
-        .modal-header .ticker-info {{ display:flex; align-items:center; gap:12px; }}
-        .modal-header .modal-ticker {{ font-family:'JetBrains Mono',monospace; font-size:20px; font-weight:700; }}
-        .modal-header .modal-name {{ font-size:14px; color:var(--text-secondary); }}
-        .modal-close {{ background:none; border:none; color:var(--text-secondary); font-size:24px; cursor:pointer; padding:4px 8px; border-radius:4px; }}
-        .modal-close:hover {{ background:var(--bg-hover); color:var(--text-primary); }}
-        .modal-chart {{ width:100%; height:450px; }}
+        /* Bottom Sheet Chart */
+        .sheet-overlay {{ display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6); z-index:1000; }}
+        .sheet-overlay.active {{ display:block; }}
+        .bottom-sheet {{ position:fixed; bottom:0; left:0; width:100%; background:var(--bg-card); border:1px solid var(--border); border-radius:16px 16px 0 0; z-index:1001; transform:translateY(100%); transition:transform 0.35s cubic-bezier(0.4,0,0.2,1); max-height:70vh; display:flex; flex-direction:column; }}
+        .bottom-sheet.active {{ transform:translateY(0); }}
+        .sheet-handle {{ width:36px; height:4px; background:var(--border); border-radius:2px; margin:10px auto 0; flex-shrink:0; }}
+        .sheet-header {{ display:flex; justify-content:space-between; align-items:center; padding:10px 16px; flex-shrink:0; }}
+        .sheet-header .ticker-info {{ display:flex; align-items:center; gap:10px; }}
+        .sheet-header .modal-ticker {{ font-family:'JetBrains Mono',monospace; font-size:17px; font-weight:700; }}
+        .sheet-header .modal-name {{ font-size:12px; color:var(--text-secondary); }}
+        .sheet-close {{ background:none; border:none; color:var(--text-secondary); font-size:22px; cursor:pointer; padding:4px 8px; border-radius:6px; -webkit-tap-highlight-color:transparent; touch-action:manipulation; }}
+        @media (hover:hover) {{ .sheet-close:hover {{ background:var(--bg-hover); color:var(--text-primary); }} }}
+        .sheet-chart {{ flex:1; min-height:0; }}
+
+        /* === TABLET === */
         @media (max-width:768px) {{
             .container {{ padding:12px 14px; }}
-            .header-title h1 {{ font-size:20px; }}
-            .index-item {{ min-width:140px; padding:10px 12px; }}
-            .index-item .value {{ font-size:15px; }}
-            .data-table {{ font-size:13px; }}
-            .data-table thead th, .data-table tbody td {{ padding:8px 8px; }}
-            .ticker-name {{ max-width:120px; }}
-            .tab-btn {{ font-size:14px; padding:10px 12px; }}
+            .header {{ margin-bottom:12px; }}
+            .header-title h1 {{ font-size:19px; }}
+            .index-item {{ min-width:130px; padding:8px 10px; }}
+            .index-item .value {{ font-size:14px; }}
+            .index-item .change {{ font-size:11px; }}
+            .data-table {{ font-size:12px; }}
+            .data-table thead th {{ padding:6px 8px; font-size:9px; }}
+            .data-table tbody td {{ padding:7px 8px; }}
+            .ticker-name {{ max-width:120px; font-size:10px; }}
+            .ticker-symbol {{ font-size:12px; }}
+            .tab-btn {{ font-size:13px; padding:9px 10px; }}
+            .section {{ margin-bottom:16px; }}
+            .section-title {{ font-size:14px; }}
             .hide-mobile {{ display:none; }}
-            .modal-chart {{ height:350px; }}
+            .bottom-sheet {{ max-height:60vh; }}
         }}
+
+        /* === MOBILE === */
         @media (max-width:480px) {{
-            .index-item {{ min-width:100%; }}
+            .container {{ padding:10px; }}
             .header-top {{ flex-direction:column; }}
-            .modal {{ max-height:95vh; }}
-            .modal-chart {{ height:300px; }}
+            .header-title h1 {{ font-size:17px; }}
+            .header-title span {{ font-size:22px !important; }}
+            .update-time {{ font-size:11px; padding:4px 8px; }}
+            .index-bar {{ gap:6px; }}
+            .index-item {{ min-width:calc(50% - 3px); flex:none; padding:8px 10px; }}
+            .index-item .value {{ font-size:13px; }}
+            .index-item .change {{ font-size:10px; margin-left:4px; }}
+            .color-note {{ font-size:10px; padding:6px 10px; margin-bottom:12px; }}
+            .tab-container {{ margin-bottom:12px; }}
+            .tab-btn {{ font-size:13px; padding:8px 6px; gap:4px; }}
+            .tab-btn span {{ font-size:14px !important; }}
+            .section-header {{ gap:6px; margin-bottom:8px; padding-bottom:6px; }}
+            .section-icon {{ font-size:16px; }}
+            .section-title {{ font-size:13px; }}
+            .section-badge {{ font-size:9px; padding:2px 6px; }}
+            .data-table thead th {{ padding:5px 6px; font-size:8px; }}
+            .data-table tbody td {{ padding:6px 6px; }}
+            .rank {{ font-size:10px; width:22px; }}
+            .ticker-symbol {{ font-size:11px; }}
+            .ticker-name {{ font-size:9px; max-width:100px; }}
+            .price {{ font-size:11px; }}
+            .volume {{ font-size:10px; }}
+            .volume-ratio {{ font-size:10px; }}
+            .bottom-sheet {{ max-height:55vh; }}
+            .sheet-header {{ padding:8px 14px; }}
+            .sheet-header .modal-ticker {{ font-size:15px; }}
+            .sheet-header .modal-name {{ font-size:11px; }}
+            .footer {{ font-size:10px; margin-top:16px; padding-top:12px; }}
+        }}
+
+        /* === 아주 작은 화면 (imweb 좁은 임베드) === */
+        @media (max-width:360px) {{
+            .container {{ padding:8px; }}
+            .header-title h1 {{ font-size:15px; }}
+            .index-item {{ padding:6px 8px; }}
+            .index-item .value {{ font-size:12px; }}
+            .tab-btn {{ font-size:12px; padding:7px 4px; }}
+            .ticker-name {{ max-width:80px; }}
         }}
     </style>
 </head>
@@ -754,9 +804,8 @@ def generate_html(index_data, gainers, unusual_vol, new_highs,
         </div>
 
         <div class="tab-container">
-            <button class="tab-btn active" onclick="switchTab('stocks')"><span style="font-size:18px;">📈</span> 주식</button>
+            <button class="tab-btn active" onclick="switchTab('stocks')"><span style="font-size:18px;">📈</span> 개별 주식</button>
             <button class="tab-btn" onclick="switchTab('etf')"><span style="font-size:18px;">📊</span> ETF</button>
-            <button class="tab-btn" onclick="switchTab('options')"><span style="font-size:18px;">🎯</span> 옵션</button>
         </div>
 
         <!-- 주식 TAB -->
@@ -845,67 +894,24 @@ def generate_html(index_data, gainers, unusual_vol, new_highs,
             </div>
         </div>
 
-        <!-- 옵션 TAB -->
-        <div id="tab-options" class="tab-content">
-            <div class="section">
-                <div class="section-header">
-                    <span class="section-icon">📈</span>
-                    <span class="section-title">옵션 강세 신호 Top 10</span>
-                    <span class="section-badge badge-green">콜 옵션 급증</span>
-                </div>
-                <div class="table-wrapper">
-                    <table class="data-table">
-                        <thead><tr><th>순위</th><th>종목</th><th class="right">주가 ($)</th><th class="right">콜 거래량</th><th class="right">평소 대비</th><th class="right">신호강도</th></tr></thead>
-                        <tbody>{opt_bullish_html or empty_msg(opt_bullish)}</tbody>
-                    </table>
-                </div>
-            </div>
-            <div class="section">
-                <div class="section-header">
-                    <span class="section-icon">📉</span>
-                    <span class="section-title">옵션 약세 신호 Top 10</span>
-                    <span class="section-badge badge-red">풋 옵션 급증</span>
-                </div>
-                <div class="table-wrapper">
-                    <table class="data-table">
-                        <thead><tr><th>순위</th><th>종목</th><th class="right">주가 ($)</th><th class="right">풋 거래량</th><th class="right">평소 대비</th><th class="right">신호강도</th></tr></thead>
-                        <tbody>{opt_bearish_html or empty_msg(opt_bearish)}</tbody>
-                    </table>
-                </div>
-            </div>
-            <div class="section">
-                <div class="section-header">
-                    <span class="section-icon">⚡</span>
-                    <span class="section-title">이상 옵션 거래</span>
-                    <span class="section-badge badge-yellow">대형 거래 포착</span>
-                </div>
-                <div class="table-wrapper">
-                    <table class="data-table">
-                        <thead><tr><th>종목</th><th>방향</th><th class="right">거래규모</th><th class="right hide-mobile">만기일</th><th>해석</th></tr></thead>
-                        <tbody>{opt_unusual_html or empty_msg(opt_unusual)}</tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-
         <div class="footer">
-            <p>💡 옵션 데이터는 주식 매매 참고용 신호입니다. 투자 판단은 본인의 책임입니다.</p>
+            <p>💡 본 데이터는 투자 참고용이며, 투자 판단은 본인의 책임입니다.</p>
             <p style="margin-top:8px;">데이터 출처: Yahoo Finance · 업데이트: 매일 06:10 KST</p>
         </div>
     </div>
 
-    <!-- TradingView Chart Modal -->
-    <div class="modal-overlay" id="chartModal" onclick="closeModal(event)">
-        <div class="modal" onclick="event.stopPropagation()">
-            <div class="modal-header">
-                <div class="ticker-info">
-                    <span class="modal-ticker" id="modalTicker"></span>
-                    <span class="modal-name" id="modalName"></span>
-                </div>
-                <button class="modal-close" onclick="closeChart()">&times;</button>
+    <!-- Bottom Sheet Chart -->
+    <div class="sheet-overlay" id="sheetOverlay" onclick="closeChart()"></div>
+    <div class="bottom-sheet" id="bottomSheet">
+        <div class="sheet-handle"></div>
+        <div class="sheet-header">
+            <div class="ticker-info">
+                <span class="modal-ticker" id="modalTicker"></span>
+                <span class="modal-name" id="modalName"></span>
             </div>
-            <div class="modal-chart" id="tradingview_chart"></div>
+            <button class="sheet-close" onclick="closeChart()">&times;</button>
         </div>
+        <div class="sheet-chart" id="tradingview_chart"></div>
     </div>
 
     <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
@@ -914,7 +920,7 @@ def generate_html(index_data, gainers, unusual_vol, new_highs,
             document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
             document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
             document.getElementById('tab-' + tabName).classList.add('active');
-            const map = {{ stocks: 0, etf: 1, options: 2 }};
+            const map = {{ stocks: 0, etf: 1 }};
             document.querySelectorAll('.tab-btn')[map[tabName]].classList.add('active');
         }}
 
@@ -923,14 +929,16 @@ def generate_html(index_data, gainers, unusual_vol, new_highs,
         function openChart(ticker, name) {{
             document.getElementById('modalTicker').textContent = ticker;
             document.getElementById('modalName').textContent = name;
-            document.getElementById('chartModal').classList.add('active');
+            document.getElementById('sheetOverlay').classList.add('active');
+            // Small delay for CSS transition
+            requestAnimationFrame(() => {{
+                document.getElementById('bottomSheet').classList.add('active');
+            }});
             document.body.style.overflow = 'hidden';
 
-            // Clear previous chart
             const container = document.getElementById('tradingview_chart');
             container.innerHTML = '';
 
-            // Create new TradingView widget
             tvWidget = new TradingView.widget({{
                 "autosize": true,
                 "symbol": ticker,
@@ -953,19 +961,15 @@ def generate_html(index_data, gainers, unusual_vol, new_highs,
         }}
 
         function closeChart() {{
-            document.getElementById('chartModal').classList.remove('active');
-            document.body.style.overflow = '';
-            const container = document.getElementById('tradingview_chart');
-            container.innerHTML = '';
+            document.getElementById('bottomSheet').classList.remove('active');
+            setTimeout(() => {{
+                document.getElementById('sheetOverlay').classList.remove('active');
+                document.body.style.overflow = '';
+                const container = document.getElementById('tradingview_chart');
+                container.innerHTML = '';
+            }}, 350);
         }}
 
-        function closeModal(event) {{
-            if (event.target === document.getElementById('chartModal')) {{
-                closeChart();
-            }}
-        }}
-
-        // ESC key to close
         document.addEventListener('keydown', function(e) {{
             if (e.key === 'Escape') closeChart();
         }});
