@@ -432,8 +432,8 @@ def generate_html(index_data, gainers, unusual_vol, new_highs,
             --yellow-bg: rgba(255,214,102,0.08);
         }}
         * {{ margin:0; padding:0; box-sizing:border-box; }}
-        html {{ -webkit-text-size-adjust:100%; }}
-        body {{ background:var(--bg-primary); color:var(--text-primary); font-family:'Noto Sans KR',sans-serif; line-height:1.5; min-height:100vh; }}
+        html {{ -webkit-text-size-adjust:100%; height:100%; }}
+        body {{ background:var(--bg-primary); color:var(--text-primary); font-family:'Noto Sans KR',sans-serif; line-height:1.5; min-height:100%; overflow-y:auto; -webkit-overflow-scrolling:touch; }}
         .container {{ max-width:1200px; margin:0 auto; padding:12px 16px; }}
         
         /* Header */
