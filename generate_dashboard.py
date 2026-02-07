@@ -1,8 +1,7 @@
 #!/usr/bin/env python3
 """
 미국 시장 트랙커 — Daily US Market Dashboard for Korean Investors
-Pulls data via yfinance, generates static HTML dashboard.
-Designed to run daily at 06:10 KST via GitHub Actions.
+Optimized for mobile and imweb iframe embedding.
 """
 
 import json
@@ -19,7 +18,7 @@ warnings.filterwarnings("ignore")
 # ── Paths ──────────────────────────────────────────────────────────────
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 DATA_DIR = os.path.join(SCRIPT_DIR, "data")
-OUTPUT_DIR = SCRIPT_DIR  # HTML goes to repo root for GitHub Pages
+OUTPUT_DIR = SCRIPT_DIR
 
 KST = timezone(timedelta(hours=9))
 NOW_KST = datetime.now(KST)
@@ -39,7 +38,6 @@ def save_json(filename, data):
 
 
 def fmt_number(n):
-    """Format large numbers: 1234567 -> 1.23M"""
     if n is None or pd.isna(n):
         return "N/A"
     if abs(n) >= 1_000_000_000:
@@ -64,7 +62,6 @@ def fmt_pct(p):
 
 
 def safe_download(tickers, period="1d", retries=2):
-    """Download with retry logic."""
     for attempt in range(retries):
         try:
             data = yf.download(tickers, period=period, progress=False, threads=True)
@@ -76,7 +73,6 @@ def safe_download(tickers, period="1d", retries=2):
 
 
 def batch_download(ticker_list, period="1d", batch_size=100):
-    """Download in batches to avoid rate limits."""
     all_data = {}
     for i in range(0, len(ticker_list), batch_size):
         batch = ticker_list[i:i + batch_size]
@@ -103,7 +99,6 @@ def batch_download(ticker_list, period="1d", batch_size=100):
 # ── Data Collection Functions ──────────────────────────────────────────
 
 def get_index_data():
-    """Fetch major index prices and KRW exchange rate."""
     print("📊 Fetching index data...")
     indices = {
         "^GSPC": "S&P 500",
@@ -141,7 +136,6 @@ def get_index_data():
 
 
 def get_stock_data(sp500_tickers, russell_tickers):
-    """Fetch stock data for gainers, unusual volume, 52-week high."""
     print("📈 Fetching stock data...")
 
     all_tickers = list(sp500_tickers.keys()) + list(russell_tickers.keys())
@@ -268,7 +262,6 @@ def get_stock_data(sp500_tickers, russell_tickers):
 
 
 def get_etf_data(etf_list):
-    """Fetch ETF data for gainers, losers, most active."""
     print("📊 Fetching ETF data...")
     tickers = list(etf_list.keys())
 
@@ -309,7 +302,6 @@ def get_etf_data(etf_list):
 
 def generate_html(index_data, gainers, unusual_vol, new_highs,
                   etf_gainers, etf_losers, etf_active):
-    """Generate complete HTML dashboard with chart at top."""
 
     def change_class(pct):
         return "change-positive" if pct >= 0 else "change-negative"
@@ -340,17 +332,18 @@ def generate_html(index_data, gainers, unusual_vol, new_highs,
                 ratio = item.get("vol_ratio", 0)
                 vol_cls = "volume-extreme" if ratio >= 4 else "volume-high"
                 emoji = " 🔴" if ratio >= 4 else ""
+                # Mobile: only show ratio. Desktop: show both volume and ratio
                 vol_td = f'''
-                    <td class="right volume">{fmt_number(item.get("volume", 0))}</td>
+                    <td class="right volume hide-mobile">{fmt_number(item.get("volume", 0))}</td>
                     <td class="right"><span class="volume-ratio {vol_cls}">{ratio:.1f}배{emoji}</span></td>
                 '''
             elif show_52w:
                 vol_td = f'''
-                    <td class="right volume">{fmt_price(item.get("prev_high", 0))}</td>
+                    <td class="right hide-mobile">{fmt_price(item.get("prev_high", 0))}</td>
                     <td class="right {change_cls}">{fmt_pct(item.get("beat_pct", 0))}</td>
                 '''
             else:
-                vol_td = f'<td class="right volume">{fmt_number(item.get("volume", 0))}</td>'
+                vol_td = f'<td class="right volume hide-mobile">{fmt_number(item.get("volume", 0))}</td>'
 
             rows.append(f'''
                 <tr data-ticker="{ticker}" onclick="selectTicker('{ticker}', '{name_escaped}')" style="cursor:pointer;">
@@ -374,7 +367,7 @@ def generate_html(index_data, gainers, unusual_vol, new_highs,
             rows.append(f'''
                 <tr data-ticker="{ticker}" onclick="selectTicker('{ticker}', '{name_escaped}')" style="cursor:pointer;">
                     <td class="rank">{rank}</td>
-                    <td><div class="ticker-cell"><span class="ticker-symbol">{ticker}</span><span class="ticker-name">{item["name"]}</span></div></td>
+                    <td><div class="ticker-cell"><span class="ticker-symbol">{ticker}</span><span class="ticker-name hide-mobile">{item["name"]}</span></div></td>
                     <td><span class="etf-category">{item.get("category", "")}</span></td>
                     <td class="right price">{fmt_price(item.get("close", 0))}</td>
                     <td class="right {change_cls}">{fmt_pct(item.get("change_pct", 0))}</td>
@@ -409,7 +402,7 @@ def generate_html(index_data, gainers, unusual_vol, new_highs,
 
     def empty_msg(data, msg="데이터를 불러오는 중 오류가 발생했습니다."):
         if not data:
-            return f'<tr><td colspan="8" style="text-align:center;color:var(--text-dim);padding:24px;">{msg}</td></tr>'
+            return f'<tr><td colspan="6" style="text-align:center;color:var(--text-dim);padding:24px;">{msg}</td></tr>'
         return ""
 
     html = f'''<!DOCTYPE html>
@@ -418,7 +411,7 @@ def generate_html(index_data, gainers, unusual_vol, new_highs,
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>🇺🇸 미국 시장 트랙커</title>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
         :root {{
             --bg-primary: #0a0a0f;
@@ -440,109 +433,104 @@ def generate_html(index_data, gainers, unusual_vol, new_highs,
         }}
         * {{ margin:0; padding:0; box-sizing:border-box; }}
         html {{ -webkit-text-size-adjust:100%; }}
-        body {{ background:var(--bg-primary); color:var(--text-primary); font-family:'Noto Sans KR',sans-serif; line-height:1.6; min-height:100vh; }}
-        .container {{ max-width:1200px; margin:0 auto; padding:16px 20px; }}
+        body {{ background:var(--bg-primary); color:var(--text-primary); font-family:'Noto Sans KR',sans-serif; line-height:1.5; min-height:100vh; }}
+        .container {{ max-width:1200px; margin:0 auto; padding:12px 16px; }}
         
         /* Header */
-        .header {{ margin-bottom:16px; }}
-        .header-top {{ display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:12px; flex-wrap:wrap; gap:8px; }}
-        .header-title {{ display:flex; align-items:center; gap:10px; }}
-        .header-title h1 {{ font-size:22px; font-weight:700; letter-spacing:-0.5px; }}
-        .update-time {{ font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--text-dim); background:var(--bg-secondary); padding:5px 10px; border-radius:6px; border:1px solid var(--border); }}
-        .update-time .dot {{ display:inline-block; width:6px; height:6px; background:var(--green); border-radius:50%; margin-right:6px; animation:pulse 2s infinite; }}
+        .header {{ margin-bottom:12px; }}
+        .header-top {{ display:flex; justify-content:space-between; align-items:center; margin-bottom:10px; flex-wrap:wrap; gap:6px; }}
+        .header-title {{ display:flex; align-items:center; gap:8px; }}
+        .header-title h1 {{ font-size:18px; font-weight:700; }}
+        .update-time {{ font-family:'JetBrains Mono',monospace; font-size:11px; color:var(--text-dim); background:var(--bg-secondary); padding:4px 8px; border-radius:5px; border:1px solid var(--border); }}
+        .update-time .dot {{ display:inline-block; width:5px; height:5px; background:var(--green); border-radius:50%; margin-right:5px; animation:pulse 2s infinite; }}
         @keyframes pulse {{ 0%,100%{{opacity:1}} 50%{{opacity:0.3}} }}
         
         /* Index Bar */
-        .index-bar {{ display:flex; gap:8px; margin-bottom:10px; flex-wrap:wrap; }}
-        .index-item {{ background:var(--bg-secondary); border:1px solid var(--border); border-radius:8px; padding:10px 14px; flex:1; min-width:140px; }}
-        .index-item .label {{ font-size:10px; font-weight:500; color:var(--text-dim); text-transform:uppercase; letter-spacing:0.5px; margin-bottom:3px; }}
-        .index-item .value {{ font-family:'JetBrains Mono',monospace; font-size:16px; font-weight:600; }}
-        .index-item .change {{ font-family:'JetBrains Mono',monospace; font-size:12px; font-weight:500; margin-left:5px; }}
+        .index-bar {{ display:grid; grid-template-columns:repeat(2, 1fr); gap:6px; margin-bottom:8px; }}
+        .index-item {{ background:var(--bg-secondary); border:1px solid var(--border); border-radius:6px; padding:8px 10px; }}
+        .index-item .label {{ font-size:9px; font-weight:500; color:var(--text-dim); text-transform:uppercase; letter-spacing:0.3px; margin-bottom:2px; }}
+        .index-item .value {{ font-family:'JetBrains Mono',monospace; font-size:14px; font-weight:600; }}
+        .index-item .change {{ font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:500; margin-left:4px; }}
         
-        .color-note {{ font-size:11px; color:var(--text-dim); margin-bottom:16px; padding:7px 12px; background:var(--bg-secondary); border-radius:6px; border-left:3px solid var(--accent); display:inline-block; }}
-        .color-note .green-dot {{ color:var(--green); }}
-        .color-note .red-dot {{ color:var(--red); }}
+        .color-note {{ font-size:10px; color:var(--text-dim); margin-bottom:12px; padding:5px 10px; background:var(--bg-secondary); border-radius:5px; border-left:2px solid var(--accent); }}
         
         /* Chart Section */
-        .chart-section {{ margin-bottom:20px; }}
-        .chart-header {{ display:flex; align-items:center; gap:12px; margin-bottom:10px; }}
-        .chart-ticker {{ font-family:'JetBrains Mono',monospace; font-size:20px; font-weight:700; }}
-        .chart-name {{ font-size:14px; color:var(--text-secondary); }}
-        .chart-container {{ background:var(--bg-card); border:1px solid var(--border); border-radius:10px; overflow:hidden; height:320px; }}
+        .chart-section {{ margin-bottom:12px; }}
+        .chart-header {{ display:flex; align-items:center; gap:8px; margin-bottom:6px; }}
+        .chart-ticker {{ font-family:'JetBrains Mono',monospace; font-size:16px; font-weight:700; }}
+        .chart-name {{ font-size:12px; color:var(--text-secondary); }}
+        .chart-container {{ background:var(--bg-card); border:1px solid var(--border); border-radius:8px; overflow:hidden; height:240px; }}
         
         /* Tabs */
-        .tab-container {{ display:flex; gap:4px; margin-bottom:16px; background:var(--bg-secondary); padding:3px; border-radius:10px; border:1px solid var(--border); }}
-        .tab-btn {{ flex:1; padding:10px 16px; background:transparent; border:none; border-radius:8px; color:var(--text-secondary); font-family:'Noto Sans KR',sans-serif; font-size:14px; font-weight:500; cursor:pointer; transition:all 0.2s ease; display:flex; align-items:center; justify-content:center; gap:6px; -webkit-tap-highlight-color:transparent; }}
-        .tab-btn:hover {{ color:var(--text-primary); background:var(--bg-hover); }}
-        .tab-btn.active {{ background:var(--bg-card); color:var(--text-primary); font-weight:600; box-shadow:0 2px 8px rgba(0,0,0,0.3); }}
+        .tab-container {{ display:flex; gap:3px; margin-bottom:12px; background:var(--bg-secondary); padding:3px; border-radius:8px; border:1px solid var(--border); }}
+        .tab-btn {{ flex:1; padding:8px 10px; background:transparent; border:none; border-radius:6px; color:var(--text-secondary); font-family:'Noto Sans KR',sans-serif; font-size:13px; font-weight:500; cursor:pointer; transition:all 0.2s ease; display:flex; align-items:center; justify-content:center; gap:5px; -webkit-tap-highlight-color:transparent; }}
+        .tab-btn.active {{ background:var(--bg-card); color:var(--text-primary); font-weight:600; }}
         .tab-content {{ display:none; }}
-        .tab-content.active {{ display:block; animation:fadeIn 0.3s ease; }}
-        @keyframes fadeIn {{ from{{opacity:0;transform:translateY(8px)}} to{{opacity:1;transform:translateY(0)}} }}
+        .tab-content.active {{ display:block; }}
         
         /* Sections */
-        .section {{ margin-bottom:20px; }}
-        .section-header {{ display:flex; align-items:center; gap:8px; margin-bottom:10px; padding-bottom:8px; border-bottom:1px solid var(--border); }}
-        .section-icon {{ font-size:18px; }}
-        .section-title {{ font-size:15px; font-weight:600; letter-spacing:-0.3px; }}
-        .section-badge {{ font-size:10px; font-weight:500; padding:2px 7px; border-radius:4px; margin-left:auto; white-space:nowrap; }}
+        .section {{ margin-bottom:16px; }}
+        .section-header {{ display:flex; align-items:center; gap:6px; margin-bottom:8px; padding-bottom:6px; border-bottom:1px solid var(--border); }}
+        .section-icon {{ font-size:14px; }}
+        .section-title {{ font-size:13px; font-weight:600; }}
+        .section-badge {{ font-size:9px; font-weight:500; padding:2px 6px; border-radius:3px; margin-left:auto; white-space:nowrap; }}
         .badge-green {{ background:var(--green-bg); color:var(--green); }}
         .badge-red {{ background:var(--red-bg); color:var(--red); }}
         .badge-blue {{ background:rgba(108,138,255,0.08); color:var(--accent); }}
         .badge-yellow {{ background:var(--yellow-bg); color:var(--yellow); }}
         
         /* Tables */
-        .table-wrapper {{ overflow-x:auto; border-radius:8px; border:1px solid var(--border); background:var(--bg-card); }}
-        .data-table {{ width:100%; border-collapse:collapse; font-size:13px; }}
-        .data-table thead th {{ font-size:10px; font-weight:500; color:var(--text-dim); text-transform:uppercase; letter-spacing:0.5px; padding:7px 10px; text-align:left; border-bottom:1px solid var(--border); white-space:nowrap; }}
+        .table-wrapper {{ border-radius:6px; border:1px solid var(--border); background:var(--bg-card); overflow:hidden; }}
+        .data-table {{ width:100%; border-collapse:collapse; font-size:12px; table-layout:fixed; }}
+        .data-table thead th {{ font-size:9px; font-weight:500; color:var(--text-dim); text-transform:uppercase; padding:6px 6px; text-align:left; border-bottom:1px solid var(--border); white-space:nowrap; }}
         .data-table thead th.right {{ text-align:right; }}
-        .data-table tbody tr {{ border-bottom:1px solid rgba(42,42,58,0.5); transition:background 0.15s ease; }}
-        .data-table tbody tr:hover {{ background:var(--bg-hover); }}
-        .data-table tbody tr.selected {{ background:var(--accent-bg); border-left:3px solid var(--accent); }}
-        .data-table tbody td {{ padding:8px 10px; vertical-align:middle; }}
+        .data-table tbody tr {{ border-bottom:1px solid rgba(42,42,58,0.4); }}
+        .data-table tbody tr:active {{ background:var(--bg-hover); }}
+        .data-table tbody tr.selected {{ background:var(--accent-bg); }}
+        .data-table tbody td {{ padding:8px 6px; vertical-align:middle; }}
         .data-table tbody td.right {{ text-align:right; }}
         
-        .rank {{ font-family:'JetBrains Mono',monospace; font-size:11px; font-weight:600; color:var(--text-dim); width:28px; text-align:center; }}
-        .ticker-cell {{ display:flex; flex-direction:column; gap:1px; }}
-        .ticker-symbol {{ font-family:'JetBrains Mono',monospace; font-weight:600; font-size:13px; color:var(--text-primary); }}
-        .ticker-name {{ font-size:11px; color:var(--text-secondary); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; max-width:160px; }}
-        .sector-tag {{ font-size:10px; padding:2px 6px; border-radius:4px; background:var(--bg-secondary); border:1px solid var(--border); color:var(--text-secondary); white-space:nowrap; }}
-        .price {{ font-family:'JetBrains Mono',monospace; font-weight:500; font-size:13px; }}
+        .rank {{ font-family:'JetBrains Mono',monospace; font-size:10px; font-weight:600; color:var(--text-dim); width:20px; text-align:center; }}
+        .ticker-cell {{ display:flex; flex-direction:column; gap:1px; min-width:0; }}
+        .ticker-symbol {{ font-family:'JetBrains Mono',monospace; font-weight:600; font-size:12px; color:var(--text-primary); }}
+        .ticker-name {{ font-size:10px; color:var(--text-secondary); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }}
+        .sector-tag {{ font-size:9px; padding:1px 4px; border-radius:3px; background:var(--bg-secondary); color:var(--text-secondary); }}
+        .price {{ font-family:'JetBrains Mono',monospace; font-weight:500; font-size:11px; }}
         .change-positive {{ color:var(--green); font-family:'JetBrains Mono',monospace; font-weight:600; }}
         .change-negative {{ color:var(--red); font-family:'JetBrains Mono',monospace; font-weight:600; }}
-        .volume {{ font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--text-secondary); }}
-        .volume-ratio {{ font-family:'JetBrains Mono',monospace; font-weight:600; font-size:12px; }}
+        .volume {{ font-family:'JetBrains Mono',monospace; font-size:10px; color:var(--text-secondary); }}
+        .volume-ratio {{ font-family:'JetBrains Mono',monospace; font-weight:600; font-size:11px; }}
         .volume-high {{ color:var(--yellow); }}
         .volume-extreme {{ color:var(--red); }}
-        .etf-category {{ font-size:10px; color:var(--accent); }}
+        .etf-category {{ font-size:9px; color:var(--accent); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; max-width:80px; display:inline-block; }}
         
         /* Footer */
-        .footer {{ margin-top:24px; padding-top:16px; border-top:1px solid var(--border); text-align:center; font-size:11px; color:var(--text-dim); padding-bottom:16px; }}
+        .footer {{ margin-top:16px; padding-top:12px; border-top:1px solid var(--border); text-align:center; font-size:10px; color:var(--text-dim); padding-bottom:12px; }}
         
-        /* Responsive */
-        @media (max-width:768px) {{
-            .container {{ padding:12px 14px; }}
-            .header-title h1 {{ font-size:19px; }}
-            .index-item {{ min-width:130px; padding:8px 10px; }}
-            .index-item .value {{ font-size:14px; }}
-            .chart-container {{ height:280px; }}
-            .chart-ticker {{ font-size:17px; }}
-            .data-table {{ font-size:12px; }}
-            .data-table thead th {{ padding:6px 8px; font-size:9px; }}
-            .data-table tbody td {{ padding:7px 8px; }}
-            .ticker-name {{ max-width:120px; font-size:10px; }}
-            .tab-btn {{ font-size:13px; padding:9px 10px; }}
-            .hide-mobile {{ display:none; }}
+        /* Hide on mobile */
+        .hide-mobile {{ display:none; }}
+        
+        /* Desktop styles */
+        @media (min-width:600px) {{
+            .container {{ padding:16px 20px; }}
+            .header-title h1 {{ font-size:22px; }}
+            .index-bar {{ grid-template-columns:repeat(4, 1fr); }}
+            .index-item .value {{ font-size:16px; }}
+            .chart-container {{ height:320px; }}
+            .chart-ticker {{ font-size:20px; }}
+            .data-table {{ font-size:13px; }}
+            .data-table thead th {{ padding:8px 10px; font-size:10px; }}
+            .data-table tbody td {{ padding:10px; }}
+            .ticker-symbol {{ font-size:13px; }}
+            .ticker-name {{ font-size:11px; }}
+            .price {{ font-size:13px; }}
+            .section-title {{ font-size:15px; }}
+            .hide-mobile {{ display:table-cell; }}
+            .etf-category {{ max-width:none; }}
         }}
-        @media (max-width:480px) {{
-            .container {{ padding:10px; }}
-            .header-top {{ flex-direction:column; }}
-            .header-title h1 {{ font-size:17px; }}
-            .index-item {{ min-width:calc(50% - 4px); flex:none; }}
-            .chart-container {{ height:250px; }}
-            .chart-ticker {{ font-size:15px; }}
-            .chart-name {{ font-size:12px; }}
-            .tab-btn {{ font-size:13px; padding:8px 6px; gap:4px; }}
-            .ticker-name {{ max-width:100px; }}
+        
+        @media (min-width:900px) {{
+            .chart-container {{ height:350px; }}
         }}
     </style>
 </head>
@@ -551,7 +539,7 @@ def generate_html(index_data, gainers, unusual_vol, new_highs,
         <div class="header">
             <div class="header-top">
                 <div class="header-title">
-                    <span style="font-size:26px;">🇺🇸</span>
+                    <span style="font-size:22px;">🇺🇸</span>
                     <h1>미국 시장 트랙커</h1>
                 </div>
                 <div class="update-time">
@@ -563,7 +551,7 @@ def generate_html(index_data, gainers, unusual_vol, new_highs,
                 {index_bar_html}
             </div>
             <div class="color-note">
-                💡 미국식 색상: <span class="green-dot">🟢 상승</span> / <span class="red-dot">🔴 하락</span>
+                💡 미국식 색상: <span style="color:var(--green)">🟢 상승</span> / <span style="color:var(--red)">🔴 하락</span>
             </div>
         </div>
 
@@ -577,8 +565,8 @@ def generate_html(index_data, gainers, unusual_vol, new_highs,
         </div>
 
         <div class="tab-container">
-            <button class="tab-btn active" onclick="switchTab('stocks')"><span style="font-size:16px;">📈</span> 개별 주식</button>
-            <button class="tab-btn" onclick="switchTab('etf')"><span style="font-size:16px;">📊</span> ETF</button>
+            <button class="tab-btn active" onclick="switchTab('stocks')">📈 개별 주식</button>
+            <button class="tab-btn" onclick="switchTab('etf')">📊 ETF</button>
         </div>
 
         <!-- 주식 TAB -->
@@ -586,12 +574,12 @@ def generate_html(index_data, gainers, unusual_vol, new_highs,
             <div class="section">
                 <div class="section-header">
                     <span class="section-icon">🔥</span>
-                    <span class="section-title">오늘의 급등주 Top 10</span>
-                    <span class="section-badge badge-green">S&P 500 + Russell 2000</span>
+                    <span class="section-title">급등주 Top 10</span>
+                    <span class="section-badge badge-green">오늘</span>
                 </div>
                 <div class="table-wrapper">
                     <table class="data-table">
-                        <thead><tr><th>순위</th><th>종목</th><th class="hide-mobile">섹터</th><th class="right">종가 ($)</th><th class="right">등락률</th><th class="right">거래량</th></tr></thead>
+                        <thead><tr><th style="width:24px">#</th><th>종목</th><th class="hide-mobile">섹터</th><th class="right" style="width:70px">종가</th><th class="right" style="width:60px">등락</th><th class="right hide-mobile">거래량</th></tr></thead>
                         <tbody>{gainers_html or empty_msg(gainers)}</tbody>
                     </table>
                 </div>
@@ -599,12 +587,12 @@ def generate_html(index_data, gainers, unusual_vol, new_highs,
             <div class="section">
                 <div class="section-header">
                     <span class="section-icon">📊</span>
-                    <span class="section-title">이상 거래량 Top 10</span>
-                    <span class="section-badge badge-yellow">평균 대비 급증</span>
+                    <span class="section-title">이상 거래량</span>
+                    <span class="section-badge badge-yellow">급증</span>
                 </div>
                 <div class="table-wrapper">
                     <table class="data-table">
-                        <thead><tr><th>순위</th><th>종목</th><th class="right">종가 ($)</th><th class="right">등락률</th><th class="right">오늘 거래량</th><th class="right">평균 대비</th></tr></thead>
+                        <thead><tr><th style="width:24px">#</th><th>종목</th><th class="right" style="width:70px">종가</th><th class="right" style="width:60px">등락</th><th class="right hide-mobile">거래량</th><th class="right" style="width:55px">배율</th></tr></thead>
                         <tbody>{unusual_vol_html or empty_msg(unusual_vol)}</tbody>
                     </table>
                 </div>
@@ -613,12 +601,12 @@ def generate_html(index_data, gainers, unusual_vol, new_highs,
                 <div class="section-header">
                     <span class="section-icon">🏆</span>
                     <span class="section-title">52주 신고가</span>
-                    <span class="section-badge badge-blue">오늘 갱신</span>
+                    <span class="section-badge badge-blue">갱신</span>
                 </div>
                 <div class="table-wrapper">
                     <table class="data-table">
-                        <thead><tr><th>순위</th><th>종목</th><th class="hide-mobile">섹터</th><th class="right">종가 ($)</th><th class="right">이전 최고가</th><th class="right">갱신폭</th></tr></thead>
-                        <tbody>{new_highs_html or empty_msg(new_highs, "오늘 52주 신고가 갱신 종목이 없습니다.")}</tbody>
+                        <thead><tr><th style="width:24px">#</th><th>종목</th><th class="hide-mobile">섹터</th><th class="right" style="width:70px">종가</th><th class="right hide-mobile">이전고가</th><th class="right" style="width:60px">갱신</th></tr></thead>
+                        <tbody>{new_highs_html or empty_msg(new_highs, "오늘 신고가 종목 없음")}</tbody>
                     </table>
                 </div>
             </div>
@@ -629,12 +617,12 @@ def generate_html(index_data, gainers, unusual_vol, new_highs,
             <div class="section">
                 <div class="section-header">
                     <span class="section-icon">🟢</span>
-                    <span class="section-title">ETF 수익률 Top 10</span>
-                    <span class="section-badge badge-green">오늘의 상승</span>
+                    <span class="section-title">ETF 상승 Top 10</span>
+                    <span class="section-badge badge-green">오늘</span>
                 </div>
                 <div class="table-wrapper">
                     <table class="data-table">
-                        <thead><tr><th>순위</th><th>ETF</th><th>카테고리</th><th class="right">종가 ($)</th><th class="right">등락률</th><th class="right hide-mobile">거래량</th></tr></thead>
+                        <thead><tr><th style="width:24px">#</th><th>ETF</th><th>카테고리</th><th class="right" style="width:70px">종가</th><th class="right" style="width:60px">등락</th><th class="right hide-mobile">거래량</th></tr></thead>
                         <tbody>{etf_gainers_html or empty_msg(etf_gainers)}</tbody>
                     </table>
                 </div>
@@ -642,12 +630,12 @@ def generate_html(index_data, gainers, unusual_vol, new_highs,
             <div class="section">
                 <div class="section-header">
                     <span class="section-icon">🔴</span>
-                    <span class="section-title">ETF 하락률 Top 10</span>
-                    <span class="section-badge badge-red">오늘의 하락</span>
+                    <span class="section-title">ETF 하락 Top 10</span>
+                    <span class="section-badge badge-red">오늘</span>
                 </div>
                 <div class="table-wrapper">
                     <table class="data-table">
-                        <thead><tr><th>순위</th><th>ETF</th><th>카테고리</th><th class="right">종가 ($)</th><th class="right">등락률</th><th class="right hide-mobile">거래량</th></tr></thead>
+                        <thead><tr><th style="width:24px">#</th><th>ETF</th><th>카테고리</th><th class="right" style="width:70px">종가</th><th class="right" style="width:60px">등락</th><th class="right hide-mobile">거래량</th></tr></thead>
                         <tbody>{etf_losers_html or empty_msg(etf_losers)}</tbody>
                     </table>
                 </div>
@@ -656,11 +644,11 @@ def generate_html(index_data, gainers, unusual_vol, new_highs,
                 <div class="section-header">
                     <span class="section-icon">💰</span>
                     <span class="section-title">ETF 거래량 Top 10</span>
-                    <span class="section-badge badge-blue">가장 활발한 ETF</span>
+                    <span class="section-badge badge-blue">활발</span>
                 </div>
                 <div class="table-wrapper">
                     <table class="data-table">
-                        <thead><tr><th>순위</th><th>ETF</th><th>카테고리</th><th class="right">종가 ($)</th><th class="right">등락률</th><th class="right">거래량</th></tr></thead>
+                        <thead><tr><th style="width:24px">#</th><th>ETF</th><th>카테고리</th><th class="right" style="width:70px">종가</th><th class="right" style="width:60px">등락</th><th class="right hide-mobile">거래량</th></tr></thead>
                         <tbody>{etf_active_html or empty_msg(etf_active)}</tbody>
                     </table>
                 </div>
@@ -668,54 +656,38 @@ def generate_html(index_data, gainers, unusual_vol, new_highs,
         </div>
 
         <div class="footer">
-            <p>💡 본 데이터는 투자 참고용이며, 투자 판단은 본인의 책임입니다.</p>
-            <p style="margin-top:6px;">데이터 출처: Yahoo Finance · 업데이트: 매일 06:10 KST</p>
+            <p>💡 투자 참고용 · 투자 판단은 본인 책임</p>
+            <p style="margin-top:4px;">Yahoo Finance · 매일 06:10 KST 업데이트</p>
         </div>
     </div>
 
     <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
     <script>
         let currentTicker = 'SPY';
-        let tvWidget = null;
 
         function switchTab(tabName) {{
             document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
             document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
             document.getElementById('tab-' + tabName).classList.add('active');
-            const map = {{ stocks: 0, etf: 1 }};
-            document.querySelectorAll('.tab-btn')[map[tabName]].classList.add('active');
+            document.querySelectorAll('.tab-btn')[tabName === 'stocks' ? 0 : 1].classList.add('active');
         }}
 
         function selectTicker(ticker, name) {{
             if (ticker === currentTicker) return;
             currentTicker = ticker;
-
-            // Update header
             document.getElementById('chartTicker').textContent = ticker;
             document.getElementById('chartName').textContent = name;
-
-            // Update row highlighting
             document.querySelectorAll('.data-table tbody tr').forEach(row => {{
-                row.classList.remove('selected');
-                if (row.dataset.ticker === ticker) {{
-                    row.classList.add('selected');
-                }}
+                row.classList.toggle('selected', row.dataset.ticker === ticker);
             }});
-
-            // Reload chart
             loadChart(ticker);
-            
-            // Scroll to top on mobile
-            if (window.innerWidth <= 768) {{
-                window.scrollTo({{ top: 0, behavior: 'smooth' }});
-            }}
+            window.scrollTo({{ top: 0, behavior: 'smooth' }});
         }}
 
         function loadChart(ticker) {{
             const container = document.getElementById('tradingview_chart');
             container.innerHTML = '';
-
-            tvWidget = new TradingView.widget({{
+            new TradingView.widget({{
                 "autosize": true,
                 "symbol": ticker,
                 "interval": "D",
@@ -736,7 +708,6 @@ def generate_html(index_data, gainers, unusual_vol, new_highs,
             }});
         }}
 
-        // Load default chart on page load
         document.addEventListener('DOMContentLoaded', function() {{
             loadChart('SPY');
         }});
@@ -754,24 +725,19 @@ def main():
     print(f"🇺🇸 미국 시장 트랙커 — {UPDATE_TIME}")
     print("=" * 60)
 
-    # Load ticker data
     sp500 = load_json("tickers_sp500.json")
     russell = load_json("tickers_russell2000.json")
     etf_list = load_json("etf_list.json")
 
-    # 1. Index data
     index_data = get_index_data()
     print(f"  ✅ Index data loaded")
 
-    # 2. Stock data
     gainers, unusual_vol, new_highs = get_stock_data(sp500, russell)
     print(f"  ✅ Stocks: {len(gainers)} gainers, {len(unusual_vol)} unusual vol, {len(new_highs)} new highs")
 
-    # 3. ETF data
     etf_gainers, etf_losers, etf_active = get_etf_data(etf_list)
     print(f"  ✅ ETFs: {len(etf_gainers)} gainers, {len(etf_losers)} losers, {len(etf_active)} active")
 
-    # 4. Generate HTML
     print("🔧 Generating HTML dashboard...")
     html = generate_html(
         index_data, gainers, unusual_vol, new_highs,
