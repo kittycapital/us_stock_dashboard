@@ -150,6 +150,22 @@ body{font-family:var(--hv-font-body);background:var(--hv-bg-base);color:var(--hv
 .hv-footer-links a:hover{color:var(--hv-text-primary)}
 .hv-footer-note{font-size:.7rem;color:var(--hv-text-muted);max-width:550px;line-height:1.6}
 
+/* ===== MAG 7 GRID ===== */
+.mag7-section{margin-bottom:20px}
+.mag7-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.mag7-grid .mag7-last{grid-column:2/4}
+.mag7-card{background:var(--hv-bg-card);border:1px solid var(--hv-border);border-radius:var(--hv-radius-md);padding:14px 16px;cursor:pointer;transition:all .2s;position:relative;overflow:hidden}
+.mag7-card:hover{border-color:var(--hv-border-strong);transform:translateY(-1px);box-shadow:var(--hv-shadow-sm)}
+.mag7-card.selected{border-color:var(--accent);background:var(--accent-bg)}
+.mag7-card-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
+.mag7-ticker{font-family:var(--hv-font-mono);font-size:13px;font-weight:700;color:var(--hv-text-primary)}
+.mag7-name{font-size:9px;color:var(--hv-text-tertiary);font-weight:500}
+.mag7-price{font-family:var(--hv-font-mono);font-size:15px;font-weight:700;color:var(--hv-text-primary);margin-bottom:2px}
+.mag7-change{font-family:var(--hv-font-mono);font-size:12px;font-weight:700}
+.mag7-change.up{color:var(--green)}
+.mag7-change.down{color:var(--red)}
+.mag7-vol{font-family:var(--hv-font-mono);font-size:9px;color:var(--hv-text-muted);margin-top:4px}
+
 /* ===== HIDE MOBILE ===== */
 .hide-mobile{display:none}
 
@@ -182,6 +198,10 @@ body{font-family:var(--hv-font-body);background:var(--hv-bg-base);color:var(--hv
   .index-item{padding:10px 12px}
   .index-item .value{font-size:14px}
   .chart-container{height:240px}
+  .mag7-grid{grid-template-columns:repeat(2,1fr)}
+  .mag7-grid .mag7-last{grid-column:1/3}
+  .mag7-card{padding:10px 12px}
+  .mag7-price{font-size:13px}
   .hv-share-bar{flex-direction:column;gap:10px;align-items:stretch;padding:12px 14px}
   .hv-share-bar-preview{max-width:100%}
   .hv-share-bar-buttons{justify-content:center;flex-wrap:wrap}
@@ -200,7 +220,6 @@ body{font-family:var(--hv-font-body);background:var(--hv-bg-base);color:var(--hv
 <!-- HEADER -->
 <header class="hv-header">
   <div class="hv-header-inner">
-    <a href="https://herdvibe.com" class="hv-logo"><span class="hv-logo-mark"></span><span>Herdvibe</span></a>
     <div class="hv-header-center">
       <h1>🇺🇸 미국 시장 트랙커</h1>
       <span class="hv-header-category">US MARKET · STOCKS · ETF</span>
@@ -261,6 +280,58 @@ body{font-family:var(--hv-font-body);background:var(--hv-bg-base);color:var(--hv
 
   <!-- STOCKS TAB -->
   <div id="tab-stocks" class="tab-content active">
+    <div class="section mag7-section">
+      <div class="section-header">
+        <span class="section-icon">💎</span>
+        <span class="section-title">Magnificent 7</span>
+        <span class="section-badge badge-blue">MAG7</span>
+      </div>
+      <div class="mag7-grid">
+        <div class="mag7-card" onclick="selectTicker('AAPL','Apple Inc')">
+          <div class="mag7-card-top"><span class="mag7-ticker">AAPL</span><span class="mag7-name">Apple</span></div>
+          <div class="mag7-price">$236.87</div>
+          <div class="mag7-change down">-2.42%</div>
+          <div class="mag7-vol">Vol 62.3M</div>
+        </div>
+        <div class="mag7-card" onclick="selectTicker('MSFT','Microsoft Corp')">
+          <div class="mag7-card-top"><span class="mag7-ticker">MSFT</span><span class="mag7-name">Microsoft</span></div>
+          <div class="mag7-price">$408.22</div>
+          <div class="mag7-change down">-3.58%</div>
+          <div class="mag7-vol">Vol 38.1M</div>
+        </div>
+        <div class="mag7-card" onclick="selectTicker('GOOGL','Alphabet Inc')">
+          <div class="mag7-card-top"><span class="mag7-ticker">GOOGL</span><span class="mag7-name">Alphabet</span></div>
+          <div class="mag7-price">$185.94</div>
+          <div class="mag7-change down">-1.81%</div>
+          <div class="mag7-vol">Vol 28.5M</div>
+        </div>
+        <div class="mag7-card" onclick="selectTicker('AMZN','Amazon.com Inc')">
+          <div class="mag7-card-top"><span class="mag7-ticker">AMZN</span><span class="mag7-name">Amazon</span></div>
+          <div class="mag7-price">$225.94</div>
+          <div class="mag7-change down">-3.19%</div>
+          <div class="mag7-vol">Vol 58.7M</div>
+        </div>
+        <div class="mag7-card" onclick="selectTicker('NVDA','NVIDIA Corp')">
+          <div class="mag7-card-top"><span class="mag7-ticker">NVDA</span><span class="mag7-name">NVIDIA</span></div>
+          <div class="mag7-price">$131.28</div>
+          <div class="mag7-change down">-3.25%</div>
+          <div class="mag7-vol">Vol 267.4M</div>
+        </div>
+        <div class="mag7-card mag7-last" onclick="selectTicker('META','Meta Platforms Inc')">
+          <div class="mag7-card-top"><span class="mag7-ticker">META</span><span class="mag7-name">Meta</span></div>
+          <div class="mag7-price">$700.28</div>
+          <div class="mag7-change down">-2.67%</div>
+          <div class="mag7-vol">Vol 18.9M</div>
+        </div>
+        <div class="mag7-card" onclick="selectTicker('TSLA','Tesla Inc')">
+          <div class="mag7-card-top"><span class="mag7-ticker">TSLA</span><span class="mag7-name">Tesla</span></div>
+          <div class="mag7-price">$335.45</div>
+          <div class="mag7-change down">-3.41%</div>
+          <div class="mag7-vol">Vol 81.2M</div>
+        </div>
+      </div>
+    </div>
+
     <div class="section">
       <div class="section-header">
         <span class="section-icon">🔥</span>
