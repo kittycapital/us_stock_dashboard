@@ -8,7 +8,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <script src="https://t1.kakaocdn.net/kakao_js_sdk/2.7.1/kakao.min.js" crossorigin="anonymous" async></script>
 <style>
-/* ===== HERDVIBE TOKENS ===== */
 :root{
   --hv-primary:#3b82f6;--hv-primary-light:#60a5fa;--hv-primary-dark:#2563eb;
   --hv-primary-glow:rgba(59,130,246,0.12);
@@ -28,13 +27,11 @@
   --hv-shadow-sm:0 1px 3px rgba(0,0,0,.5);--hv-shadow-lg:0 8px 32px rgba(0,0,0,.7);
   --hv-transition-fast:150ms ease;--hv-transition:250ms ease;
   --hv-max-width:1280px;--hv-header-height:60px;
-  /* US market colors (미국식) */
   --green:#22c55e;--green-bg:rgba(34,197,94,0.1);
   --red:#ef4444;--red-bg:rgba(239,68,68,0.1);
   --accent:#3b82f6;--accent-bg:rgba(59,130,246,0.12);
   --yellow:#f59e0b;--yellow-bg:rgba(245,158,11,0.1);
 }
-
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{font-size:16px;scroll-behavior:smooth;-webkit-font-smoothing:antialiased;height:100%}
 body{font-family:var(--hv-font-body);background:var(--hv-bg-base);color:var(--hv-text-primary);line-height:1.6;min-height:100%;overflow-y:auto;-webkit-overflow-scrolling:touch}
@@ -42,8 +39,6 @@ body{font-family:var(--hv-font-body);background:var(--hv-bg-base);color:var(--hv
 ::-webkit-scrollbar{width:5px;height:5px}
 ::-webkit-scrollbar-track{background:var(--hv-bg-base)}
 ::-webkit-scrollbar-thumb{background:#333;border-radius:3px}
-
-/* ===== HEADER ===== */
 .hv-header{position:sticky;top:0;z-index:100;height:var(--hv-header-height);background:rgba(0,0,0,.92);backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);border-bottom:1px solid var(--hv-border);display:flex;align-items:center;padding:0 24px}
 .hv-header-inner{width:100%;max-width:var(--hv-max-width);margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px}
 .hv-logo{display:flex;align-items:center;gap:10px;font-family:var(--hv-font-display);font-weight:800;font-size:1.15rem;color:var(--hv-text-primary);text-decoration:none;white-space:nowrap;letter-spacing:-.02em}
@@ -55,37 +50,25 @@ body{font-family:var(--hv-font-body);background:var(--hv-bg-base);color:var(--hv
 .hv-update-badge{font-family:var(--hv-font-mono);font-size:.688rem;color:var(--hv-text-tertiary);white-space:nowrap;display:flex;align-items:center;gap:6px}
 .hv-live-dot{width:5px;height:5px;background:var(--green);border-radius:50%;animation:pulse 2s infinite}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
-
-/* ===== CONTAINER ===== */
 .container{max-width:var(--hv-max-width);margin:0 auto;padding:16px 24px 48px}
-
-/* ===== INDEX BAR ===== */
 .index-bar{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:12px}
 .index-item{background:var(--hv-bg-card);border:1px solid var(--hv-border);border-radius:var(--hv-radius-md);padding:12px 14px;transition:border-color .2s}
 .index-item:hover{border-color:var(--hv-border-strong)}
 .index-item .label{font-size:10px;font-weight:500;color:var(--hv-text-muted);text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px}
 .index-item .value{font-family:var(--hv-font-mono);font-size:15px;font-weight:700;color:var(--hv-text-primary)}
 .index-item .change{font-family:var(--hv-font-mono);font-size:11px;font-weight:600;margin-left:6px}
-
-/* ===== COLOR NOTE ===== */
 .color-note{font-size:11px;color:var(--hv-text-secondary);margin-bottom:16px;padding:8px 14px;background:var(--hv-bg-card);border-radius:var(--hv-radius-sm);border-left:3px solid var(--accent)}
-
-/* ===== CHART SECTION ===== */
 .chart-section{margin-bottom:16px}
 .chart-header{display:flex;align-items:center;gap:10px;margin-bottom:8px}
 .chart-ticker{font-family:var(--hv-font-mono);font-size:18px;font-weight:700;color:var(--hv-text-primary)}
 .chart-name{font-size:12px;color:var(--hv-text-secondary)}
 .chart-container{background:var(--hv-bg-card);border:1px solid var(--hv-border);border-radius:var(--hv-radius-lg);overflow:hidden;height:260px}
-
-/* ===== TABS ===== */
 .tab-container{display:flex;gap:3px;margin-bottom:16px;background:var(--hv-bg-card);padding:4px;border-radius:var(--hv-radius-md);border:1px solid var(--hv-border)}
 .tab-btn{flex:1;padding:10px 12px;background:transparent;border:none;border-radius:var(--hv-radius-sm);color:var(--hv-text-tertiary);font-family:var(--hv-font-body);font-size:13px;font-weight:600;cursor:pointer;transition:all .2s;display:flex;align-items:center;justify-content:center;gap:6px;-webkit-tap-highlight-color:transparent}
 .tab-btn:hover{color:var(--hv-text-secondary)}
 .tab-btn.active{background:var(--hv-bg-elevated);color:var(--hv-text-primary);box-shadow:var(--hv-shadow-sm)}
 .tab-content{display:none}
 .tab-content.active{display:block}
-
-/* ===== SECTIONS ===== */
 .section{margin-bottom:20px}
 .section-header{display:flex;align-items:center;gap:8px;margin-bottom:10px;padding-bottom:8px;border-bottom:1px solid var(--hv-border)}
 .section-icon{font-size:14px}
@@ -95,8 +78,6 @@ body{font-family:var(--hv-font-body);background:var(--hv-bg-base);color:var(--hv
 .badge-red{background:var(--red-bg);color:var(--red)}
 .badge-blue{background:var(--accent-bg);color:var(--accent)}
 .badge-yellow{background:var(--yellow-bg);color:var(--yellow)}
-
-/* ===== TABLES ===== */
 .table-wrapper{border-radius:var(--hv-radius-lg);border:1px solid var(--hv-border);background:var(--hv-bg-card);overflow:hidden;overflow-x:auto;-webkit-overflow-scrolling:touch;position:relative}
 .data-table{width:100%;border-collapse:collapse;font-size:12px;table-layout:fixed}
 .data-table thead th{font-family:var(--hv-font-mono);font-size:9px;font-weight:600;color:var(--hv-text-muted);text-transform:uppercase;letter-spacing:.6px;padding:10px 8px;text-align:left;border-bottom:1px solid var(--hv-border);white-space:nowrap;background:var(--hv-bg-surface)}
@@ -107,7 +88,6 @@ body{font-family:var(--hv-font-body);background:var(--hv-bg-base);color:var(--hv
 .data-table tbody tr.selected{background:var(--accent-bg);border-left:3px solid var(--accent)}
 .data-table tbody td{padding:10px 8px;vertical-align:middle}
 .data-table tbody td.right{text-align:right}
-
 .rank{font-family:var(--hv-font-mono);font-size:10px;font-weight:700;color:var(--hv-text-muted);width:22px;text-align:center}
 .ticker-cell{display:flex;flex-direction:column;gap:2px;min-width:0}
 .ticker-symbol{font-family:var(--hv-font-mono);font-weight:700;font-size:12px;color:var(--hv-text-primary)}
@@ -121,8 +101,6 @@ body{font-family:var(--hv-font-body);background:var(--hv-bg-base);color:var(--hv
 .volume-high{color:var(--yellow)}
 .volume-extreme{color:var(--red)}
 .etf-category{font-size:9px;color:var(--accent);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:80px;display:inline-block;font-weight:500}
-
-/* ===== SHARE BAR ===== */
 .hv-share-bar{display:flex;align-items:center;justify-content:space-between;padding:12px 24px;border:1px solid var(--hv-border);border-radius:var(--hv-radius-lg);background:var(--hv-bg-surface);margin-top:24px}
 .hv-share-bar-preview{font-size:.75rem;color:var(--hv-text-tertiary);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:50%;font-family:var(--hv-font-mono)}
 .hv-share-bar-preview span{color:var(--hv-text-secondary);font-weight:500}
@@ -135,13 +113,9 @@ body{font-family:var(--hv-font-body);background:var(--hv-bg-base);color:var(--hv
 .share-btn--tg:hover{border-color:#26A5E4;color:#fff;background:rgba(38,165,228,.15)}
 .share-btn--ig:hover{border-color:#E4405F;color:#fff;background:rgba(228,64,95,.15)}
 .share-btn--copy:hover{border-color:var(--hv-primary);color:var(--hv-primary-light);background:var(--hv-primary-glow)}
-
-/* ===== TOAST ===== */
 .toast-wrap{position:fixed;bottom:20px;right:20px;z-index:200;display:flex;flex-direction:column;gap:8px}
 .toast{background:var(--hv-bg-elevated);border:1px solid var(--hv-border-strong);border-radius:var(--hv-radius-md);padding:10px 18px;font-size:.788rem;color:var(--hv-text-primary);box-shadow:var(--hv-shadow-lg);animation:toastIn .3s ease;border-left:3px solid var(--green)}
 @keyframes toastIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
-
-/* ===== FOOTER ===== */
 .hv-footer{border-top:1px solid var(--hv-border);padding:24px;margin-top:32px}
 .hv-footer-inner{max-width:var(--hv-max-width);margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center}
 .hv-footer-brand{font-family:var(--hv-font-display);font-weight:700;font-size:.938rem;color:var(--hv-text-primary)}
@@ -149,8 +123,6 @@ body{font-family:var(--hv-font-body);background:var(--hv-bg-base);color:var(--hv
 .hv-footer-links a{font-size:.788rem;color:var(--hv-text-tertiary);text-decoration:none}
 .hv-footer-links a:hover{color:var(--hv-text-primary)}
 .hv-footer-note{font-size:.7rem;color:var(--hv-text-muted);max-width:550px;line-height:1.6}
-
-/* ===== MAG 7 GRID ===== */
 .mag7-section{margin-bottom:20px}
 .mag7-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
 .mag7-card{background:var(--hv-bg-card);border:1px solid var(--hv-border);border-radius:var(--hv-radius-md);padding:14px 16px;cursor:pointer;transition:all .2s;position:relative;overflow:hidden}
@@ -164,11 +136,7 @@ body{font-family:var(--hv-font-body);background:var(--hv-bg-base);color:var(--hv
 .mag7-change.up{color:var(--green)}
 .mag7-change.down{color:var(--red)}
 .mag7-vol{font-family:var(--hv-font-mono);font-size:9px;color:var(--hv-text-muted);margin-top:4px}
-
-/* ===== HIDE MOBILE ===== */
 .hide-mobile{display:none}
-
-/* ===== RESPONSIVE ===== */
 @media(min-width:600px){
   .container{padding:20px 24px 48px}
   .index-bar{grid-template-columns:repeat(6,1fr)}
@@ -207,15 +175,9 @@ body{font-family:var(--hv-font-body);background:var(--hv-bg-base);color:var(--hv
   .share-btn{padding:8px 10px}
   .hv-footer{padding:16px}
 }
-@media(hover:none) and (pointer:coarse){
-  .tab-btn{min-height:44px}
-  .data-table tbody tr{min-height:48px}
-}
 </style>
 </head>
 <body>
-
-<!-- HEADER -->
 <header class="hv-header">
   <div class="hv-header-inner">
     <div class="hv-header-center">
@@ -223,45 +185,66 @@ body{font-family:var(--hv-font-body);background:var(--hv-bg-base);color:var(--hv
       <span class="hv-header-category">US MARKET · STOCKS · ETF</span>
     </div>
     <div class="hv-header-right">
-      <div class="hv-update-badge"><span class="hv-live-dot"></span><span>2026.02.13 07:03 KST</span></div>
+      <div class="hv-update-badge"><span class="hv-live-dot"></span><span>2026.02.14 23:14 KST</span></div>
     </div>
   </div>
 </header>
-
-<!-- CONTENT -->
 <div class="container">
-
-  <!-- INDEX BAR -->
   <div class="index-bar">
-    <div class="index-item">
-      <div class="label">S&P 500</div>
-      <div><span class="value">6,832.76</span><span class="change change-negative">-1.57%</span></div>
-    </div>
-    <div class="index-item">
-      <div class="label">나스닥</div>
-      <div><span class="value">22,597.15</span><span class="change change-negative">-2.03%</span></div>
-    </div>
-    <div class="index-item">
-      <div class="label">다우존스</div>
-      <div><span class="value">49,451.98</span><span class="change change-negative">-1.34%</span></div>
-    </div>
-    <div class="index-item">
-      <div class="label">VIX</div>
-      <div><span class="value">16.65</span><span class="change change-positive">+12.38%</span></div>
-    </div>
-    <div class="index-item">
-      <div class="label">US 10Y</div>
-      <div><span class="value">4.531%</span><span class="change change-negative">-1.28%</span></div>
-    </div>
-    <div class="index-item">
-      <div class="label">원/달러</div>
-      <div><span class="value">1,440.09</span><span class="change change-positive">-1.05%</span></div>
-    </div>
-  </div>
+            <div class="index-item">
+                <div class="label">S&P 500</div>
+                <div>
+                    <span class="value">6,836.17</span>
+                    <span class="change change-positive">+0.05%</span>
+                </div>
+            </div>
+        
 
+            <div class="index-item">
+                <div class="label">나스닥</div>
+                <div>
+                    <span class="value">22,546.67</span>
+                    <span class="change change-negative">-0.22%</span>
+                </div>
+            </div>
+        
+
+            <div class="index-item">
+                <div class="label">다우존스</div>
+                <div>
+                    <span class="value">49,500.93</span>
+                    <span class="change change-positive">+0.10%</span>
+                </div>
+            </div>
+        
+
+            <div class="index-item">
+                <div class="label">VIX</div>
+                <div>
+                    <span class="value">20.60</span>
+                    <span class="change change-negative">-1.06%</span>
+                </div>
+            </div>
+        
+
+            <div class="index-item">
+                <div class="label">US 10Y</div>
+                <div>
+                    <span class="value">4.056%</span>
+                    <span class="change change-negative">-1.17%</span>
+                </div>
+            </div>
+        
+
+            <div class="index-item">
+                <div class="label">원/달러</div>
+                <div>
+                    <span class="value">1,443.30</span>
+                    <span class="change change-negative">+0.17%</span>
+                </div>
+            </div>
+        </div>
   <div class="color-note">💡 미국식 색상: <span style="color:var(--green)">🟢 상승</span> / <span style="color:var(--red)">🔴 하락</span></div>
-
-  <!-- CHART -->
   <div class="chart-section">
     <div class="chart-header">
       <span class="chart-ticker" id="chartTicker">SPY</span>
@@ -269,228 +252,751 @@ body{font-family:var(--hv-font-body);background:var(--hv-bg-base);color:var(--hv
     </div>
     <div class="chart-container" id="tradingview_chart"></div>
   </div>
-
-  <!-- TABS -->
   <div class="tab-container">
     <button class="tab-btn active" onclick="switchTab('stocks')">📈 개별 주식</button>
     <button class="tab-btn" onclick="switchTab('etf')">📊 ETF</button>
   </div>
-
-  <!-- STOCKS TAB -->
   <div id="tab-stocks" class="tab-content active">
     <div class="section mag7-section">
-      <div class="section-header">
-        <span class="section-icon">💎</span>
-        <span class="section-title">주요 주식</span>
-        <span class="section-badge badge-blue">TOP 8</span>
-      </div>
+      <div class="section-header"><span class="section-icon">💎</span><span class="section-title">주요 주식</span><span class="section-badge badge-blue">TOP 8</span></div>
       <div class="mag7-grid">
-        <div class="mag7-card" onclick="selectTicker('AAPL','Apple Inc')">
+        <div class="mag7-card" onclick="selectTicker('AAPL', '애플')">
           <div class="mag7-card-top"><span class="mag7-ticker">AAPL</span><span class="mag7-name">애플</span></div>
-          <div class="mag7-price">$236.87</div>
-          <div class="mag7-change down">-2.42%</div>
-          <div class="mag7-vol">Vol 62.3M</div>
+          <div class="mag7-price">$255.78</div>
+          <div class="mag7-change down">-2.38%</div>
+          <div class="mag7-vol">Vol 56.2M</div>
         </div>
-        <div class="mag7-card" onclick="selectTicker('MSFT','Microsoft Corp')">
+
+        <div class="mag7-card" onclick="selectTicker('MSFT', '마이크로소프트')">
           <div class="mag7-card-top"><span class="mag7-ticker">MSFT</span><span class="mag7-name">마이크로소프트</span></div>
-          <div class="mag7-price">$408.22</div>
-          <div class="mag7-change down">-3.58%</div>
-          <div class="mag7-vol">Vol 38.1M</div>
+          <div class="mag7-price">$401.32</div>
+          <div class="mag7-change down">-0.77%</div>
+          <div class="mag7-vol">Vol 34.0M</div>
         </div>
-        <div class="mag7-card" onclick="selectTicker('GOOGL','Alphabet Inc')">
+
+        <div class="mag7-card" onclick="selectTicker('GOOGL', '알파벳')">
           <div class="mag7-card-top"><span class="mag7-ticker">GOOGL</span><span class="mag7-name">알파벳</span></div>
-          <div class="mag7-price">$185.94</div>
-          <div class="mag7-change down">-1.81%</div>
-          <div class="mag7-vol">Vol 28.5M</div>
+          <div class="mag7-price">$305.72</div>
+          <div class="mag7-change down">-0.65%</div>
+          <div class="mag7-vol">Vol 38.5M</div>
         </div>
-        <div class="mag7-card" onclick="selectTicker('AMZN','Amazon.com Inc')">
+
+        <div class="mag7-card" onclick="selectTicker('AMZN', '아마존')">
           <div class="mag7-card-top"><span class="mag7-ticker">AMZN</span><span class="mag7-name">아마존</span></div>
-          <div class="mag7-price">$225.94</div>
-          <div class="mag7-change down">-3.19%</div>
-          <div class="mag7-vol">Vol 58.7M</div>
+          <div class="mag7-price">$198.79</div>
+          <div class="mag7-change down">-0.05%</div>
+          <div class="mag7-vol">Vol 66.2M</div>
         </div>
-        <div class="mag7-card" onclick="selectTicker('NVDA','NVIDIA Corp')">
+
+        <div class="mag7-card" onclick="selectTicker('NVDA', '엔비디아')">
           <div class="mag7-card-top"><span class="mag7-ticker">NVDA</span><span class="mag7-name">엔비디아</span></div>
-          <div class="mag7-price">$131.28</div>
-          <div class="mag7-change down">-3.25%</div>
-          <div class="mag7-vol">Vol 267.4M</div>
+          <div class="mag7-price">$182.81</div>
+          <div class="mag7-change down">-2.49%</div>
+          <div class="mag7-vol">Vol 161.6M</div>
         </div>
-        <div class="mag7-card" onclick="selectTicker('META','Meta Platforms Inc')">
+
+        <div class="mag7-card" onclick="selectTicker('META', '메타')">
           <div class="mag7-card-top"><span class="mag7-ticker">META</span><span class="mag7-name">메타</span></div>
-          <div class="mag7-price">$700.28</div>
-          <div class="mag7-change down">-2.67%</div>
-          <div class="mag7-vol">Vol 18.9M</div>
+          <div class="mag7-price">$639.77</div>
+          <div class="mag7-change down">-0.83%</div>
+          <div class="mag7-vol">Vol 12.3M</div>
         </div>
-        <div class="mag7-card" onclick="selectTicker('TSLA','Tesla Inc')">
+
+        <div class="mag7-card" onclick="selectTicker('TSLA', '테슬라')">
           <div class="mag7-card-top"><span class="mag7-ticker">TSLA</span><span class="mag7-name">테슬라</span></div>
-          <div class="mag7-price">$335.45</div>
-          <div class="mag7-change down">-3.41%</div>
-          <div class="mag7-vol">Vol 81.2M</div>
+          <div class="mag7-price">$417.44</div>
+          <div class="mag7-change up">+0.76%</div>
+          <div class="mag7-vol">Vol 51.4M</div>
         </div>
-        <div class="mag7-card" onclick="selectTicker('PLTR','Palantir Technologies')">
+
+        <div class="mag7-card" onclick="selectTicker('PLTR', '팔란티어')">
           <div class="mag7-card-top"><span class="mag7-ticker">PLTR</span><span class="mag7-name">팔란티어</span></div>
-          <div class="mag7-price">$120.81</div>
-          <div class="mag7-change down">-5.18%</div>
-          <div class="mag7-vol">Vol 89.5M</div>
-        </div>
-      </div>
+          <div class="mag7-price">$131.41</div>
+          <div class="mag7-change up">+2.74%</div>
+          <div class="mag7-vol">Vol 49.3M</div>
+        </div></div>
     </div>
-
     <div class="section">
-      <div class="section-header">
-        <span class="section-icon">🔥</span>
-        <span class="section-title">급등주 Top 10</span>
-        <span class="section-badge badge-green">오늘</span>
-      </div>
-      <div class="table-wrapper">
-        <table class="data-table">
-          <thead><tr><th style="width:24px">#</th><th>종목</th><th class="hide-mobile">섹터</th><th class="right" style="width:70px">종가</th><th class="right" style="width:60px">등락</th><th class="right hide-mobile">거래량</th></tr></thead>
-          <tbody>
-            <tr data-ticker="KPTI" onclick="selectTicker('KPTI','Karyopharm Therapeutics Inc')" style="cursor:pointer"><td class="rank">1</td><td><div class="ticker-cell"><span class="ticker-symbol">KPTI</span><span class="ticker-name">Karyopharm Therapeutics Inc</span></div></td><td class="hide-mobile"></td><td class="right price">$8.94</td><td class="right change-positive">+33.04%</td><td class="right volume hide-mobile">2.8M</td></tr>
-            <tr data-ticker="IRDM" onclick="selectTicker('IRDM','Iridium Communications Inc')" style="cursor:pointer"><td class="rank">2</td><td><div class="ticker-cell"><span class="ticker-symbol">IRDM</span><span class="ticker-name">Iridium Communications Inc</span></div></td><td class="hide-mobile"></td><td class="right price">$22.39</td><td class="right change-positive">+16.61%</td><td class="right volume hide-mobile">6.4M</td></tr>
-            <tr data-ticker="AMBR" onclick="selectTicker('AMBR','Amber Road Inc')" style="cursor:pointer"><td class="rank">3</td><td><div class="ticker-cell"><span class="ticker-symbol">AMBR</span><span class="ticker-name">Amber Road Inc</span></div></td><td class="hide-mobile"></td><td class="right price">$2.42</td><td class="right change-positive">+12.56%</td><td class="right volume hide-mobile">195.7K</td></tr>
-            <tr data-ticker="PAYC" onclick="selectTicker('PAYC','Paycom')" style="cursor:pointer"><td class="rank">4</td><td><div class="ticker-cell"><span class="ticker-symbol">PAYC</span><span class="ticker-name">Paycom</span></div></td><td class="hide-mobile"><span class="sector-tag">산업재</span></td><td class="right price">$119.76</td><td class="right change-positive">+12.15%</td><td class="right volume hide-mobile">4.8M</td></tr>
-            <tr data-ticker="ATNI" onclick="selectTicker('ATNI','Atlantic Tele-Network')" style="cursor:pointer"><td class="rank">5</td><td><div class="ticker-cell"><span class="ticker-symbol">ATNI</span><span class="ticker-name">Atlantic Tele-Network</span></div></td><td class="hide-mobile"></td><td class="right price">$29.11</td><td class="right change-positive">+6.79%</td><td class="right volume hide-mobile">134.8K</td></tr>
-            <tr data-ticker="AKAM" onclick="selectTicker('AKAM','Akamai Technologies')" style="cursor:pointer"><td class="rank">6</td><td><div class="ticker-cell"><span class="ticker-symbol">AKAM</span><span class="ticker-name">Akamai Technologies</span></div></td><td class="hide-mobile"><span class="sector-tag">IT</span></td><td class="right price">$104.61</td><td class="right change-positive">+5.93%</td><td class="right volume hide-mobile">10.4M</td></tr>
-            <tr data-ticker="ROL" onclick="selectTicker('ROL','Rollins, Inc.')" style="cursor:pointer"><td class="rank">7</td><td><div class="ticker-cell"><span class="ticker-symbol">ROL</span><span class="ticker-name">Rollins, Inc.</span></div></td><td class="hide-mobile"><span class="sector-tag">산업재</span></td><td class="right price">$58.69</td><td class="right change-positive">+5.46%</td><td class="right volume hide-mobile">14.2M</td></tr>
-            <tr data-ticker="CHEF" onclick="selectTicker('CHEF','The Chefs\' Warehouse Inc')" style="cursor:pointer"><td class="rank">8</td><td><div class="ticker-cell"><span class="ticker-symbol">CHEF</span><span class="ticker-name">The Chefs' Warehouse Inc</span></div></td><td class="hide-mobile"></td><td class="right price">$67.80</td><td class="right change-positive">+4.55%</td><td class="right volume hide-mobile">744.2K</td></tr>
-            <tr data-ticker="KELYA" onclick="selectTicker('KELYA','Kelly Services')" style="cursor:pointer"><td class="rank">9</td><td><div class="ticker-cell"><span class="ticker-symbol">KELYA</span><span class="ticker-name">Kelly Services</span></div></td><td class="hide-mobile"></td><td class="right price">$9.78</td><td class="right change-positive">+4.26%</td><td class="right volume hide-mobile">693.2K</td></tr>
-            <tr data-ticker="FDS" onclick="selectTicker('FDS','FactSet')" style="cursor:pointer"><td class="rank">10</td><td><div class="ticker-cell"><span class="ticker-symbol">FDS</span><span class="ticker-name">FactSet</span></div></td><td class="hide-mobile"><span class="sector-tag">금융</span></td><td class="right price">$201.95</td><td class="right change-positive">+4.00%</td><td class="right volume hide-mobile">2.2M</td></tr>
-          </tbody>
-        </table>
-      </div>
+      <div class="section-header"><span class="section-icon">🔥</span><span class="section-title">급등주 Top 10</span><span class="section-badge badge-green">오늘</span></div>
+      <div class="table-wrapper"><table class="data-table"><thead><tr><th style="width:24px">#</th><th>종목</th><th class="hide-mobile">섹터</th><th class="right" style="width:70px">종가</th><th class="right" style="width:60px">등락</th><th class="right hide-mobile">거래량</th></tr></thead><tbody>
+                <tr data-ticker="FGL" onclick="selectTicker('FGL', 'Fidelity & Guaranty')" style="cursor:pointer;">
+                    <td class="rank">1</td>
+                    <td><div class="ticker-cell"><span class="ticker-symbol">FGL</span><span class="ticker-name">Fidelity & Guaranty</span></div></td>
+                    <td class="hide-mobile"></td>
+                    <td class="right price">$18.00</td>
+                    <td class="right change-positive">+43.88%</td>
+                    <td class="right volume hide-mobile">1.5M</td>
+                </tr>
+            
+
+                <tr data-ticker="CMLS" onclick="selectTicker('CMLS', 'Cumulus Media Inc')" style="cursor:pointer;">
+                    <td class="rank">2</td>
+                    <td><div class="ticker-cell"><span class="ticker-symbol">CMLS</span><span class="ticker-name">Cumulus Media Inc</span></div></td>
+                    <td class="hide-mobile"></td>
+                    <td class="right price">$0.09</td>
+                    <td class="right change-positive">+27.14%</td>
+                    <td class="right volume hide-mobile">33.7K</td>
+                </tr>
+            
+
+                <tr data-ticker="CPS" onclick="selectTicker('CPS', 'Cooper Std Hldg Inc')" style="cursor:pointer;">
+                    <td class="rank">3</td>
+                    <td><div class="ticker-cell"><span class="ticker-symbol">CPS</span><span class="ticker-name">Cooper Std Hldg Inc</span></div></td>
+                    <td class="hide-mobile"></td>
+                    <td class="right price">$45.20</td>
+                    <td class="right change-positive">+22.83%</td>
+                    <td class="right volume hide-mobile">1.1M</td>
+                </tr>
+            
+
+                <tr data-ticker="FORR" onclick="selectTicker('FORR', 'Forrester Research')" style="cursor:pointer;">
+                    <td class="rank">4</td>
+                    <td><div class="ticker-cell"><span class="ticker-symbol">FORR</span><span class="ticker-name">Forrester Research</span></div></td>
+                    <td class="hide-mobile"></td>
+                    <td class="right price">$5.61</td>
+                    <td class="right change-positive">+13.33%</td>
+                    <td class="right volume hide-mobile">599.5K</td>
+                </tr>
+            
+
+                <tr data-ticker="AOSL" onclick="selectTicker('AOSL', 'Alpha and Omega Semiconductor')" style="cursor:pointer;">
+                    <td class="rank">5</td>
+                    <td><div class="ticker-cell"><span class="ticker-symbol">AOSL</span><span class="ticker-name">Alpha and Omega Semiconductor</span></div></td>
+                    <td class="hide-mobile"></td>
+                    <td class="right price">$22.65</td>
+                    <td class="right change-positive">+9.74%</td>
+                    <td class="right volume hide-mobile">486.9K</td>
+                </tr>
+            
+
+                <tr data-ticker="WYNN" onclick="selectTicker('WYNN', 'Wynn Resorts')" style="cursor:pointer;">
+                    <td class="rank">6</td>
+                    <td><div class="ticker-cell"><span class="ticker-symbol">WYNN</span><span class="ticker-name">Wynn Resorts</span></div></td>
+                    <td class="hide-mobile"><span class="sector-tag">경기소비재</span></td>
+                    <td class="right price">$113.39</td>
+                    <td class="right change-positive">+8.86%</td>
+                    <td class="right volume hide-mobile">3.5M</td>
+                </tr>
+            
+
+                <tr data-ticker="DXCM" onclick="selectTicker('DXCM', 'Dexcom')" style="cursor:pointer;">
+                    <td class="rank">7</td>
+                    <td><div class="ticker-cell"><span class="ticker-symbol">DXCM</span><span class="ticker-name">Dexcom</span></div></td>
+                    <td class="hide-mobile"><span class="sector-tag">헬스케어</span></td>
+                    <td class="right price">$70.02</td>
+                    <td class="right change-positive">+8.64%</td>
+                    <td class="right volume hide-mobile">11.0M</td>
+                </tr>
+            
+
+                <tr data-ticker="PETS" onclick="selectTicker('PETS', 'Petmed Express')" style="cursor:pointer;">
+                    <td class="rank">8</td>
+                    <td><div class="ticker-cell"><span class="ticker-symbol">PETS</span><span class="ticker-name">Petmed Express</span></div></td>
+                    <td class="hide-mobile"></td>
+                    <td class="right price">$3.18</td>
+                    <td class="right change-positive">+8.16%</td>
+                    <td class="right volume hide-mobile">186.8K</td>
+                </tr>
+            
+
+                <tr data-ticker="BEAT" onclick="selectTicker('BEAT', 'Cardionet')" style="cursor:pointer;">
+                    <td class="rank">9</td>
+                    <td><div class="ticker-cell"><span class="ticker-symbol">BEAT</span><span class="ticker-name">Cardionet</span></div></td>
+                    <td class="hide-mobile"></td>
+                    <td class="right price">$1.33</td>
+                    <td class="right change-positive">+7.69%</td>
+                    <td class="right volume hide-mobile">415.0K</td>
+                </tr>
+            
+
+                <tr data-ticker="CRIS" onclick="selectTicker('CRIS', 'Curis Inc')" style="cursor:pointer;">
+                    <td class="rank">10</td>
+                    <td><div class="ticker-cell"><span class="ticker-symbol">CRIS</span><span class="ticker-name">Curis Inc</span></div></td>
+                    <td class="hide-mobile"></td>
+                    <td class="right price">$1.15</td>
+                    <td class="right change-positive">+7.48%</td>
+                    <td class="right volume hide-mobile">247.0K</td>
+                </tr>
+            </tbody></table></div>
     </div>
-
     <div class="section">
-      <div class="section-header">
-        <span class="section-icon">📊</span>
-        <span class="section-title">이상 거래량</span>
-        <span class="section-badge badge-yellow">급증</span>
-      </div>
-      <div class="table-wrapper">
-        <table class="data-table">
-          <thead><tr><th style="width:24px">#</th><th>종목</th><th class="right" style="width:70px">종가</th><th class="right" style="width:60px">등락</th><th class="right hide-mobile">거래량</th><th class="right" style="width:55px">배율</th></tr></thead>
-          <tbody>
-            <tr data-ticker="CBRE" onclick="selectTicker('CBRE','CBRE Group')" style="cursor:pointer"><td class="rank">1</td><td><div class="ticker-cell"><span class="ticker-symbol">CBRE</span><span class="ticker-name">CBRE Group</span></div></td><td class="right price">$136.28</td><td class="right change-negative">-10.31%</td><td class="right volume hide-mobile">12.4M</td><td class="right"><span class="volume-ratio volume-extreme">5.9배 🔴</span></td></tr>
-            <tr data-ticker="CHRW" onclick="selectTicker('CHRW','C.H. Robinson')" style="cursor:pointer"><td class="rank">2</td><td><div class="ticker-cell"><span class="ticker-symbol">CHRW</span><span class="ticker-name">C.H. Robinson</span></div></td><td class="right price">$167.78</td><td class="right change-negative">-14.67%</td><td class="right volume hide-mobile">16.4M</td><td class="right"><span class="volume-ratio volume-extreme">5.6배 🔴</span></td></tr>
-            <tr data-ticker="ROL" onclick="selectTicker('ROL','Rollins, Inc.')" style="cursor:pointer"><td class="rank">3</td><td><div class="ticker-cell"><span class="ticker-symbol">ROL</span><span class="ticker-name">Rollins, Inc.</span></div></td><td class="right price">$58.69</td><td class="right change-positive">+5.46%</td><td class="right volume hide-mobile">14.2M</td><td class="right"><span class="volume-ratio volume-extreme">4.8배 🔴</span></td></tr>
-            <tr data-ticker="EQIX" onclick="selectTicker('EQIX','Equinix')" style="cursor:pointer"><td class="rank">4</td><td><div class="ticker-cell"><span class="ticker-symbol">EQIX</span><span class="ticker-name">Equinix</span></div></td><td class="right price">$957.87</td><td class="right change-positive">+0.15%</td><td class="right volume hide-mobile">2.6M</td><td class="right"><span class="volume-ratio volume-extreme">4.2배 🔴</span></td></tr>
-            <tr data-ticker="EXPD" onclick="selectTicker('EXPD','Expeditors International')" style="cursor:pointer"><td class="rank">5</td><td><div class="ticker-cell"><span class="ticker-symbol">EXPD</span><span class="ticker-name">Expeditors International</span></div></td><td class="right price">$140.56</td><td class="right change-negative">-13.74%</td><td class="right volume hide-mobile">7.2M</td><td class="right"><span class="volume-ratio volume-extreme">4.1배 🔴</span></td></tr>
-            <tr data-ticker="TMH" onclick="selectTicker('TMH','Team Health Holdings')" style="cursor:pointer"><td class="rank">6</td><td><div class="ticker-cell"><span class="ticker-symbol">TMH</span><span class="ticker-name">Team Health Holdings</span></div></td><td class="right price">$63.32</td><td class="right change-negative">-0.56%</td><td class="right volume hide-mobile">3.9K</td><td class="right"><span class="volume-ratio volume-high">3.7배</span></td></tr>
-            <tr data-ticker="TYL" onclick="selectTicker('TYL','Tyler Technologies')" style="cursor:pointer"><td class="rank">7</td><td><div class="ticker-cell"><span class="ticker-symbol">TYL</span><span class="ticker-name">Tyler Technologies</span></div></td><td class="right price">$287.04</td><td class="right change-negative">-10.30%</td><td class="right volume hide-mobile">2.5M</td><td class="right"><span class="volume-ratio volume-high">3.3배</span></td></tr>
-            <tr data-ticker="POWR" onclick="selectTicker('POWR','Powersecure International Inc')" style="cursor:pointer"><td class="rank">8</td><td><div class="ticker-cell"><span class="ticker-symbol">POWR</span><span class="ticker-name">Powersecure International Inc</span></div></td><td class="right price">$25.81</td><td class="right change-negative">-0.73%</td><td class="right volume hide-mobile">190.0K</td><td class="right"><span class="volume-ratio volume-high">3.2배</span></td></tr>
-            <tr data-ticker="WAT" onclick="selectTicker('WAT','Waters Corporation')" style="cursor:pointer"><td class="rank">9</td><td><div class="ticker-cell"><span class="ticker-symbol">WAT</span><span class="ticker-name">Waters Corporation</span></div></td><td class="right price">$319.83</td><td class="right change-negative">-2.69%</td><td class="right volume hide-mobile">3.5M</td><td class="right"><span class="volume-ratio volume-high">3.1배</span></td></tr>
-            <tr data-ticker="PAYC" onclick="selectTicker('PAYC','Paycom')" style="cursor:pointer"><td class="rank">10</td><td><div class="ticker-cell"><span class="ticker-symbol">PAYC</span><span class="ticker-name">Paycom</span></div></td><td class="right price">$119.76</td><td class="right change-positive">+12.15%</td><td class="right volume hide-mobile">4.8M</td><td class="right"><span class="volume-ratio volume-high">3.1배</span></td></tr>
-          </tbody>
-        </table>
-      </div>
+      <div class="section-header"><span class="section-icon">📊</span><span class="section-title">이상 거래량</span><span class="section-badge badge-yellow">급증</span></div>
+      <div class="table-wrapper"><table class="data-table"><thead><tr><th style="width:24px">#</th><th>종목</th><th class="right" style="width:70px">종가</th><th class="right" style="width:60px">등락</th><th class="right hide-mobile">거래량</th><th class="right" style="width:55px">배율</th></tr></thead><tbody>
+                <tr data-ticker="BFAM" onclick="selectTicker('BFAM', 'Bright Horizons Family Solutions Inc')" style="cursor:pointer;">
+                    <td class="rank">1</td>
+                    <td><div class="ticker-cell"><span class="ticker-symbol">BFAM</span><span class="ticker-name">Bright Horizons Family Solutions Inc</span></div></td>
+                    
+                    <td class="right price">$66.90</td>
+                    <td class="right change-negative">-10.00%</td>
+                    
+                    <td class="right volume hide-mobile">4.2M</td>
+                    <td class="right"><span class="volume-ratio volume-extreme">4.5배 🔴</span></td>
+                
+                </tr>
+            
+
+                <tr data-ticker="NCI" onclick="selectTicker('NCI', 'Navigant Consulting')" style="cursor:pointer;">
+                    <td class="rank">2</td>
+                    <td><div class="ticker-cell"><span class="ticker-symbol">NCI</span><span class="ticker-name">Navigant Consulting</span></div></td>
+                    
+                    <td class="right price">$2.39</td>
+                    <td class="right change-negative">-2.85%</td>
+                    
+                    <td class="right volume hide-mobile">25.2M</td>
+                    <td class="right"><span class="volume-ratio volume-extreme">4.5배 🔴</span></td>
+                
+                </tr>
+            
+
+                <tr data-ticker="AVX" onclick="selectTicker('AVX', 'Avx Corp')" style="cursor:pointer;">
+                    <td class="rank">3</td>
+                    <td><div class="ticker-cell"><span class="ticker-symbol">AVX</span><span class="ticker-name">Avx Corp</span></div></td>
+                    
+                    <td class="right price">$0.69</td>
+                    <td class="right change-positive">+7.44%</td>
+                    
+                    <td class="right volume hide-mobile">5.1M</td>
+                    <td class="right"><span class="volume-ratio volume-high">3.4배</span></td>
+                
+                </tr>
+            
+
+                <tr data-ticker="RARE" onclick="selectTicker('RARE', 'Ultragenyx Pharmaceutical Inc')" style="cursor:pointer;">
+                    <td class="rank">4</td>
+                    <td><div class="ticker-cell"><span class="ticker-symbol">RARE</span><span class="ticker-name">Ultragenyx Pharmaceutical Inc</span></div></td>
+                    
+                    <td class="right price">$20.52</td>
+                    <td class="right change-negative">-4.74%</td>
+                    
+                    <td class="right volume hide-mobile">7.2M</td>
+                    <td class="right"><span class="volume-ratio volume-high">2.9배</span></td>
+                
+                </tr>
+            
+
+                <tr data-ticker="MOFG" onclick="selectTicker('MOFG', 'Midwestone Financial Group')" style="cursor:pointer;">
+                    <td class="rank">5</td>
+                    <td><div class="ticker-cell"><span class="ticker-symbol">MOFG</span><span class="ticker-name">Midwestone Financial Group</span></div></td>
+                    
+                    <td class="right price">$49.31</td>
+                    <td class="right change-positive">+1.61%</td>
+                    
+                    <td class="right volume hide-mobile">576.3K</td>
+                    <td class="right"><span class="volume-ratio volume-high">2.6배</span></td>
+                
+                </tr>
+            
+
+                <tr data-ticker="TYL" onclick="selectTicker('TYL', 'Tyler Technologies')" style="cursor:pointer;">
+                    <td class="rank">6</td>
+                    <td><div class="ticker-cell"><span class="ticker-symbol">TYL</span><span class="ticker-name">Tyler Technologies</span></div></td>
+                    
+                    <td class="right price">$303.94</td>
+                    <td class="right change-positive">+4.28%</td>
+                    
+                    <td class="right volume hide-mobile">2.1M</td>
+                    <td class="right"><span class="volume-ratio volume-high">2.6배</span></td>
+                
+                </tr>
+            
+
+                <tr data-ticker="AMKR" onclick="selectTicker('AMKR', 'Amkor Technology')" style="cursor:pointer;">
+                    <td class="rank">7</td>
+                    <td><div class="ticker-cell"><span class="ticker-symbol">AMKR</span><span class="ticker-name">Amkor Technology</span></div></td>
+                    
+                    <td class="right price">$47.48</td>
+                    <td class="right change-negative">-0.86%</td>
+                    
+                    <td class="right volume hide-mobile">12.7M</td>
+                    <td class="right"><span class="volume-ratio volume-high">2.5배</span></td>
+                
+                </tr>
+            
+
+                <tr data-ticker="COIN" onclick="selectTicker('COIN', 'Coinbase')" style="cursor:pointer;">
+                    <td class="rank">8</td>
+                    <td><div class="ticker-cell"><span class="ticker-symbol">COIN</span><span class="ticker-name">Coinbase</span></div></td>
+                    
+                    <td class="right price">$164.32</td>
+                    <td class="right change-positive">+6.91%</td>
+                    
+                    <td class="right volume hide-mobile">32.3M</td>
+                    <td class="right"><span class="volume-ratio volume-high">2.4배</span></td>
+                
+                </tr>
+            
+
+                <tr data-ticker="PAYC" onclick="selectTicker('PAYC', 'Paycom')" style="cursor:pointer;">
+                    <td class="rank">9</td>
+                    <td><div class="ticker-cell"><span class="ticker-symbol">PAYC</span><span class="ticker-name">Paycom</span></div></td>
+                    
+                    <td class="right price">$125.31</td>
+                    <td class="right change-positive">+2.94%</td>
+                    
+                    <td class="right volume hide-mobile">4.0M</td>
+                    <td class="right"><span class="volume-ratio volume-high">2.4배</span></td>
+                
+                </tr>
+            
+
+                <tr data-ticker="ROL" onclick="selectTicker('ROL', 'Rollins, Inc.')" style="cursor:pointer;">
+                    <td class="rank">10</td>
+                    <td><div class="ticker-cell"><span class="ticker-symbol">ROL</span><span class="ticker-name">Rollins, Inc.</span></div></td>
+                    
+                    <td class="right price">$58.06</td>
+                    <td class="right change-negative">-0.36%</td>
+                    
+                    <td class="right volume hide-mobile">7.6M</td>
+                    <td class="right"><span class="volume-ratio volume-high">2.3배</span></td>
+                
+                </tr>
+            </tbody></table></div>
     </div>
-
     <div class="section">
-      <div class="section-header">
-        <span class="section-icon">🏆</span>
-        <span class="section-title">52주 신고가</span>
-        <span class="section-badge badge-blue">갱신</span>
-      </div>
-      <div class="table-wrapper">
-        <table class="data-table">
-          <thead><tr><th style="width:24px">#</th><th>종목</th><th class="hide-mobile">섹터</th><th class="right" style="width:70px">종가</th><th class="right hide-mobile">이전고가</th><th class="right" style="width:60px">갱신</th></tr></thead>
-          <tbody>
-            <tr data-ticker="YUM" onclick="selectTicker('YUM','Yum! Brands')" style="cursor:pointer"><td class="rank">1</td><td><div class="ticker-cell"><span class="ticker-symbol">YUM</span><span class="ticker-name">Yum! Brands</span></div></td><td class="hide-mobile"><span class="sector-tag">경기소비재</span></td><td class="right price">$163.28</td><td class="right change-positive">+1.91%</td><td class="right hide-mobile">$163.78</td><td class="right change-positive">-0.31%</td></tr>
-            <tr data-ticker="IMKTA" onclick="selectTicker('IMKTA','Ingles Markets Inc')" style="cursor:pointer"><td class="rank">2</td><td><div class="ticker-cell"><span class="ticker-symbol">IMKTA</span><span class="ticker-name">Ingles Markets Inc</span></div></td><td class="hide-mobile"></td><td class="right price">$88.55</td><td class="right change-positive">+2.11%</td><td class="right hide-mobile">$88.83</td><td class="right change-positive">-0.32%</td></tr>
-            <tr data-ticker="MCD" onclick="selectTicker('MCD','McDonald\'s')" style="cursor:pointer"><td class="rank">3</td><td><div class="ticker-cell"><span class="ticker-symbol">MCD</span><span class="ticker-name">McDonald's</span></div></td><td class="hide-mobile"><span class="sector-tag">경기소비재</span></td><td class="right price">$332.08</td><td class="right change-positive">+0.68%</td><td class="right hide-mobile">$333.38</td><td class="right change-positive">-0.39%</td></tr>
-            <tr data-ticker="GEF" onclick="selectTicker('GEF','Greif Bros. Corp')" style="cursor:pointer"><td class="rank">4</td><td><div class="ticker-cell"><span class="ticker-symbol">GEF</span><span class="ticker-name">Greif Bros. Corp</span></div></td><td class="hide-mobile"></td><td class="right price">$76.29</td><td class="right change-positive">+0.63%</td><td class="right hide-mobile">$76.60</td><td class="right change-positive">-0.40%</td></tr>
-            <tr data-ticker="IDA" onclick="selectTicker('IDA','Idacorp Inc')" style="cursor:pointer"><td class="rank">5</td><td><div class="ticker-cell"><span class="ticker-symbol">IDA</span><span class="ticker-name">Idacorp Inc</span></div></td><td class="hide-mobile"></td><td class="right price">$141.39</td><td class="right change-positive">+2.10%</td><td class="right hide-mobile">$142.06</td><td class="right change-positive">-0.47%</td></tr>
-            <tr data-ticker="GTY" onclick="selectTicker('GTY','Getty Realty Corp')" style="cursor:pointer"><td class="rank">6</td><td><div class="ticker-cell"><span class="ticker-symbol">GTY</span><span class="ticker-name">Getty Realty Corp</span></div></td><td class="hide-mobile"></td><td class="right price">$33.02</td><td class="right change-positive">+3.61%</td><td class="right hide-mobile">$33.20</td><td class="right change-positive">-0.54%</td></tr>
-            <tr data-ticker="BRC" onclick="selectTicker('BRC','Brady Corp')" style="cursor:pointer"><td class="rank">7</td><td><div class="ticker-cell"><span class="ticker-symbol">BRC</span><span class="ticker-name">Brady Corp</span></div></td><td class="hide-mobile"></td><td class="right price">$96.21</td><td class="right change-positive">+1.27%</td><td class="right hide-mobile">$96.75</td><td class="right change-positive">-0.56%</td></tr>
-            <tr data-ticker="MWA" onclick="selectTicker('MWA','Mueller Water Products')" style="cursor:pointer"><td class="rank">8</td><td><div class="ticker-cell"><span class="ticker-symbol">MWA</span><span class="ticker-name">Mueller Water Products</span></div></td><td class="hide-mobile"></td><td class="right price">$29.91</td><td class="right change-positive">+0.57%</td><td class="right hide-mobile">$30.08</td><td class="right change-positive">-0.57%</td></tr>
-            <tr data-ticker="WMT" onclick="selectTicker('WMT','Walmart')" style="cursor:pointer"><td class="rank">9</td><td><div class="ticker-cell"><span class="ticker-symbol">WMT</span><span class="ticker-name">Walmart</span></div></td><td class="hide-mobile"><span class="sector-tag">필수소비재</span></td><td class="right price">$133.64</td><td class="right change-positive">+3.29%</td><td class="right hide-mobile">$134.49</td><td class="right change-positive">-0.63%</td></tr>
-            <tr data-ticker="MO" onclick="selectTicker('MO','Altria')" style="cursor:pointer"><td class="rank">10</td><td><div class="ticker-cell"><span class="ticker-symbol">MO</span><span class="ticker-name">Altria</span></div></td><td class="hide-mobile"><span class="sector-tag">필수소비재</span></td><td class="right price">$67.01</td><td class="right change-positive">+1.90%</td><td class="right hide-mobile">$67.45</td><td class="right change-positive">-0.65%</td></tr>
-          </tbody>
-        </table>
-      </div>
+      <div class="section-header"><span class="section-icon">🏆</span><span class="section-title">52주 신고가</span><span class="section-badge badge-blue">갱신</span></div>
+      <div class="table-wrapper"><table class="data-table"><thead><tr><th style="width:24px">#</th><th>종목</th><th class="hide-mobile">섹터</th><th class="right" style="width:70px">종가</th><th class="right hide-mobile">이전고가</th><th class="right" style="width:60px">갱신</th></tr></thead><tbody>
+                <tr data-ticker="CECO" onclick="selectTicker('CECO', 'Career Education Corp')" style="cursor:pointer;">
+                    <td class="rank">1</td>
+                    <td><div class="ticker-cell"><span class="ticker-symbol">CECO</span><span class="ticker-name">Career Education Corp</span></div></td>
+                    <td class="hide-mobile"></td>
+                    <td class="right price">$79.14</td>
+                    <td class="right change-positive">+5.21%</td>
+                    
+                    <td class="right hide-mobile">$79.17</td>
+                    <td class="right change-positive">-0.04%</td>
+                
+                </tr>
+            
+
+                <tr data-ticker="DUK" onclick="selectTicker('DUK', 'Duke Energy')" style="cursor:pointer;">
+                    <td class="rank">2</td>
+                    <td><div class="ticker-cell"><span class="ticker-symbol">DUK</span><span class="ticker-name">Duke Energy</span></div></td>
+                    <td class="hide-mobile"><span class="sector-tag">유틸리티</span></td>
+                    <td class="right price">$128.20</td>
+                    <td class="right change-positive">+2.47%</td>
+                    
+                    <td class="right hide-mobile">$128.26</td>
+                    <td class="right change-positive">-0.05%</td>
+                
+                </tr>
+            
+
+                <tr data-ticker="EVRG" onclick="selectTicker('EVRG', 'Evergy')" style="cursor:pointer;">
+                    <td class="rank">3</td>
+                    <td><div class="ticker-cell"><span class="ticker-symbol">EVRG</span><span class="ticker-name">Evergy</span></div></td>
+                    <td class="hide-mobile"><span class="sector-tag">유틸리티</span></td>
+                    <td class="right price">$82.69</td>
+                    <td class="right change-positive">+3.36%</td>
+                    
+                    <td class="right hide-mobile">$82.73</td>
+                    <td class="right change-positive">-0.05%</td>
+                
+                </tr>
+            
+
+                <tr data-ticker="CMS" onclick="selectTicker('CMS', 'CMS Energy')" style="cursor:pointer;">
+                    <td class="rank">4</td>
+                    <td><div class="ticker-cell"><span class="ticker-symbol">CMS</span><span class="ticker-name">CMS Energy</span></div></td>
+                    <td class="hide-mobile"><span class="sector-tag">유틸리티</span></td>
+                    <td class="right price">$76.74</td>
+                    <td class="right change-positive">+2.79%</td>
+                    
+                    <td class="right hide-mobile">$76.78</td>
+                    <td class="right change-positive">-0.05%</td>
+                
+                </tr>
+            
+
+                <tr data-ticker="FE" onclick="selectTicker('FE', 'FirstEnergy')" style="cursor:pointer;">
+                    <td class="rank">5</td>
+                    <td><div class="ticker-cell"><span class="ticker-symbol">FE</span><span class="ticker-name">FirstEnergy</span></div></td>
+                    <td class="hide-mobile"><span class="sector-tag">유틸리티</span></td>
+                    <td class="right price">$50.10</td>
+                    <td class="right change-positive">+2.64%</td>
+                    
+                    <td class="right hide-mobile">$50.14</td>
+                    <td class="right change-positive">-0.08%</td>
+                
+                </tr>
+            
+
+                <tr data-ticker="NI" onclick="selectTicker('NI', 'NiSource')" style="cursor:pointer;">
+                    <td class="rank">6</td>
+                    <td><div class="ticker-cell"><span class="ticker-symbol">NI</span><span class="ticker-name">NiSource</span></div></td>
+                    <td class="hide-mobile"><span class="sector-tag">유틸리티</span></td>
+                    <td class="right price">$46.36</td>
+                    <td class="right change-positive">+2.82%</td>
+                    
+                    <td class="right hide-mobile">$46.40</td>
+                    <td class="right change-positive">-0.09%</td>
+                
+                </tr>
+            
+
+                <tr data-ticker="LPG" onclick="selectTicker('LPG', 'Dorian Lpg Ltd')" style="cursor:pointer;">
+                    <td class="rank">7</td>
+                    <td><div class="ticker-cell"><span class="ticker-symbol">LPG</span><span class="ticker-name">Dorian Lpg Ltd</span></div></td>
+                    <td class="hide-mobile"></td>
+                    <td class="right price">$33.46</td>
+                    <td class="right change-positive">+4.56%</td>
+                    
+                    <td class="right hide-mobile">$33.49</td>
+                    <td class="right change-positive">-0.09%</td>
+                
+                </tr>
+            
+
+                <tr data-ticker="DHT" onclick="selectTicker('DHT', 'Dht Holdings')" style="cursor:pointer;">
+                    <td class="rank">8</td>
+                    <td><div class="ticker-cell"><span class="ticker-symbol">DHT</span><span class="ticker-name">Dht Holdings</span></div></td>
+                    <td class="hide-mobile"></td>
+                    <td class="right price">$15.91</td>
+                    <td class="right change-positive">+3.24%</td>
+                    
+                    <td class="right hide-mobile">$15.93</td>
+                    <td class="right change-positive">-0.13%</td>
+                
+                </tr>
+            
+
+                <tr data-ticker="FRO" onclick="selectTicker('FRO', 'Frontline Ltd')" style="cursor:pointer;">
+                    <td class="rank">9</td>
+                    <td><div class="ticker-cell"><span class="ticker-symbol">FRO</span><span class="ticker-name">Frontline Ltd</span></div></td>
+                    <td class="hide-mobile"></td>
+                    <td class="right price">$30.92</td>
+                    <td class="right change-positive">+4.67%</td>
+                    
+                    <td class="right hide-mobile">$30.96</td>
+                    <td class="right change-positive">-0.13%</td>
+                
+                </tr>
+            
+
+                <tr data-ticker="DGII" onclick="selectTicker('DGII', 'Digi International Inc')" style="cursor:pointer;">
+                    <td class="rank">10</td>
+                    <td><div class="ticker-cell"><span class="ticker-symbol">DGII</span><span class="ticker-name">Digi International Inc</span></div></td>
+                    <td class="hide-mobile"></td>
+                    <td class="right price">$48.26</td>
+                    <td class="right change-positive">+3.70%</td>
+                    
+                    <td class="right hide-mobile">$48.33</td>
+                    <td class="right change-positive">-0.14%</td>
+                
+                </tr>
+            </tbody></table></div>
     </div>
   </div>
-
-  <!-- ETF TAB -->
   <div id="tab-etf" class="tab-content">
     <div class="section">
-      <div class="section-header">
-        <span class="section-icon">🟢</span>
-        <span class="section-title">ETF 상승 Top 10</span>
-        <span class="section-badge badge-green">오늘</span>
-      </div>
-      <div class="table-wrapper">
-        <table class="data-table">
-          <thead><tr><th style="width:24px">#</th><th>ETF</th><th>카테고리</th><th class="right" style="width:70px">종가</th><th class="right" style="width:60px">등락</th><th class="right hide-mobile">거래량</th></tr></thead>
-          <tbody>
-            <tr data-ticker="UVXY" onclick="selectTicker('UVXY','ProShares Ultra VIX Short-Term')" style="cursor:pointer"><td class="rank">1</td><td><div class="ticker-cell"><span class="ticker-symbol">UVXY</span><span class="ticker-name hide-mobile">ProShares Ultra VIX Short-Term</span></div></td><td><span class="etf-category">VIX 1.5배 레버리지</span></td><td class="right price">$39.73</td><td class="right change-positive">+11.16%</td><td class="right volume hide-mobile">13.0M</td></tr>
-            <tr data-ticker="SOXS" onclick="selectTicker('SOXS','Direxion Semiconductor Bear 3X')" style="cursor:pointer"><td class="rank">2</td><td><div class="ticker-cell"><span class="ticker-symbol">SOXS</span><span class="ticker-name hide-mobile">Direxion Semiconductor Bear 3X</span></div></td><td><span class="etf-category">반도체 3배 인버스</span></td><td class="right price">$1.81</td><td class="right change-positive">+9.70%</td><td class="right volume hide-mobile">851.9M</td></tr>
-            <tr data-ticker="FNGD" onclick="selectTicker('FNGD','MicroSectors FANG+ Index -3X')" style="cursor:pointer"><td class="rank">3</td><td><div class="ticker-cell"><span class="ticker-symbol">FNGD</span><span class="ticker-name hide-mobile">MicroSectors FANG+ Index -3X</span></div></td><td><span class="etf-category">FANG+ 3배 인버스</span></td><td class="right price">$70.38</td><td class="right change-positive">+9.07%</td><td class="right volume hide-mobile">784.9K</td></tr>
-            <tr data-ticker="TECS" onclick="selectTicker('TECS','Direxion Technology Bear 3X')" style="cursor:pointer"><td class="rank">4</td><td><div class="ticker-cell"><span class="ticker-symbol">TECS</span><span class="ticker-name hide-mobile">Direxion Technology Bear 3X</span></div></td><td><span class="etf-category">기술 3배 인버스</span></td><td class="right price">$18.69</td><td class="right change-positive">+9.04%</td><td class="right volume hide-mobile">7.6M</td></tr>
-            <tr data-ticker="VIXY" onclick="selectTicker('VIXY','ProShares VIX Short-Term Futures')" style="cursor:pointer"><td class="rank">5</td><td><div class="ticker-cell"><span class="ticker-symbol">VIXY</span><span class="ticker-name hide-mobile">ProShares VIX Short-Term Futures</span></div></td><td><span class="etf-category">VIX 선물</span></td><td class="right price">$27.90</td><td class="right change-positive">+7.27%</td><td class="right volume hide-mobile">6.2M</td></tr>
-            <tr data-ticker="VXX" onclick="selectTicker('VXX','Barclays iPath Series B S&P 500 VIX')" style="cursor:pointer"><td class="rank">6</td><td><div class="ticker-cell"><span class="ticker-symbol">VXX</span><span class="ticker-name hide-mobile">Barclays iPath Series B S&amp;P 500 VIX</span></div></td><td><span class="etf-category">변동성(VIX)</span></td><td class="right price">$28.79</td><td class="right change-positive">+7.19%</td><td class="right volume hide-mobile">15.0M</td></tr>
-            <tr data-ticker="SQQQ" onclick="selectTicker('SQQQ','ProShares UltraPro Short QQQ')" style="cursor:pointer"><td class="rank">7</td><td><div class="ticker-cell"><span class="ticker-symbol">SQQQ</span><span class="ticker-name hide-mobile">ProShares UltraPro Short QQQ</span></div></td><td><span class="etf-category">나스닥 3배 인버스</span></td><td class="right price">$73.10</td><td class="right change-positive">+6.93%</td><td class="right volume hide-mobile">61.0M</td></tr>
-            <tr data-ticker="SPXS" onclick="selectTicker('SPXS','Direxion Daily S&P 500 Bear 3X')" style="cursor:pointer"><td class="rank">8</td><td><div class="ticker-cell"><span class="ticker-symbol">SPXS</span><span class="ticker-name hide-mobile">Direxion Daily S&amp;P 500 Bear 3X</span></div></td><td><span class="etf-category">S&P 3배 인버스</span></td><td class="right price">$35.81</td><td class="right change-positive">+5.70%</td><td class="right volume hide-mobile">13.0M</td></tr>
-            <tr data-ticker="LABD" onclick="selectTicker('LABD','Direxion Daily S&P Biotech Bear 3X')" style="cursor:pointer"><td class="rank">9</td><td><div class="ticker-cell"><span class="ticker-symbol">LABD</span><span class="ticker-name hide-mobile">Direxion Daily S&amp;P Biotech Bear 3X</span></div></td><td><span class="etf-category">바이오 3배 인버스</span></td><td class="right price">$19.60</td><td class="right change-positive">+5.15%</td><td class="right volume hide-mobile">2.4M</td></tr>
-            <tr data-ticker="TMF" onclick="selectTicker('TMF','Direxion 20+ Year Treasury Bull 3X')" style="cursor:pointer"><td class="rank">10</td><td><div class="ticker-cell"><span class="ticker-symbol">TMF</span><span class="ticker-name hide-mobile">Direxion 20+ Year Treasury Bull 3X</span></div></td><td><span class="etf-category">장기국채 3배 레버리지</span></td><td class="right price">$39.86</td><td class="right change-positive">+2.96%</td><td class="right volume hide-mobile">7.6M</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
+      <div class="section-header"><span class="section-icon">🟢</span><span class="section-title">ETF 상승 Top 10</span><span class="section-badge badge-green">오늘</span></div>
+      <div class="table-wrapper"><table class="data-table"><thead><tr><th style="width:24px">#</th><th>ETF</th><th>카테고리</th><th class="right" style="width:70px">종가</th><th class="right" style="width:60px">등락</th><th class="right hide-mobile">거래량</th></tr></thead><tbody>
+                <tr data-ticker="CONL" onclick="selectTicker('CONL', 'GraniteShares 2x Long COIN')" style="cursor:pointer;">
+                    <td class="rank">1</td>
+                    <td><div class="ticker-cell"><span class="ticker-symbol">CONL</span><span class="ticker-name hide-mobile">GraniteShares 2x Long COIN</span></div></td>
+                    <td><span class="etf-category">코인베이스 2배 레버리지</span></td>
+                    <td class="right price">$6.83</td>
+                    <td class="right change-positive">+12.61%</td>
+                    <td class="right volume hide-mobile">39.1M</td>
+                </tr>
+            
 
-    <div class="section">
-      <div class="section-header">
-        <span class="section-icon">🔴</span>
-        <span class="section-title">ETF 하락 Top 10</span>
-        <span class="section-badge badge-red">오늘</span>
-      </div>
-      <div class="table-wrapper">
-        <table class="data-table">
-          <thead><tr><th style="width:24px">#</th><th>ETF</th><th>카테고리</th><th class="right" style="width:70px">종가</th><th class="right" style="width:60px">등락</th><th class="right hide-mobile">거래량</th></tr></thead>
-          <tbody>
-            <tr data-ticker="CONL" onclick="selectTicker('CONL','GraniteShares 2x Long COIN')" style="cursor:pointer"><td class="rank">1</td><td><div class="ticker-cell"><span class="ticker-symbol">CONL</span><span class="ticker-name hide-mobile">GraniteShares 2x Long COIN</span></div></td><td><span class="etf-category">코인베이스 2배 레버리지</span></td><td class="right price">$5.15</td><td class="right change-negative">-15.85%</td><td class="right volume hide-mobile">18.4M</td></tr>
-            <tr data-ticker="NUGT" onclick="selectTicker('NUGT','Direxion Daily Gold Miners Bull 2X')" style="cursor:pointer"><td class="rank">2</td><td><div class="ticker-cell"><span class="ticker-symbol">NUGT</span><span class="ticker-name hide-mobile">Direxion Daily Gold Miners Bull 2X</span></div></td><td><span class="etf-category">금광 2배 레버리지</span></td><td class="right price">$227.73</td><td class="right change-negative">-12.71%</td><td class="right volume hide-mobile">808.4K</td></tr>
-            <tr data-ticker="SLV" onclick="selectTicker('SLV','iShares Silver Trust')" style="cursor:pointer"><td class="rank">3</td><td><div class="ticker-cell"><span class="ticker-symbol">SLV</span><span class="ticker-name hide-mobile">iShares Silver Trust</span></div></td><td><span class="etf-category">은</span></td><td class="right price">$67.73</td><td class="right change-negative">-9.92%</td><td class="right volume hide-mobile">124.7M</td></tr>
-            <tr data-ticker="BULZ" onclick="selectTicker('BULZ','MicroSectors Solactive FANG & Innovation 3X')" style="cursor:pointer"><td class="rank">4</td><td><div class="ticker-cell"><span class="ticker-symbol">BULZ</span><span class="ticker-name hide-mobile">MicroSectors Solactive FANG &amp; Innovation 3X</span></div></td><td><span class="etf-category">혁신 3배 레버리지</span></td><td class="right price">$200.55</td><td class="right change-negative">-9.68%</td><td class="right volume hide-mobile">306.7K</td></tr>
-            <tr data-ticker="SOXL" onclick="selectTicker('SOXL','Direxion Semiconductor Bull 3X')" style="cursor:pointer"><td class="rank">5</td><td><div class="ticker-cell"><span class="ticker-symbol">SOXL</span><span class="ticker-name hide-mobile">Direxion Semiconductor Bull 3X</span></div></td><td><span class="etf-category">반도체 3배 레버리지</span></td><td class="right price">$63.10</td><td class="right change-negative">-9.43%</td><td class="right volume hide-mobile">89.5M</td></tr>
-            <tr data-ticker="FNGU" onclick="selectTicker('FNGU','MicroSectors FANG+ Index 3X')" style="cursor:pointer"><td class="rank">6</td><td><div class="ticker-cell"><span class="ticker-symbol">FNGU</span><span class="ticker-name hide-mobile">MicroSectors FANG+ Index 3X</span></div></td><td><span class="etf-category">FANG+ 3배 레버리지</span></td><td class="right price">$17.87</td><td class="right change-negative">-8.59%</td><td class="right volume hide-mobile">5.8M</td></tr>
-            <tr data-ticker="TECL" onclick="selectTicker('TECL','Direxion Technology Bull 3X')" style="cursor:pointer"><td class="rank">7</td><td><div class="ticker-cell"><span class="ticker-symbol">TECL</span><span class="ticker-name hide-mobile">Direxion Technology Bull 3X</span></div></td><td><span class="etf-category">기술 3배 레버리지</span></td><td class="right price">$102.79</td><td class="right change-negative">-8.50%</td><td class="right volume hide-mobile">1.6M</td></tr>
-            <tr data-ticker="BITX" onclick="selectTicker('BITX','2x Bitcoin Strategy ETF')" style="cursor:pointer"><td class="rank">8</td><td><div class="ticker-cell"><span class="ticker-symbol">BITX</span><span class="ticker-name hide-mobile">2x Bitcoin Strategy ETF</span></div></td><td><span class="etf-category">비트코인 2배</span></td><td class="right price">$14.39</td><td class="right change-negative">-7.52%</td><td class="right volume hide-mobile">18.5M</td></tr>
-            <tr data-ticker="SIL" onclick="selectTicker('SIL','Global X Silver Miners')" style="cursor:pointer"><td class="rank">9</td><td><div class="ticker-cell"><span class="ticker-symbol">SIL</span><span class="ticker-name hide-mobile">Global X Silver Miners</span></div></td><td><span class="etf-category">은광주</span></td><td class="right price">$96.66</td><td class="right change-negative">-7.46%</td><td class="right volume hide-mobile">3.3M</td></tr>
-            <tr data-ticker="GDXJ" onclick="selectTicker('GDXJ','VanEck Junior Gold Miners')" style="cursor:pointer"><td class="rank">10</td><td><div class="ticker-cell"><span class="ticker-symbol">GDXJ</span><span class="ticker-name hide-mobile">VanEck Junior Gold Miners</span></div></td><td><span class="etf-category">주니어 금광주</span></td><td class="right price">$128.85</td><td class="right change-negative">-7.22%</td><td class="right volume hide-mobile">8.7M</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
+                <tr data-ticker="NUGT" onclick="selectTicker('NUGT', 'Direxion Daily Gold Miners Bull 2X')" style="cursor:pointer;">
+                    <td class="rank">2</td>
+                    <td><div class="ticker-cell"><span class="ticker-symbol">NUGT</span><span class="ticker-name hide-mobile">Direxion Daily Gold Miners Bull 2X</span></div></td>
+                    <td><span class="etf-category">금광 2배 레버리지</span></td>
+                    <td class="right price">$253.54</td>
+                    <td class="right change-positive">+5.62%</td>
+                    <td class="right volume hide-mobile">795.0K</td>
+                </tr>
+            
 
+                <tr data-ticker="BITX" onclick="selectTicker('BITX', '2x Bitcoin Strategy ETF')" style="cursor:pointer;">
+                    <td class="rank">3</td>
+                    <td><div class="ticker-cell"><span class="ticker-symbol">BITX</span><span class="ticker-name hide-mobile">2x Bitcoin Strategy ETF</span></div></td>
+                    <td><span class="etf-category">비트코인 2배</span></td>
+                    <td class="right price">$15.84</td>
+                    <td class="right change-positive">+4.07%</td>
+                    <td class="right volume hide-mobile">12.1M</td>
+                </tr>
+            
+
+                <tr data-ticker="ETHE" onclick="selectTicker('ETHE', 'Grayscale Ethereum Trust')" style="cursor:pointer;">
+                    <td class="rank">4</td>
+                    <td><div class="ticker-cell"><span class="ticker-symbol">ETHE</span><span class="ticker-name hide-mobile">Grayscale Ethereum Trust</span></div></td>
+                    <td><span class="etf-category">이더리움</span></td>
+                    <td class="right price">$16.68</td>
+                    <td class="right change-positive">+3.51%</td>
+                    <td class="right volume hide-mobile">7.3M</td>
+                </tr>
+            
+
+                <tr data-ticker="ETHA" onclick="selectTicker('ETHA', 'iShares Ethereum Trust')" style="cursor:pointer;">
+                    <td class="rank">5</td>
+                    <td><div class="ticker-cell"><span class="ticker-symbol">ETHA</span><span class="ticker-name hide-mobile">iShares Ethereum Trust</span></div></td>
+                    <td><span class="etf-category">이더리움 현물</span></td>
+                    <td class="right price">$15.44</td>
+                    <td class="right change-positive">+3.49%</td>
+                    <td class="right volume hide-mobile">40.8M</td>
+                </tr>
+            
+
+                <tr data-ticker="SIL" onclick="selectTicker('SIL', 'Global X Silver Miners')" style="cursor:pointer;">
+                    <td class="rank">6</td>
+                    <td><div class="ticker-cell"><span class="ticker-symbol">SIL</span><span class="ticker-name hide-mobile">Global X Silver Miners</span></div></td>
+                    <td><span class="etf-category">은광주</span></td>
+                    <td class="right price">$101.64</td>
+                    <td class="right change-positive">+3.33%</td>
+                    <td class="right volume hide-mobile">2.5M</td>
+                </tr>
+            
+
+                <tr data-ticker="MSOS" onclick="selectTicker('MSOS', 'AdvisorShares Pure US Cannabis')" style="cursor:pointer;">
+                    <td class="rank">7</td>
+                    <td><div class="ticker-cell"><span class="ticker-symbol">MSOS</span><span class="ticker-name hide-mobile">AdvisorShares Pure US Cannabis</span></div></td>
+                    <td><span class="etf-category">대마초</span></td>
+                    <td class="right price">$3.96</td>
+                    <td class="right change-positive">+3.13%</td>
+                    <td class="right volume hide-mobile">3.2M</td>
+                </tr>
+            
+
+                <tr data-ticker="GDX" onclick="selectTicker('GDX', 'VanEck Gold Miners')" style="cursor:pointer;">
+                    <td class="rank">8</td>
+                    <td><div class="ticker-cell"><span class="ticker-symbol">GDX</span><span class="ticker-name hide-mobile">VanEck Gold Miners</span></div></td>
+                    <td><span class="etf-category">금광주</span></td>
+                    <td class="right price">$103.94</td>
+                    <td class="right change-positive">+2.99%</td>
+                    <td class="right volume hide-mobile">31.9M</td>
+                </tr>
+            
+
+                <tr data-ticker="XLU" onclick="selectTicker('XLU', 'Utilities Select SPDR')" style="cursor:pointer;">
+                    <td class="rank">9</td>
+                    <td><div class="ticker-cell"><span class="ticker-symbol">XLU</span><span class="ticker-name hide-mobile">Utilities Select SPDR</span></div></td>
+                    <td><span class="etf-category">유틸리티 섹터</span></td>
+                    <td class="right price">$46.50</td>
+                    <td class="right change-positive">+2.88%</td>
+                    <td class="right volume hide-mobile">42.4M</td>
+                </tr>
+            
+
+                <tr data-ticker="GDXJ" onclick="selectTicker('GDXJ', 'VanEck Junior Gold Miners')" style="cursor:pointer;">
+                    <td class="rank">10</td>
+                    <td><div class="ticker-cell"><span class="ticker-symbol">GDXJ</span><span class="ticker-name hide-mobile">VanEck Junior Gold Miners</span></div></td>
+                    <td><span class="etf-category">주니어 금광주</span></td>
+                    <td class="right price">$136.34</td>
+                    <td class="right change-positive">+2.84%</td>
+                    <td class="right volume hide-mobile">5.8M</td>
+                </tr>
+            </tbody></table></div>
+    </div>
     <div class="section">
-      <div class="section-header">
-        <span class="section-icon">💰</span>
-        <span class="section-title">ETF 거래량 Top 10</span>
-        <span class="section-badge badge-blue">활발</span>
-      </div>
-      <div class="table-wrapper">
-        <table class="data-table">
-          <thead><tr><th style="width:24px">#</th><th>ETF</th><th>카테고리</th><th class="right" style="width:70px">종가</th><th class="right" style="width:60px">등락</th><th class="right hide-mobile">거래량</th></tr></thead>
-          <tbody>
-            <tr data-ticker="SOXS" onclick="selectTicker('SOXS','Direxion Semiconductor Bear 3X')" style="cursor:pointer"><td class="rank">1</td><td><div class="ticker-cell"><span class="ticker-symbol">SOXS</span><span class="ticker-name hide-mobile">Direxion Semiconductor Bear 3X</span></div></td><td><span class="etf-category">반도체 3배 인버스</span></td><td class="right price">$1.81</td><td class="right change-positive">+9.70%</td><td class="right volume hide-mobile">851.9M</td></tr>
-            <tr data-ticker="TQQQ" onclick="selectTicker('TQQQ','ProShares UltraPro QQQ')" style="cursor:pointer"><td class="rank">2</td><td><div class="ticker-cell"><span class="ticker-symbol">TQQQ</span><span class="ticker-name hide-mobile">ProShares UltraPro QQQ</span></div></td><td><span class="etf-category">나스닥 3배 레버리지</span></td><td class="right price">$48.26</td><td class="right change-negative">-6.82%</td><td class="right volume hide-mobile">129.3M</td></tr>
-            <tr data-ticker="SLV" onclick="selectTicker('SLV','iShares Silver Trust')" style="cursor:pointer"><td class="rank">3</td><td><div class="ticker-cell"><span class="ticker-symbol">SLV</span><span class="ticker-name hide-mobile">iShares Silver Trust</span></div></td><td><span class="etf-category">은</span></td><td class="right price">$67.73</td><td class="right change-negative">-9.92%</td><td class="right volume hide-mobile">124.7M</td></tr>
-            <tr data-ticker="SPY" onclick="selectTicker('SPY','SPDR S&P 500')" style="cursor:pointer"><td class="rank">4</td><td><div class="ticker-cell"><span class="ticker-symbol">SPY</span><span class="ticker-name hide-mobile">SPDR S&amp;P 500</span></div></td><td><span class="etf-category">S&P 500 추종</span></td><td class="right price">$681.27</td><td class="right change-negative">-1.87%</td><td class="right volume hide-mobile">108.8M</td></tr>
-            <tr data-ticker="XLF" onclick="selectTicker('XLF','Financial Select SPDR')" style="cursor:pointer"><td class="rank">5</td><td><div class="ticker-cell"><span class="ticker-symbol">XLF</span><span class="ticker-name hide-mobile">Financial Select SPDR</span></div></td><td><span class="etf-category">금융 섹터</span></td><td class="right price">$51.69</td><td class="right change-negative">-2.29%</td><td class="right volume hide-mobile">94.1M</td></tr>
-            <tr data-ticker="SOXL" onclick="selectTicker('SOXL','Direxion Semiconductor Bull 3X')" style="cursor:pointer"><td class="rank">6</td><td><div class="ticker-cell"><span class="ticker-symbol">SOXL</span><span class="ticker-name hide-mobile">Direxion Semiconductor Bull 3X</span></div></td><td><span class="etf-category">반도체 3배 레버리지</span></td><td class="right price">$63.10</td><td class="right change-negative">-9.43%</td><td class="right volume hide-mobile">89.5M</td></tr>
-            <tr data-ticker="TSLL" onclick="selectTicker('TSLL','Direxion Daily TSLA Bull 2X')" style="cursor:pointer"><td class="rank">7</td><td><div class="ticker-cell"><span class="ticker-symbol">TSLL</span><span class="ticker-name hide-mobile">Direxion Daily TSLA Bull 2X</span></div></td><td><span class="etf-category">테슬라 2배 레버리지</span></td><td class="right price">$15.89</td><td class="right change-negative">-6.28%</td><td class="right volume hide-mobile">81.0M</td></tr>
-            <tr data-ticker="QQQ" onclick="selectTicker('QQQ','Invesco QQQ Trust')" style="cursor:pointer"><td class="rank">8</td><td><div class="ticker-cell"><span class="ticker-symbol">QQQ</span><span class="ticker-name hide-mobile">Invesco QQQ Trust</span></div></td><td><span class="etf-category">나스닥 100 추종</span></td><td class="right price">$600.64</td><td class="right change-negative">-2.29%</td><td class="right volume hide-mobile">80.4M</td></tr>
-            <tr data-ticker="XLE" onclick="selectTicker('XLE','Energy Select SPDR')" style="cursor:pointer"><td class="rank">9</td><td><div class="ticker-cell"><span class="ticker-symbol">XLE</span><span class="ticker-name hide-mobile">Energy Select SPDR</span></div></td><td><span class="etf-category">에너지 섹터</span></td><td class="right price">$53.98</td><td class="right change-negative">-1.75%</td><td class="right volume hide-mobile">67.3M</td></tr>
-            <tr data-ticker="IBIT" onclick="selectTicker('IBIT','iShares Bitcoin Trust')" style="cursor:pointer"><td class="rank">10</td><td><div class="ticker-cell"><span class="ticker-symbol">IBIT</span><span class="ticker-name hide-mobile">iShares Bitcoin Trust</span></div></td><td><span class="etf-category">비트코인 현물</span></td><td class="right price">$37.05</td><td class="right change-negative">-3.82%</td><td class="right volume hide-mobile">61.8M</td></tr>
-          </tbody>
-        </table>
-      </div>
+      <div class="section-header"><span class="section-icon">🔴</span><span class="section-title">ETF 하락 Top 10</span><span class="section-badge badge-red">오늘</span></div>
+      <div class="table-wrapper"><table class="data-table"><thead><tr><th style="width:24px">#</th><th>ETF</th><th>카테고리</th><th class="right" style="width:70px">종가</th><th class="right" style="width:60px">등락</th><th class="right hide-mobile">거래량</th></tr></thead><tbody>
+                <tr data-ticker="NVDL" onclick="selectTicker('NVDL', 'GraniteShares 2x Long NVDA')" style="cursor:pointer;">
+                    <td class="rank">1</td>
+                    <td><div class="ticker-cell"><span class="ticker-symbol">NVDL</span><span class="ticker-name hide-mobile">GraniteShares 2x Long NVDA</span></div></td>
+                    <td><span class="etf-category">엔비디아 2배 레버리지</span></td>
+                    <td class="right price">$82.29</td>
+                    <td class="right change-negative">-4.67%</td>
+                    <td class="right volume hide-mobile">11.0M</td>
+                </tr>
+            
+
+                <tr data-ticker="SLV" onclick="selectTicker('SLV', 'iShares Silver Trust')" style="cursor:pointer;">
+                    <td class="rank">2</td>
+                    <td><div class="ticker-cell"><span class="ticker-symbol">SLV</span><span class="ticker-name hide-mobile">iShares Silver Trust</span></div></td>
+                    <td><span class="etf-category">은</span></td>
+                    <td class="right price">$69.72</td>
+                    <td class="right change-negative">-2.09%</td>
+                    <td class="right volume hide-mobile">69.4M</td>
+                </tr>
+            
+
+                <tr data-ticker="LABU" onclick="selectTicker('LABU', 'Direxion Daily S&P Biotech Bull 3X')" style="cursor:pointer;">
+                    <td class="rank">3</td>
+                    <td><div class="ticker-cell"><span class="ticker-symbol">LABU</span><span class="ticker-name hide-mobile">Direxion Daily S&P Biotech Bull 3X</span></div></td>
+                    <td><span class="etf-category">바이오 3배 레버리지</span></td>
+                    <td class="right price">$156.45</td>
+                    <td class="right change-negative">-1.78%</td>
+                    <td class="right volume hide-mobile">533.2K</td>
+                </tr>
+            
+
+                <tr data-ticker="SOXS" onclick="selectTicker('SOXS', 'Direxion Semiconductor Bear 3X')" style="cursor:pointer;">
+                    <td class="rank">4</td>
+                    <td><div class="ticker-cell"><span class="ticker-symbol">SOXS</span><span class="ticker-name hide-mobile">Direxion Semiconductor Bear 3X</span></div></td>
+                    <td><span class="etf-category">반도체 3배 인버스</span></td>
+                    <td class="right price">$1.76</td>
+                    <td class="right change-negative">-1.68%</td>
+                    <td class="right volume hide-mobile">657.6M</td>
+                </tr>
+            
+
+                <tr data-ticker="FNGU" onclick="selectTicker('FNGU', 'MicroSectors FANG+ Index 3X')" style="cursor:pointer;">
+                    <td class="rank">5</td>
+                    <td><div class="ticker-cell"><span class="ticker-symbol">FNGU</span><span class="ticker-name hide-mobile">MicroSectors FANG+ Index 3X</span></div></td>
+                    <td><span class="etf-category">FANG+ 3배 레버리지</span></td>
+                    <td class="right price">$17.60</td>
+                    <td class="right change-negative">-1.12%</td>
+                    <td class="right volume hide-mobile">6.3M</td>
+                </tr>
+            
+
+                <tr data-ticker="EDOC" onclick="selectTicker('EDOC', 'Global X Telemedicine & Digital Health')" style="cursor:pointer;">
+                    <td class="rank">6</td>
+                    <td><div class="ticker-cell"><span class="ticker-symbol">EDOC</span><span class="ticker-name hide-mobile">Global X Telemedicine & Digital Health</span></div></td>
+                    <td><span class="etf-category">디지털 헬스</span></td>
+                    <td class="right price">$25.31</td>
+                    <td class="right change-negative">-0.82%</td>
+                    <td class="right volume hide-mobile">4.4K</td>
+                </tr>
+            
+
+                <tr data-ticker="MGK" onclick="selectTicker('MGK', 'Vanguard Mega Cap Growth')" style="cursor:pointer;">
+                    <td class="rank">7</td>
+                    <td><div class="ticker-cell"><span class="ticker-symbol">MGK</span><span class="ticker-name hide-mobile">Vanguard Mega Cap Growth</span></div></td>
+                    <td><span class="etf-category">메가캡 성장</span></td>
+                    <td class="right price">$384.69</td>
+                    <td class="right change-negative">-0.74%</td>
+                    <td class="right volume hide-mobile">483.0K</td>
+                </tr>
+            
+
+                <tr data-ticker="SQQQ" onclick="selectTicker('SQQQ', 'ProShares UltraPro Short QQQ')" style="cursor:pointer;">
+                    <td class="rank">8</td>
+                    <td><div class="ticker-cell"><span class="ticker-symbol">SQQQ</span><span class="ticker-name hide-mobile">ProShares UltraPro Short QQQ</span></div></td>
+                    <td><span class="etf-category">나스닥 3배 인버스</span></td>
+                    <td class="right price">$72.73</td>
+                    <td class="right change-negative">-0.72%</td>
+                    <td class="right volume hide-mobile">77.9M</td>
+                </tr>
+            
+
+                <tr data-ticker="SVXY" onclick="selectTicker('SVXY', 'ProShares Short VIX Short-Term')" style="cursor:pointer;">
+                    <td class="rank">9</td>
+                    <td><div class="ticker-cell"><span class="ticker-symbol">SVXY</span><span class="ticker-name hide-mobile">ProShares Short VIX Short-Term</span></div></td>
+                    <td><span class="etf-category">VIX 인버스</span></td>
+                    <td class="right price">$52.08</td>
+                    <td class="right change-negative">-0.71%</td>
+                    <td class="right volume hide-mobile">4.6M</td>
+                </tr>
+            
+
+                <tr data-ticker="VUG" onclick="selectTicker('VUG', 'Vanguard Growth')" style="cursor:pointer;">
+                    <td class="rank">10</td>
+                    <td><div class="ticker-cell"><span class="ticker-symbol">VUG</span><span class="ticker-name hide-mobile">Vanguard Growth</span></div></td>
+                    <td><span class="etf-category">성장주</span></td>
+                    <td class="right price">$457.98</td>
+                    <td class="right change-negative">-0.68%</td>
+                    <td class="right volume hide-mobile">2.2M</td>
+                </tr>
+            </tbody></table></div>
+    </div>
+    <div class="section">
+      <div class="section-header"><span class="section-icon">💰</span><span class="section-title">ETF 거래량 Top 10</span><span class="section-badge badge-blue">활발</span></div>
+      <div class="table-wrapper"><table class="data-table"><thead><tr><th style="width:24px">#</th><th>ETF</th><th>카테고리</th><th class="right" style="width:70px">종가</th><th class="right" style="width:60px">등락</th><th class="right hide-mobile">거래량</th></tr></thead><tbody>
+                <tr data-ticker="SOXS" onclick="selectTicker('SOXS', 'Direxion Semiconductor Bear 3X')" style="cursor:pointer;">
+                    <td class="rank">1</td>
+                    <td><div class="ticker-cell"><span class="ticker-symbol">SOXS</span><span class="ticker-name hide-mobile">Direxion Semiconductor Bear 3X</span></div></td>
+                    <td><span class="etf-category">반도체 3배 인버스</span></td>
+                    <td class="right price">$1.76</td>
+                    <td class="right change-negative">-1.68%</td>
+                    <td class="right volume hide-mobile">657.6M</td>
+                </tr>
+            
+
+                <tr data-ticker="TQQQ" onclick="selectTicker('TQQQ', 'ProShares UltraPro QQQ')" style="cursor:pointer;">
+                    <td class="rank">2</td>
+                    <td><div class="ticker-cell"><span class="ticker-symbol">TQQQ</span><span class="ticker-name hide-mobile">ProShares UltraPro QQQ</span></div></td>
+                    <td><span class="etf-category">나스닥 3배 레버리지</span></td>
+                    <td class="right price">$48.47</td>
+                    <td class="right change-positive">+0.66%</td>
+                    <td class="right volume hide-mobile">122.9M</td>
+                </tr>
+            
+
+                <tr data-ticker="SPY" onclick="selectTicker('SPY', 'SPDR S&P 500')" style="cursor:pointer;">
+                    <td class="rank">3</td>
+                    <td><div class="ticker-cell"><span class="ticker-symbol">SPY</span><span class="ticker-name hide-mobile">SPDR S&P 500</span></div></td>
+                    <td><span class="etf-category">S&P 500 추종</span></td>
+                    <td class="right price">$681.75</td>
+                    <td class="right change-positive">+0.01%</td>
+                    <td class="right volume hide-mobile">96.2M</td>
+                </tr>
+            
+
+                <tr data-ticker="TSLL" onclick="selectTicker('TSLL', 'Direxion Daily TSLA Bull 2X')" style="cursor:pointer;">
+                    <td class="rank">4</td>
+                    <td><div class="ticker-cell"><span class="ticker-symbol">TSLL</span><span class="ticker-name hide-mobile">Direxion Daily TSLA Bull 2X</span></div></td>
+                    <td><span class="etf-category">테슬라 2배 레버리지</span></td>
+                    <td class="right price">$15.93</td>
+                    <td class="right change-positive">+1.53%</td>
+                    <td class="right volume hide-mobile">80.6M</td>
+                </tr>
+            
+
+                <tr data-ticker="SOXL" onclick="selectTicker('SOXL', 'Direxion Semiconductor Bull 3X')" style="cursor:pointer;">
+                    <td class="rank">5</td>
+                    <td><div class="ticker-cell"><span class="ticker-symbol">SOXL</span><span class="ticker-name hide-mobile">Direxion Semiconductor Bull 3X</span></div></td>
+                    <td><span class="etf-category">반도체 3배 레버리지</span></td>
+                    <td class="right price">$64.59</td>
+                    <td class="right change-positive">+1.03%</td>
+                    <td class="right volume hide-mobile">79.8M</td>
+                </tr>
+            
+
+                <tr data-ticker="SQQQ" onclick="selectTicker('SQQQ', 'ProShares UltraPro Short QQQ')" style="cursor:pointer;">
+                    <td class="rank">6</td>
+                    <td><div class="ticker-cell"><span class="ticker-symbol">SQQQ</span><span class="ticker-name hide-mobile">ProShares UltraPro Short QQQ</span></div></td>
+                    <td><span class="etf-category">나스닥 3배 인버스</span></td>
+                    <td class="right price">$72.73</td>
+                    <td class="right change-negative">-0.72%</td>
+                    <td class="right volume hide-mobile">77.9M</td>
+                </tr>
+            
+
+                <tr data-ticker="SLV" onclick="selectTicker('SLV', 'iShares Silver Trust')" style="cursor:pointer;">
+                    <td class="rank">7</td>
+                    <td><div class="ticker-cell"><span class="ticker-symbol">SLV</span><span class="ticker-name hide-mobile">iShares Silver Trust</span></div></td>
+                    <td><span class="etf-category">은</span></td>
+                    <td class="right price">$69.72</td>
+                    <td class="right change-negative">-2.09%</td>
+                    <td class="right volume hide-mobile">69.4M</td>
+                </tr>
+            
+
+                <tr data-ticker="QQQ" onclick="selectTicker('QQQ', 'Invesco QQQ Trust')" style="cursor:pointer;">
+                    <td class="rank">8</td>
+                    <td><div class="ticker-cell"><span class="ticker-symbol">QQQ</span><span class="ticker-name hide-mobile">Invesco QQQ Trust</span></div></td>
+                    <td><span class="etf-category">나스닥 100 추종</span></td>
+                    <td class="right price">$601.92</td>
+                    <td class="right change-positive">+0.25%</td>
+                    <td class="right volume hide-mobile">69.2M</td>
+                </tr>
+            
+
+                <tr data-ticker="BITO" onclick="selectTicker('BITO', 'ProShares Bitcoin Strategy')" style="cursor:pointer;">
+                    <td class="rank">9</td>
+                    <td><div class="ticker-cell"><span class="ticker-symbol">BITO</span><span class="ticker-name hide-mobile">ProShares Bitcoin Strategy</span></div></td>
+                    <td><span class="etf-category">비트코인 선물</span></td>
+                    <td class="right price">$9.50</td>
+                    <td class="right change-positive">+2.15%</td>
+                    <td class="right volume hide-mobile">68.7M</td>
+                </tr>
+            
+
+                <tr data-ticker="IBIT" onclick="selectTicker('IBIT', 'iShares Bitcoin Trust')" style="cursor:pointer;">
+                    <td class="rank">10</td>
+                    <td><div class="ticker-cell"><span class="ticker-symbol">IBIT</span><span class="ticker-name hide-mobile">iShares Bitcoin Trust</span></div></td>
+                    <td><span class="etf-category">비트코인 현물</span></td>
+                    <td class="right price">$38.97</td>
+                    <td class="right change-positive">+2.12%</td>
+                    <td class="right volume hide-mobile">65.3M</td>
+                </tr>
+            </tbody></table></div>
     </div>
   </div>
-
-  <!-- SHARE BAR -->
   <div class="hv-share-bar">
     <div class="hv-share-bar-preview"><span>미국 시장 트랙커</span> — herdvibe.com</div>
     <div class="hv-share-bar-buttons">
@@ -502,8 +1008,6 @@ body{font-family:var(--hv-font-body);background:var(--hv-bg-base);color:var(--hv
     </div>
   </div>
 </div>
-
-<!-- FOOTER -->
 <footer class="hv-footer">
   <div class="hv-footer-inner">
     <div class="hv-footer-brand">Herdvibe</div>
@@ -517,10 +1021,8 @@ body{font-family:var(--hv-font-body);background:var(--hv-bg-base);color:var(--hv
     <p style="font-size:.688rem;color:var(--hv-text-muted)">&copy; 2025 Herdvibe. All rights reserved.</p>
   </div>
 </footer>
-
 <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
 <script>
-/* ===== SHARE ===== */
 var SHARE_URL='https://herdvibe.com/15';
 var SHARE_TITLE='🇺🇸 미국 시장 트랙커 — 급등주 · ETF · 거래량 | Herdvibe';
 function ensureKakao(){try{if(typeof Kakao!=='undefined'&&!Kakao.isInitialized())Kakao.init('a43ed7b39fac35458f4f9df925a279b5');return typeof Kakao!=='undefined'&&Kakao.isInitialized();}catch(e){return false;}}
@@ -529,60 +1031,38 @@ function flashCopied(btn){if(!btn)return;var o=btn.innerHTML;btn.style.backgroun
 function toast(m){var c=document.querySelector('.toast-wrap');if(!c){c=document.createElement('div');c.className='toast-wrap';document.body.appendChild(c);}var t=document.createElement('div');t.className='toast';t.textContent=m;c.appendChild(t);setTimeout(function(){t.style.opacity='0';t.style.transform='translateY(12px)';t.style.transition='.3s';setTimeout(function(){t.remove();},300);},3000);}
 function doShare(p,btn){var u=SHARE_URL,t=encodeURIComponent(SHARE_TITLE),eu=encodeURIComponent(u);switch(p){case'twitter':window.open('https://twitter.com/intent/tweet?text='+t+'&url='+eu,'_blank');break;case'telegram':window.open('https://t.me/share/url?url='+eu+'&text='+t,'_blank');break;case'kakao':if(!ensureKakao()){copyToClipboard(u);toast('링크 복사완료!');}else try{Kakao.Share.sendDefault({objectType:'feed',content:{title:'🇺🇸 미국 시장 트랙커',description:'급등주 · ETF · 거래량 분석',imageUrl:'https://raw.githubusercontent.com/kittycapital/kittycapital.github.io/main/assets/herdvibe-og.png',link:{mobileWebUrl:u,webUrl:u}},buttons:[{title:'대시보드 보기',link:{mobileWebUrl:u,webUrl:u}}]});}catch(e){copyToClipboard(u);toast('링크 복사완료!');}break;case'instagram':copyToClipboard(u);flashCopied(btn);toast('링크 복사완료! 인스타그램에 붙여넣기 하세요');break;case'link':copyToClipboard(u);flashCopied(btn);toast('링크가 복사되었습니다 ✓');break;}}
 ensureKakao();
-
-/* ===== APP LOGIC ===== */
-let currentTicker = 'SPY';
-
-function switchTab(tabName) {
-  document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
-  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-  document.getElementById('tab-' + tabName).classList.add('active');
-  document.querySelectorAll('.tab-btn')[tabName === 'stocks' ? 0 : 1].classList.add('active');
+let currentTicker='SPY';
+function switchTab(tabName){
+  document.querySelectorAll('.tab-content').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById('tab-'+tabName).classList.add('active');
+  document.querySelectorAll('.tab-btn')[tabName==='stocks'?0:1].classList.add('active');
   sendHeight();
 }
-
-function selectTicker(ticker, name) {
-  if (ticker === currentTicker) return;
-  currentTicker = ticker;
-  document.getElementById('chartTicker').textContent = ticker;
-  document.getElementById('chartName').textContent = name;
-  document.querySelectorAll('.data-table tbody tr').forEach(row => {
-    row.classList.toggle('selected', row.dataset.ticker === ticker);
+function selectTicker(ticker,name){
+  if(ticker===currentTicker)return;
+  currentTicker=ticker;
+  document.getElementById('chartTicker').textContent=ticker;
+  document.getElementById('chartName').textContent=name;
+  document.querySelectorAll('.data-table tbody tr').forEach(row=>{
+    row.classList.toggle('selected',row.dataset.ticker===ticker);
   });
   loadChart(ticker);
   document.querySelector('.chart-section').scrollIntoView({behavior:'smooth',block:'start'});
 }
-
-function loadChart(ticker) {
-  var container = document.getElementById('tradingview_chart');
-  container.innerHTML = '';
+function loadChart(ticker){
+  var container=document.getElementById('tradingview_chart');
+  container.innerHTML='';
   new TradingView.widget({
-    "autosize": true,
-    "symbol": ticker,
-    "interval": "D",
-    "timezone": "Asia/Seoul",
-    "theme": "dark",
-    "style": "1",
-    "locale": "kr",
-    "toolbar_bg": "#111111",
-    "enable_publishing": false,
-    "allow_symbol_change": false,
-    "hide_top_toolbar": false,
-    "hide_legend": false,
-    "save_image": false,
-    "container_id": "tradingview_chart",
-    "range": "12M",
-    "backgroundColor": "#111111",
-    "gridColor": "#181818"
+    "autosize":true,"symbol":ticker,"interval":"D","timezone":"Asia/Seoul",
+    "theme":"dark","style":"1","locale":"kr","toolbar_bg":"#111111",
+    "enable_publishing":false,"allow_symbol_change":false,
+    "hide_top_toolbar":false,"hide_legend":false,"save_image":false,
+    "container_id":"tradingview_chart","range":"12M",
+    "backgroundColor":"#111111","gridColor":"#181818"
   });
 }
-
-document.addEventListener('DOMContentLoaded', function() {
-  loadChart('SPY');
-  setTimeout(sendHeight, 500);
-});
-
-/* ===== IFRAME RESIZE ===== */
+document.addEventListener('DOMContentLoaded',function(){loadChart('SPY');setTimeout(sendHeight,500);});
 var _lastH=0,_ht;
 function sendHeight(){clearTimeout(_ht);_ht=setTimeout(function(){var h=document.documentElement.scrollHeight;if(Math.abs(h-_lastH)>5){_lastH=h;try{window.parent.postMessage({type:'resize',height:h,id:'hvUSMarket'},'*');window.parent.postMessage({height:h,id:'hvUSMarket'},'*');}catch(e){}}},120);}
 window.addEventListener('load',function(){sendHeight();setTimeout(sendHeight,500);setTimeout(sendHeight,2000);});
