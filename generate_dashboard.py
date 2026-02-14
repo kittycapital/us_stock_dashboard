@@ -104,6 +104,8 @@ def get_index_data():
         "^GSPC": "S&P 500",
         "^IXIC": "나스닥",
         "^DJI": "다우존스",
+        "^VIX": "VIX",
+        "^TNX": "US 10Y",
         "KRW=X": "원/달러",
     }
     result = {}
@@ -115,18 +117,35 @@ def get_index_data():
                 current = hist["Close"].iloc[-1]
                 prev = hist["Close"].iloc[-2]
                 change_pct = ((current - prev) / prev) * 100
+
+                # Format value based on type
+                if name == "VIX":
+                    formatted = f"{current:.2f}"
+                elif name == "US 10Y":
+                    formatted = f"{current:.3f}%"
+                else:
+                    formatted = f"{current:,.2f}"
+
                 result[name] = {
                     "value": current,
                     "change_pct": change_pct,
-                    "formatted_value": f"{current:,.2f}",
+                    "formatted_value": formatted,
                     "formatted_change": fmt_pct(change_pct),
                 }
             elif len(hist) == 1:
                 current = hist["Close"].iloc[-1]
+
+                if name == "VIX":
+                    formatted = f"{current:.2f}"
+                elif name == "US 10Y":
+                    formatted = f"{current:.3f}%"
+                else:
+                    formatted = f"{current:,.2f}"
+
                 result[name] = {
                     "value": current,
                     "change_pct": 0,
-                    "formatted_value": f"{current:,.2f}",
+                    "formatted_value": formatted,
                     "formatted_change": "0.00%",
                 }
         except Exception as e:
@@ -307,8 +326,10 @@ def generate_html(index_data, gainers, unusual_vol, new_highs,
         return "change-positive" if pct >= 0 else "change-negative"
 
     def index_change_class(name, pct):
+        # 원/달러: 환율 하락(원화 강세)이 긍정적 → 반전
         if name == "원/달러":
             return "change-negative" if pct > 0 else "change-positive"
+        # VIX, US 10Y, 기타: 단순 등락 기준 (상승=초록)
         return "change-positive" if pct >= 0 else "change-negative"
 
     def render_stock_rows(items, show_sector=True, show_vol_ratio=False, show_52w=False):
@@ -332,7 +353,6 @@ def generate_html(index_data, gainers, unusual_vol, new_highs,
                 ratio = item.get("vol_ratio", 0)
                 vol_cls = "volume-extreme" if ratio >= 4 else "volume-high"
                 emoji = " 🔴" if ratio >= 4 else ""
-                # Mobile: only show ratio. Desktop: show both volume and ratio
                 vol_td = f'''
                     <td class="right volume hide-mobile">{fmt_number(item.get("volume", 0))}</td>
                     <td class="right"><span class="volume-ratio {vol_cls}">{ratio:.1f}배{emoji}</span></td>
@@ -376,9 +396,9 @@ def generate_html(index_data, gainers, unusual_vol, new_highs,
             ''')
         return "\n".join(rows)
 
-    # Build index bar
+    # Build index bar (6 items)
     index_items = []
-    for name in ["S&P 500", "나스닥", "다우존스", "원/달러"]:
+    for name in ["S&P 500", "나스닥", "다우존스", "VIX", "US 10Y", "원/달러"]:
         d = index_data.get(name, {})
         cls = index_change_class(name, d.get("change_pct", 0))
         index_items.append(f'''
@@ -445,8 +465,8 @@ def generate_html(index_data, gainers, unusual_vol, new_highs,
         .update-time .dot {{ display:inline-block; width:5px; height:5px; background:var(--green); border-radius:50%; margin-right:5px; animation:pulse 2s infinite; }}
         @keyframes pulse {{ 0%,100%{{opacity:1}} 50%{{opacity:0.3}} }}
         
-        /* Index Bar */
-        .index-bar {{ display:grid; grid-template-columns:repeat(2, 1fr); gap:6px; margin-bottom:8px; }}
+        /* Index Bar — 3 columns mobile, 6 columns desktop */
+        .index-bar {{ display:grid; grid-template-columns:repeat(3, 1fr); gap:6px; margin-bottom:8px; }}
         .index-item {{ background:var(--bg-secondary); border:1px solid var(--border); border-radius:6px; padding:8px 10px; }}
         .index-item .label {{ font-size:9px; font-weight:500; color:var(--text-dim); text-transform:uppercase; letter-spacing:0.3px; margin-bottom:2px; }}
         .index-item .value {{ font-family:'JetBrains Mono',monospace; font-size:14px; font-weight:600; }}
@@ -514,7 +534,7 @@ def generate_html(index_data, gainers, unusual_vol, new_highs,
         @media (min-width:600px) {{
             .container {{ padding:16px 20px; }}
             .header-title h1 {{ font-size:22px; }}
-            .index-bar {{ grid-template-columns:repeat(4, 1fr); }}
+            .index-bar {{ grid-template-columns:repeat(6, 1fr); }}
             .index-item .value {{ font-size:16px; }}
             .chart-container {{ height:320px; }}
             .chart-ticker {{ font-size:20px; }}
