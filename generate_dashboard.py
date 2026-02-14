@@ -158,13 +158,14 @@ def get_mag7_data():
     """Fetch Magnificent 7 stocks data."""
     print("💎 Fetching Mag 7 data...")
     MAG7 = {
-        "AAPL": "Apple",
-        "MSFT": "Microsoft",
-        "GOOGL": "Alphabet",
-        "AMZN": "Amazon",
-        "NVDA": "NVIDIA",
-        "META": "Meta",
-        "TSLA": "Tesla",
+        "AAPL": "애플",
+        "MSFT": "마이크로소프트",
+        "GOOGL": "알파벳",
+        "AMZN": "아마존",
+        "NVDA": "엔비디아",
+        "META": "메타",
+        "TSLA": "테슬라",
+        "PLTR": "팔란티어",
     }
     tickers = list(MAG7.keys())
     result = []
@@ -468,9 +469,8 @@ def generate_html(index_data, mag7_data, gainers, unusual_vol, new_highs,
         name_escaped = item["name"].replace("'", "\\'")
         change_pct = item.get("change_pct", 0)
         change_cls = "up" if change_pct >= 0 else "down"
-        last_class = ' mag7-last' if i == 5 else ''  # META gets centered
         mag7_cards.append(f'''
-        <div class="mag7-card{last_class}" onclick="selectTicker('{ticker}', '{name_escaped}')">
+        <div class="mag7-card" onclick="selectTicker('{ticker}', '{name_escaped}')">
           <div class="mag7-card-top"><span class="mag7-ticker">{ticker}</span><span class="mag7-name">{item["name"]}</span></div>
           <div class="mag7-price">{fmt_price(item.get("close", 0))}</div>
           <div class="mag7-change {change_cls}">{fmt_pct(change_pct)}</div>
@@ -618,7 +618,6 @@ body{{font-family:var(--hv-font-body);background:var(--hv-bg-base);color:var(--h
 .hv-footer-note{{font-size:.7rem;color:var(--hv-text-muted);max-width:550px;line-height:1.6}}
 .mag7-section{{margin-bottom:20px}}
 .mag7-grid{{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}}
-.mag7-grid .mag7-last{{grid-column:2/4}}
 .mag7-card{{background:var(--hv-bg-card);border:1px solid var(--hv-border);border-radius:var(--hv-radius-md);padding:14px 16px;cursor:pointer;transition:all .2s;position:relative;overflow:hidden}}
 .mag7-card:hover{{border-color:var(--hv-border-strong);transform:translateY(-1px);box-shadow:var(--hv-shadow-sm)}}
 .mag7-card.selected{{border-color:var(--accent);background:var(--accent-bg)}}
@@ -660,7 +659,6 @@ body{{font-family:var(--hv-font-body);background:var(--hv-bg-base);color:var(--h
   .index-item .value{{font-size:14px}}
   .chart-container{{height:240px}}
   .mag7-grid{{grid-template-columns:repeat(2,1fr)}}
-  .mag7-grid .mag7-last{{grid-column:1/3}}
   .mag7-card{{padding:10px 12px}}
   .mag7-price{{font-size:13px}}
   .hv-share-bar{{flex-direction:column;gap:10px;align-items:stretch;padding:12px 14px}}
@@ -700,7 +698,7 @@ body{{font-family:var(--hv-font-body);background:var(--hv-bg-base);color:var(--h
   </div>
   <div id="tab-stocks" class="tab-content active">
     <div class="section mag7-section">
-      <div class="section-header"><span class="section-icon">💎</span><span class="section-title">Magnificent 7</span><span class="section-badge badge-blue">MAG7</span></div>
+      <div class="section-header"><span class="section-icon">💎</span><span class="section-title">주요 주식</span><span class="section-badge badge-blue">TOP 8</span></div>
       <div class="mag7-grid">{mag7_html}</div>
     </div>
     <div class="section">
@@ -781,7 +779,7 @@ function selectTicker(ticker,name){{
     row.classList.toggle('selected',row.dataset.ticker===ticker);
   }});
   loadChart(ticker);
-  window.scrollTo({{top:0,behavior:'smooth'}});
+  document.querySelector('.chart-section').scrollIntoView({{behavior:'smooth',block:'start'}});
 }}
 function loadChart(ticker){{
   var container=document.getElementById('tradingview_chart');
