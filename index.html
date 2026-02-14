@@ -39,7 +39,7 @@
         @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
         
         /* Index Bar */
-        .index-bar { display:grid; grid-template-columns:repeat(2, 1fr); gap:6px; margin-bottom:8px; }
+        .index-bar { display:grid; grid-template-columns:repeat(3, 1fr); gap:6px; margin-bottom:8px; }
         .index-item { background:var(--bg-secondary); border:1px solid var(--border); border-radius:6px; padding:8px 10px; }
         .index-item .label { font-size:9px; font-weight:500; color:var(--text-dim); text-transform:uppercase; letter-spacing:0.3px; margin-bottom:2px; }
         .index-item .value { font-family:'JetBrains Mono',monospace; font-size:14px; font-weight:600; }
@@ -107,7 +107,7 @@
         @media (min-width:600px) {
             .container { padding:16px 20px; }
             .header-title h1 { font-size:22px; }
-            .index-bar { grid-template-columns:repeat(4, 1fr); }
+            .index-bar { grid-template-columns:repeat(6, 1fr); }
             .index-item .value { font-size:16px; }
             .chart-container { height:320px; }
             .chart-ticker { font-size:20px; }
@@ -168,6 +168,24 @@
                 </div>
             </div>
         
+
+            <div class="index-item">
+                <div class="label">VIX</div>
+                <div>
+                    <span class="value">16.65</span>
+                    <span class="change change-positive">+12.38%</span>
+                </div>
+            </div>
+
+
+            <div class="index-item">
+                <div class="label">US 10Y</div>
+                <div>
+                    <span class="value">4.531%</span>
+                    <span class="change change-negative">-1.28%</span>
+                </div>
+            </div>
+
 
             <div class="index-item">
                 <div class="label">원/달러</div>
