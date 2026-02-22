@@ -402,7 +402,7 @@ def generate_html(index_data, mag7_data, gainers, unusual_vol, new_highs,
             if show_vol_ratio:
                 ratio = item.get("vol_ratio", 0)
                 vol_cls = "volume-extreme" if ratio >= 4 else "volume-high"
-                emoji = " 🔴" if ratio >= 4 else ""
+                emoji = "" if ratio >= 4 else ""
                 vol_td = f'''
                     <td class="right volume hide-mobile">{fmt_number(item.get("volume", 0))}</td>
                     <td class="right"><span class="volume-ratio {vol_cls}">{ratio:.1f}배{emoji}</span></td>
@@ -563,7 +563,7 @@ body{{font-family:var(--hv-font-body);background:var(--hv-bg-base);color:var(--h
 .tab-content{{display:none}}
 .tab-content.active{{display:block}}
 .section{{margin-bottom:20px}}
-.section-header{{display:flex;align-items:center;gap:8px;margin-bottom:10px;padding-bottom:8px;border-bottom:1px solid var(--hv-border)}}
+.section-header{{display:flex;align-items:center;gap:8px;margin-bottom:10px;padding-bottom:8px;border-bottom:1px solid var(--hv-border);justify-content:center}}
 .section-icon{{font-size:14px}}
 .section-title{{font-size:14px;font-weight:700;color:var(--hv-text-primary)}}
 .section-badge{{font-size:9px;font-weight:600;padding:3px 8px;border-radius:4px;margin-left:auto;white-space:nowrap;font-family:var(--hv-font-mono);letter-spacing:.3px}}
@@ -674,7 +674,7 @@ body{{font-family:var(--hv-font-body);background:var(--hv-bg-base);color:var(--h
 <header class="hv-header">
   <div class="hv-header-inner">
     <div class="hv-header-center">
-      <h1>🇺🇸 미국 시장 트랙커</h1>
+      <h1 style="text-align:center">미국 시장 트랙커</h1>
       <span class="hv-header-category">US MARKET · STOCKS · ETF</span>
     </div>
     <div class="hv-header-right">
@@ -684,7 +684,7 @@ body{{font-family:var(--hv-font-body);background:var(--hv-bg-base);color:var(--h
 </header>
 <div class="container">
   <div class="index-bar">{index_bar_html}</div>
-  <div class="color-note">💡 미국식 색상: <span style="color:var(--green)">🟢 상승</span> / <span style="color:var(--red)">🔴 하락</span></div>
+  <div class="color-note">미국식 색상: <span style="color:var(--green)">상승</span> / <span style="color:var(--red)">하락</span></div>
   <div class="chart-section">
     <div class="chart-header">
       <span class="chart-ticker" id="chartTicker">SPY</span>
@@ -693,38 +693,38 @@ body{{font-family:var(--hv-font-body);background:var(--hv-bg-base);color:var(--h
     <div class="chart-container" id="tradingview_chart"></div>
   </div>
   <div class="tab-container">
-    <button class="tab-btn active" onclick="switchTab('stocks')">📈 개별 주식</button>
-    <button class="tab-btn" onclick="switchTab('etf')">📊 ETF</button>
+    <button class="tab-btn active" onclick="switchTab('stocks')">개별 주식</button>
+    <button class="tab-btn" onclick="switchTab('etf')">ETF</button>
   </div>
   <div id="tab-stocks" class="tab-content active">
     <div class="section mag7-section">
-      <div class="section-header"><span class="section-icon">💎</span><span class="section-title">주요 주식</span><span class="section-badge badge-blue">TOP 8</span></div>
+      <div class="section-header"><span class="section-title">주요 주식</span><span class="section-badge badge-blue">TOP 8</span></div>
       <div class="mag7-grid">{mag7_html}</div>
     </div>
     <div class="section">
-      <div class="section-header"><span class="section-icon">🔥</span><span class="section-title">급등주 Top 10</span><span class="section-badge badge-green">오늘</span></div>
+      <div class="section-header"><span class="section-title">급등주 Top 10</span><span class="section-badge badge-green">오늘</span></div>
       <div class="table-wrapper"><table class="data-table"><thead><tr><th style="width:24px">#</th><th>종목</th><th class="hide-mobile">섹터</th><th class="right" style="width:70px">종가</th><th class="right" style="width:60px">등락</th><th class="right hide-mobile">거래량</th></tr></thead><tbody>{gainers_html or empty_msg(gainers)}</tbody></table></div>
     </div>
     <div class="section">
-      <div class="section-header"><span class="section-icon">📊</span><span class="section-title">이상 거래량</span><span class="section-badge badge-yellow">급증</span></div>
+      <div class="section-header"><span class="section-title">이상 거래량</span><span class="section-badge badge-yellow">급증</span></div>
       <div class="table-wrapper"><table class="data-table"><thead><tr><th style="width:24px">#</th><th>종목</th><th class="right" style="width:70px">종가</th><th class="right" style="width:60px">등락</th><th class="right hide-mobile">거래량</th><th class="right" style="width:55px">배율</th></tr></thead><tbody>{unusual_vol_html or empty_msg(unusual_vol)}</tbody></table></div>
     </div>
     <div class="section">
-      <div class="section-header"><span class="section-icon">🏆</span><span class="section-title">52주 신고가</span><span class="section-badge badge-blue">갱신</span></div>
+      <div class="section-header"><span class="section-title">52주 신고가</span><span class="section-badge badge-blue">갱신</span></div>
       <div class="table-wrapper"><table class="data-table"><thead><tr><th style="width:24px">#</th><th>종목</th><th class="hide-mobile">섹터</th><th class="right" style="width:70px">종가</th><th class="right hide-mobile">이전고가</th><th class="right" style="width:60px">갱신</th></tr></thead><tbody>{new_highs_html or empty_msg(new_highs, "오늘 신고가 종목 없음")}</tbody></table></div>
     </div>
   </div>
   <div id="tab-etf" class="tab-content">
     <div class="section">
-      <div class="section-header"><span class="section-icon">🟢</span><span class="section-title">ETF 상승 Top 10</span><span class="section-badge badge-green">오늘</span></div>
+      <div class="section-header"><span class="section-title">ETF 상승 Top 10</span><span class="section-badge badge-green">오늘</span></div>
       <div class="table-wrapper"><table class="data-table"><thead><tr><th style="width:24px">#</th><th>ETF</th><th>카테고리</th><th class="right" style="width:70px">종가</th><th class="right" style="width:60px">등락</th><th class="right hide-mobile">거래량</th></tr></thead><tbody>{etf_gainers_html or empty_msg(etf_gainers)}</tbody></table></div>
     </div>
     <div class="section">
-      <div class="section-header"><span class="section-icon">🔴</span><span class="section-title">ETF 하락 Top 10</span><span class="section-badge badge-red">오늘</span></div>
+      <div class="section-header"><span class="section-title">ETF 하락 Top 10</span><span class="section-badge badge-red">오늘</span></div>
       <div class="table-wrapper"><table class="data-table"><thead><tr><th style="width:24px">#</th><th>ETF</th><th>카테고리</th><th class="right" style="width:70px">종가</th><th class="right" style="width:60px">등락</th><th class="right hide-mobile">거래량</th></tr></thead><tbody>{etf_losers_html or empty_msg(etf_losers)}</tbody></table></div>
     </div>
     <div class="section">
-      <div class="section-header"><span class="section-icon">💰</span><span class="section-title">ETF 거래량 Top 10</span><span class="section-badge badge-blue">활발</span></div>
+      <div class="section-header"><span class="section-title">ETF 거래량 Top 10</span><span class="section-badge badge-blue">활발</span></div>
       <div class="table-wrapper"><table class="data-table"><thead><tr><th style="width:24px">#</th><th>ETF</th><th>카테고리</th><th class="right" style="width:70px">종가</th><th class="right" style="width:60px">등락</th><th class="right hide-mobile">거래량</th></tr></thead><tbody>{etf_active_html or empty_msg(etf_active)}</tbody></table></div>
     </div>
   </div>
@@ -739,28 +739,15 @@ body{{font-family:var(--hv-font-body);background:var(--hv-bg-base);color:var(--h
     </div>
   </div>
 </div>
-<footer class="hv-footer">
-  <div class="hv-footer-inner">
-    <div class="hv-footer-brand">Herdvibe</div>
-    <div class="hv-footer-links">
-      <a href="https://herdvibe.com/about.html">소개</a>
-      <a href="https://herdvibe.com/privacy.html">개인정보처리방침</a>
-      <a href="https://herdvibe.com/terms.html">이용약관</a>
-      <a href="https://herdvibe.com/contact.html">연락처</a>
-    </div>
-    <p class="hv-footer-note">본 사이트의 모든 정보는 투자 참고용이며, 투자 권유가 아닙니다. 투자의 책임은 본인에게 있으며, 데이터의 정확성을 보장하지 않습니다.<br>데이터 출처: Yahoo Finance · 매일 06:10 KST 업데이트</p>
-    <p style="font-size:.688rem;color:var(--hv-text-muted)">&copy; 2025 Herdvibe. All rights reserved.</p>
-  </div>
-</footer>
 <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
 <script>
 var SHARE_URL='https://herdvibe.com/15';
-var SHARE_TITLE='🇺🇸 미국 시장 트랙커 — 급등주 · ETF · 거래량 | Herdvibe';
+var SHARE_TITLE='미국 시장 트랙커 — 급등주 · ETF · 거래량 | Herdvibe';
 function ensureKakao(){{try{{if(typeof Kakao!=='undefined'&&!Kakao.isInitialized())Kakao.init('a43ed7b39fac35458f4f9df925a279b5');return typeof Kakao!=='undefined'&&Kakao.isInitialized();}}catch(e){{return false;}}}}
 function copyToClipboard(t){{try{{window.parent.postMessage({{type:'clipboard',text:t}},'*');}}catch(e){{}}try{{navigator.clipboard.writeText(t);}}catch(e){{}}}}
 function flashCopied(btn){{if(!btn)return;var o=btn.innerHTML;btn.style.background='#22c55e';btn.style.color='#fff';btn.style.borderColor='#22c55e';var hl=btn.querySelector('.label-text');btn.innerHTML='<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"><path d="M5 13l4 4L19 7"/></svg>'+(hl?'<span class="label-text" style="color:#fff">복사됨!</span>':'');setTimeout(function(){{btn.style.background='';btn.style.color='';btn.style.borderColor='';btn.innerHTML=o;}},2000);}}
 function toast(m){{var c=document.querySelector('.toast-wrap');if(!c){{c=document.createElement('div');c.className='toast-wrap';document.body.appendChild(c);}}var t=document.createElement('div');t.className='toast';t.textContent=m;c.appendChild(t);setTimeout(function(){{t.style.opacity='0';t.style.transform='translateY(12px)';t.style.transition='.3s';setTimeout(function(){{t.remove();}},300);}},3000);}}
-function doShare(p,btn){{var u=SHARE_URL,t=encodeURIComponent(SHARE_TITLE),eu=encodeURIComponent(u);switch(p){{case'twitter':window.open('https://twitter.com/intent/tweet?text='+t+'&url='+eu,'_blank');break;case'telegram':window.open('https://t.me/share/url?url='+eu+'&text='+t,'_blank');break;case'kakao':if(!ensureKakao()){{copyToClipboard(u);toast('링크 복사완료!');}}else try{{Kakao.Share.sendDefault({{objectType:'feed',content:{{title:'🇺🇸 미국 시장 트랙커',description:'급등주 · ETF · 거래량 분석',imageUrl:'https://raw.githubusercontent.com/kittycapital/kittycapital.github.io/main/assets/herdvibe-og.png',link:{{mobileWebUrl:u,webUrl:u}}}},buttons:[{{title:'대시보드 보기',link:{{mobileWebUrl:u,webUrl:u}}}}]}});}}catch(e){{copyToClipboard(u);toast('링크 복사완료!');}}break;case'instagram':copyToClipboard(u);flashCopied(btn);toast('링크 복사완료! 인스타그램에 붙여넣기 하세요');break;case'link':copyToClipboard(u);flashCopied(btn);toast('링크가 복사되었습니다 ✓');break;}}}}
+function doShare(p,btn){{var u=SHARE_URL,t=encodeURIComponent(SHARE_TITLE),eu=encodeURIComponent(u);switch(p){{case'twitter':window.open('https://twitter.com/intent/tweet?text='+t+'&url='+eu,'_blank');break;case'telegram':window.open('https://t.me/share/url?url='+eu+'&text='+t,'_blank');break;case'kakao':if(!ensureKakao()){{copyToClipboard(u);toast('링크 복사완료!');}}else try{{Kakao.Share.sendDefault({{objectType:'feed',content:{{title:'미국 시장 트랙커',description:'급등주 · ETF · 거래량 분석',imageUrl:'https://raw.githubusercontent.com/kittycapital/kittycapital.github.io/main/assets/herdvibe-og.png',link:{{mobileWebUrl:u,webUrl:u}}}},buttons:[{{title:'대시보드 보기',link:{{mobileWebUrl:u,webUrl:u}}}}]}});}}catch(e){{copyToClipboard(u);toast('링크 복사완료!');}}break;case'instagram':copyToClipboard(u);flashCopied(btn);toast('링크 복사완료! 인스타그램에 붙여넣기 하세요');break;case'link':copyToClipboard(u);flashCopied(btn);toast('링크가 복사되었습니다');break;}}}}
 ensureKakao();
 let currentTicker='SPY';
 function switchTab(tabName){{
@@ -811,7 +798,7 @@ new MutationObserver(sendHeight).observe(document.body,{{childList:true,subtree:
 
 def main():
     print("=" * 60)
-    print(f"🇺🇸 미국 시장 트랙커 — {UPDATE_TIME}")
+    print(f"미국 시장 트랙커 — {UPDATE_TIME}")
     print("=" * 60)
 
     sp500 = load_json("tickers_sp500.json")
