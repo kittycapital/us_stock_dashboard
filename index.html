@@ -40,13 +40,13 @@ body{font-family:var(--hv-font-body);background:var(--hv-bg-base);color:var(--hv
 ::-webkit-scrollbar-track{background:var(--hv-bg-base)}
 ::-webkit-scrollbar-thumb{background:#333;border-radius:3px}
 .hv-header{position:sticky;top:0;z-index:100;height:var(--hv-header-height);background:rgba(0,0,0,.92);backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);border-bottom:1px solid var(--hv-border);display:flex;align-items:center;padding:0 24px}
-.hv-header-inner{width:100%;max-width:var(--hv-max-width);margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.hv-header-inner{width:100%;max-width:var(--hv-max-width);margin:0 auto;display:flex;align-items:center;justify-content:center;gap:16px;position:relative}
 .hv-logo{display:flex;align-items:center;gap:10px;font-family:var(--hv-font-display);font-weight:800;font-size:1.15rem;color:var(--hv-text-primary);text-decoration:none;white-space:nowrap;letter-spacing:-.02em}
 .hv-logo-mark{width:28px;height:28px;background:linear-gradient(135deg,var(--hv-primary),#6366f1);border-radius:7px;flex-shrink:0}
-.hv-header-center{display:flex;flex-direction:column;min-width:0}
-.hv-header-center h1{font-family:var(--hv-font-display);font-size:.938rem;font-weight:600;color:var(--hv-text-primary);white-space:nowrap}
+.hv-header-center{display:flex;flex-direction:column;align-items:center;min-width:0}
+.hv-header-center h1{font-family:var(--hv-font-display);font-size:1.25rem;font-weight:700;color:var(--hv-text-primary);white-space:nowrap}
 .hv-header-category{font-size:.7rem;color:var(--hv-text-tertiary);font-weight:500;text-transform:uppercase;letter-spacing:.08em}
-.hv-header-right{display:flex;align-items:center;gap:8px;flex-shrink:0}
+.hv-header-right{display:flex;align-items:center;gap:8px;flex-shrink:0;position:absolute;right:0}
 .hv-update-badge{font-family:var(--hv-font-mono);font-size:.688rem;color:var(--hv-text-tertiary);white-space:nowrap;display:flex;align-items:center;gap:6px}
 .hv-live-dot{width:5px;height:5px;background:var(--green);border-radius:50%;animation:pulse 2s infinite}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
