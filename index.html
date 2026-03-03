@@ -26,7 +26,7 @@
   --hv-radius-sm:6px;--hv-radius-md:10px;--hv-radius-lg:14px;
   --hv-shadow-sm:0 1px 3px rgba(0,0,0,.5);--hv-shadow-lg:0 8px 32px rgba(0,0,0,.7);
   --hv-transition-fast:150ms ease;--hv-transition:250ms ease;
-  --hv-max-width:1280px;--hv-header-height:60px;
+  --hv-max-width:1280px;--hv-header-height:72px;
   --green:#22c55e;--green-bg:rgba(34,197,94,0.1);
   --red:#ef4444;--red-bg:rgba(239,68,68,0.1);
   --accent:#3b82f6;--accent-bg:rgba(59,130,246,0.12);
@@ -40,12 +40,12 @@ body{font-family:var(--hv-font-body);background:var(--hv-bg-base);color:var(--hv
 ::-webkit-scrollbar-track{background:var(--hv-bg-base)}
 ::-webkit-scrollbar-thumb{background:#333;border-radius:3px}
 .hv-header{position:sticky;top:0;z-index:100;height:var(--hv-header-height);background:rgba(0,0,0,.92);backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);border-bottom:1px solid var(--hv-border);display:flex;align-items:center;padding:0 24px}
-.hv-header-inner{width:100%;max-width:var(--hv-max-width);margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.hv-header-inner{width:100%;max-width:var(--hv-max-width);margin:0 auto;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:2px}
 .hv-logo{display:flex;align-items:center;gap:10px;font-family:var(--hv-font-display);font-weight:800;font-size:1.15rem;color:var(--hv-text-primary);text-decoration:none;white-space:nowrap;letter-spacing:-.02em}
 .hv-logo-mark{width:28px;height:28px;background:linear-gradient(135deg,var(--hv-primary),#6366f1);border-radius:7px;flex-shrink:0}
-.hv-header-center{display:flex;flex-direction:column;min-width:0}
+.hv-header-center{display:flex;flex-direction:column;align-items:center;min-width:0}
 .hv-header-center h1{font-family:var(--hv-font-display);font-size:.938rem;font-weight:600;color:var(--hv-text-primary);white-space:nowrap}
-.hv-header-category{font-size:.7rem;color:var(--hv-text-tertiary);font-weight:500;text-transform:uppercase;letter-spacing:.08em}
+.hv-header-category{font-size:.7rem;color:var(--hv-text-tertiary);font-weight:500;text-transform:uppercase;letter-spacing:.08em;text-align:center}
 .hv-header-right{display:flex;align-items:center;gap:8px;flex-shrink:0}
 .hv-update-badge{font-family:var(--hv-font-mono);font-size:.688rem;color:var(--hv-text-tertiary);white-space:nowrap;display:flex;align-items:center;gap:6px}
 .hv-live-dot{width:5px;height:5px;background:var(--green);border-radius:50%;animation:pulse 2s infinite}
@@ -59,7 +59,7 @@ body{font-family:var(--hv-font-body);background:var(--hv-bg-base);color:var(--hv
 .index-item .change{font-family:var(--hv-font-mono);font-size:11px;font-weight:600;margin-left:6px}
 .color-note{font-size:11px;color:var(--hv-text-secondary);margin-bottom:16px;padding:8px 14px;background:var(--hv-bg-card);border-radius:var(--hv-radius-sm);border-left:3px solid var(--accent)}
 .chart-section{margin-bottom:16px}
-.chart-header{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.chart-header{display:flex;align-items:center;gap:10px;margin-bottom:8px;justify-content:center}
 .chart-ticker{font-family:var(--hv-font-mono);font-size:18px;font-weight:700;color:var(--hv-text-primary)}
 .chart-name{font-size:12px;color:var(--hv-text-secondary)}
 .chart-container{background:var(--hv-bg-card);border:1px solid var(--hv-border);border-radius:var(--hv-radius-lg);overflow:hidden;height:260px}
@@ -73,7 +73,7 @@ body{font-family:var(--hv-font-body);background:var(--hv-bg-base);color:var(--hv
 .section-header{display:flex;align-items:center;gap:8px;margin-bottom:10px;padding-bottom:8px;border-bottom:1px solid var(--hv-border);justify-content:center}
 .section-icon{font-size:14px}
 .section-title{font-size:14px;font-weight:700;color:var(--hv-text-primary)}
-.section-badge{font-size:9px;font-weight:600;padding:3px 8px;border-radius:4px;margin-left:auto;white-space:nowrap;font-family:var(--hv-font-mono);letter-spacing:.3px}
+.section-badge{font-size:9px;font-weight:600;padding:3px 8px;border-radius:4px;white-space:nowrap;font-family:var(--hv-font-mono);letter-spacing:.3px}
 .badge-green{background:var(--green-bg);color:var(--green)}
 .badge-red{background:var(--red-bg);color:var(--red)}
 .badge-blue{background:var(--accent-bg);color:var(--accent)}
@@ -158,7 +158,7 @@ body{font-family:var(--hv-font-body);background:var(--hv-bg-base);color:var(--hv
   .chart-container{height:360px}
 }
 @media(max-width:600px){
-  :root{--hv-header-height:52px}
+  :root{--hv-header-height:56px}
   .hv-header{padding:0 14px}
   .hv-update-badge{display:none}
   .container{padding:12px 14px 40px}
@@ -183,9 +183,7 @@ body{font-family:var(--hv-font-body);background:var(--hv-bg-base);color:var(--hv
     <div class="hv-header-center">
       <h1 style="text-align:center">미국 시장 트랙커</h1>
       <span class="hv-header-category">US MARKET · STOCKS · ETF</span>
-    </div>
-    <div class="hv-header-right">
-      <div class="hv-update-badge"><span class="hv-live-dot"></span><span>2026.03.03 06:49 KST</span></div>
+      <div class="hv-update-badge" style="margin-top:2px"><span class="hv-live-dot"></span><span>2026.03.03 06:49 KST</span></div>
     </div>
   </div>
 </header>
