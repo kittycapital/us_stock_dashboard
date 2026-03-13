@@ -3,7 +3,7 @@ name: Update US Market Tracker
 on:
   schedule:
     # 6:10 AM KST = 21:10 UTC (previous day)
-    - cron: '10 21 * * 0-4'  # Sun-Thu UTC = Mon-Fri KST
+    - cron: '10 21 * * 1-5'  # Sun-Thu UTC = Mon-Fri KST
   workflow_dispatch:  # Manual trigger
 
 permissions:
